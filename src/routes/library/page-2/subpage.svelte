@@ -2,7 +2,7 @@
     import Markdown from '@nick-mazuk/ui-svelte/src/typography/markdown/markdown.svelte'
     import TextContent from '@nick-mazuk/ui-svelte/src/typography/text-content/text-content.svelte'
 
-    const content = `# JW Lua Scripts
+    const content = `# Page 2 subpage
 
 A central repository for all JW Lua scripts for Finale. These guidelines are suggestions for now until we agree on some way to standardize and organize things.
 
@@ -91,10 +91,6 @@ Note: not all requests to become a collaborator will be accepted. You may always
 `
 </script>
 
-<div class="wrapper">
-    <main class="mx-auto my-16">
-        <TextContent center>
-            <Markdown content="{content}" headerIds />
-        </TextContent>
-    </main>
-</div>
+<TextContent center fullWidth>
+    <Markdown content="{content}" headerIds />
+</TextContent>

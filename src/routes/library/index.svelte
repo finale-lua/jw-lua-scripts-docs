@@ -2,7 +2,7 @@
     import Markdown from '@nick-mazuk/ui-svelte/src/typography/markdown/markdown.svelte'
     import TextContent from '@nick-mazuk/ui-svelte/src/typography/text-content/text-content.svelte'
 
-    const content = `# JW Lua Scripts
+    const content = `# Library docs
 
 A central repository for all JW Lua scripts for Finale. These guidelines are suggestions for now until we agree on some way to standardize and organize things.
 
