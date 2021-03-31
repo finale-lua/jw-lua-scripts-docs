@@ -28,5 +28,6 @@ module.exports = {
             serviceWorker: 'src/service-worker',
             template: 'src/app.html',
         },
+        hydrate: false,
     },
 }

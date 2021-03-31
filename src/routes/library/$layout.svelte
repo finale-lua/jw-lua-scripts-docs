@@ -7,20 +7,7 @@
     <aside class="hidden md:block w-40 lg:w-64 flex-none">
         <TableOfContents
             currentItem="{$page.path}"
-            items="{[
-                { href: '/library/install', text: 'Install' },
-                { href: '/library/page-1', text: 'Page 1' },
-                {
-                    href: '/library/page-2',
-                    text: 'Page 2',
-                    children: [
-                        {
-                            href: '/library/page-2/subpage',
-                            text: 'Subpate',
-                        },
-                    ],
-                },
-            ]}"
+            items="{[{ href: '/library/readme', text: 'Readme' }]}"
         />
     </aside>
     <slot />
