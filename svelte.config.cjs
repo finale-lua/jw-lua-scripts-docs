@@ -13,18 +13,20 @@ module.exports = {
         },
     }),
     kit: {
-        // By default, `npm run build` will create a standard Node app.
-        // You can create optimized builds for different platforms by
-        // specifying a different adapter
         adapter: vercel(),
-
-        // hydrate the <div id="svelte"> element in src/app.html
         target: '#svelte',
-
         vite: {
             ssr: {
                 noExternal: Object.keys(pkg.dependencies || {}),
             },
         },
+        files: {
+			assets: 'static',
+			hooks: 'src/hooks',
+			lib: 'src/lib',
+			routes: 'src/routes',
+			serviceWorker: 'src/service-worker',
+			template: 'src/app.html'
+		},
     },
 }
