@@ -15,7 +15,7 @@
     },
     "devDependencies": {
         "@nick-mazuk/eslint-config": "0.7.46",
-        "@nick-mazuk/ui-config": "0.8.53",
+        "@nick-mazuk/ui-config": "0.8.54",
         "@sveltejs/adapter-node": "next",
         "@sveltejs/kit": "next",
         "@tailwindcss/jit": "^0.1.8",

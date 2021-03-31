@@ -1,6 +1,6 @@
 dependencies:
   '@nick-mazuk/lib': 0.8.34
-  '@nick-mazuk/ui-svelte': 0.1.30_19eee9f826243b910fa5d23905719d25
+  '@nick-mazuk/ui-svelte': 0.1.30_16b835c1aa257f230141a5e7265375c0
   '@sveltejs/adapter-vercel': 1.0.0-next.8
   '@tailwindcss/aspect-ratio': 0.2.0
   '@tailwindcss/forms': 0.3.2_tailwindcss@2.0.4
@@ -10,7 +10,7 @@ dependencies:
   svelte-intersection-observer: 0.6.0
 devDependencies:
   '@nick-mazuk/eslint-config': 0.7.46_74ab489067ac675cb1aa4de3f89ae1e9
-  '@nick-mazuk/ui-config': 0.8.53_889aa8308374042d1eb4d3346732eda7
+  '@nick-mazuk/ui-config': 0.8.54_889aa8308374042d1eb4d3346732eda7
   '@sveltejs/adapter-node': 1.0.0-next.10
   '@sveltejs/kit': 1.0.0-next.64_svelte@3.35.0+vite@2.1.2
   '@tailwindcss/jit': 0.1.8_postcss@8.2.8+tailwindcss@2.0.4
@@ -694,7 +694,7 @@ packages:
     dev: false
     resolution:
       integrity: sha512-LXVrklzd+TtbsmgjQx5jS0xi0U98rFnt0gOadY4Pm3OPIBMsfevkXhfDgx7UwDTgsEKqtDS6zjl3J5ZrdR/8qw==
-  /@nick-mazuk/ui-config/0.8.53_889aa8308374042d1eb4d3346732eda7:
+  /@nick-mazuk/ui-config/0.8.54_889aa8308374042d1eb4d3346732eda7:
     dependencies:
       '@tailwindcss/aspect-ratio': 0.2.0
       '@tailwindcss/forms': 0.3.2_tailwindcss@2.0.4
@@ -715,11 +715,11 @@ packages:
       postcss: '>= 8.0.0'
       tailwindcss: '>= 2.0.3'
     resolution:
-      integrity: sha512-squn7mxwQX/2/0jLpm9OQy7S4ifveUGqJU74ypo2qKX+4EfhHlgbe41+I3Yc421JX45LwLAksdqwaRs0h784yw==
-  /@nick-mazuk/ui-svelte/0.1.30_19eee9f826243b910fa5d23905719d25:
+      integrity: sha512-CKjHygNz0Ec9TuKpf40C+tsAqWu/dJRKUuuJYovIpk8evmmZyS7CB8b4NcmRxSvJV/YlBo0JMgLmOwrLl++62Q==
+  /@nick-mazuk/ui-svelte/0.1.30_16b835c1aa257f230141a5e7265375c0:
     dependencies:
       '@nick-mazuk/lib': 0.8.34
-      '@nick-mazuk/ui-config': 0.8.53_889aa8308374042d1eb4d3346732eda7
+      '@nick-mazuk/ui-config': 0.8.54_889aa8308374042d1eb4d3346732eda7
       '@tailwindcss/aspect-ratio': 0.2.0
       '@tailwindcss/forms': 0.3.2_tailwindcss@2.0.4
       '@tailwindcss/line-clamp': 0.2.0
@@ -6242,7 +6242,7 @@ packages:
 specifiers:
   '@nick-mazuk/eslint-config': 0.7.46
   '@nick-mazuk/lib': ^0.8.34
-  '@nick-mazuk/ui-config': 0.8.53
+  '@nick-mazuk/ui-config': 0.8.54
   '@nick-mazuk/ui-svelte': 0.1.30
   '@sveltejs/adapter-node': next
   '@sveltejs/adapter-vercel': ^1.0.0-next.8
