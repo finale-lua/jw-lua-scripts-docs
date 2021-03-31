@@ -2,8 +2,8 @@
     import Sun from '@nick-mazuk/ui-svelte/src/elements/icon/sun.svelte'
     import Moon from '@nick-mazuk/ui-svelte/src/elements/icon/moon.svelte'
     import Monitor from '@nick-mazuk/ui-svelte/src/elements/icon/monitor.svelte'
+    import Select from '@nick-mazuk/ui-svelte/src/form/select/select.svelte'
 
-    import Select from '../select.svelte'
     import { darkMode } from '../../stores/dark-mode'
 </script>
 

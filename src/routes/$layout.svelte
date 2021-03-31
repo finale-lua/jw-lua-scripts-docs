@@ -5,6 +5,7 @@
     import Header from '@nick-mazuk/ui-svelte/src/layouts/header/header.svelte'
     import HeaderLink from '@nick-mazuk/ui-svelte/src/layouts/header/header-link/header-link.svelte'
     import HeaderItemWrapper from '@nick-mazuk/ui-svelte/src/layouts/header/header-item-wrapper/header-item-wrapper.svelte'
+    import Github from '@nick-mazuk/ui-svelte/src/elements/icon/github.svelte'
     import DarkModeSelect from '../lib/components/site/dark-mode-select.svelte'
 </script>
 
@@ -14,11 +15,14 @@
     </svelte:fragment>
     <svelte:fragment slot="right">
         <HeaderLink href="/library" breakpoint="none">Library Docs</HeaderLink>
-        <HeaderItemWrapper breakpoint="none">
+        <HeaderLink href="https://github.com/Nick-Mazuk/jw-lua-scripts" breakpoint="none"
+            ><Github />
+        </HeaderLink>
+        <!-- <HeaderItemWrapper breakpoint="none">
             <div class="w-32 flex items-center">
                 <DarkModeSelect />
             </div>
-        </HeaderItemWrapper>
+        </HeaderItemWrapper> -->
     </svelte:fragment>
 </Header>
 <slot />
