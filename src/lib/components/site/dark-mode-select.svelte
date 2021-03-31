@@ -7,7 +7,7 @@
     import { darkMode } from '../../stores/dark-mode'
 </script>
 
-<Select on:change="{(event) => darkMode.set(event.detail.toLowerCase())}">
+<Select on:change="{(event) => darkMode.set(event.detail)}" value="{$darkMode}">
     <svelte:fragment slot="prefix">
         {#if $darkMode === 'light'}
             <Sun />
@@ -17,7 +17,7 @@
             <Monitor />
         {/if}
     </svelte:fragment>
-    <option>System</option>
-    <option>Light</option>
-    <option>Dark</option>
+    <option value="system">System</option>
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
 </Select>

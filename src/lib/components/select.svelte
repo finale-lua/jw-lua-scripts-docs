@@ -2,6 +2,8 @@
     import ChevronDown from '@nick-mazuk/ui-svelte/src/elements/icon/chevron-down.svelte'
     import { createEventDispatcher } from 'svelte'
 
+    export let value = ''
+
     const dispatch = createEventDispatcher()
 
     const handleInput: svelte.JSX.FormEventHandler<HTMLSelectElement> = (event) => {
@@ -23,6 +25,7 @@
         class:pl-8="{$$slots.prefix}"
         class:pr-8="{$$slots.suffix}"
         on:input|self="{handleInput}"
+        value="{value}"
     >
         <slot />
     </select>
