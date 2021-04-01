@@ -19,7 +19,7 @@ const sortDocsPages = (pages) => {
 };
 const addDefaultPages = (pages) => {
   return [
-    {text: "Usage", href: "/docs"},
+    {text: "Getting started", href: "/docs/getting-started"},
     {text: "Library", href: "/docs/library", children: pages}
   ];
 };
