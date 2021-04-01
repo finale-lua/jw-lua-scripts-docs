@@ -1,11 +1,8 @@
 const sveltePreprocess = require('svelte-preprocess')
-const vercel = require('@sveltejs/adapter-vercel')
+const adapter = require('@sveltejs/adapter-static')
 const pkg = require('./package.json')
 
-/** @type {import('@sveltejs/kit').Config} */
 module.exports = {
-    // Consult https://github.com/sveltejs/svelte-preprocess
-    // for more information about preprocessors
     preprocess: sveltePreprocess({
         postcss: true,
         defaults: {
@@ -13,7 +10,7 @@ module.exports = {
         },
     }),
     kit: {
-        adapter: vercel(),
+        adapter: adapter({ out: 'public' }),
         target: '#svelte',
         vite: {
             ssr: {
@@ -28,6 +25,5 @@ module.exports = {
             serviceWorker: 'src/service-worker',
             template: 'src/app.html',
         },
-        hydrate: false,
     },
 }

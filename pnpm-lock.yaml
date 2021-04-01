@@ -1,7 +1,7 @@
 dependencies:
   '@nick-mazuk/lib': 0.8.34
   '@nick-mazuk/ui-svelte': 0.1.31_16b835c1aa257f230141a5e7265375c0
-  '@sveltejs/adapter-vercel': 1.0.0-next.8
+  '@sveltejs/adapter-static': 1.0.0-next.4
   '@tailwindcss/aspect-ratio': 0.2.0
   '@tailwindcss/forms': 0.3.2_tailwindcss@2.0.4
   '@tailwindcss/line-clamp': 0.2.0
@@ -789,10 +789,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-DGP3dT5ijsTV0zmLDmZP8wI4RjZlifGGzA0y4HLoWNEKhZJLDjFDJnNcA+O5S9QBxQOVaYUlAY2z19r+skBVjA==
-  /@sveltejs/adapter-vercel/1.0.0-next.8:
+  /@sveltejs/adapter-static/1.0.0-next.4:
     dev: false
     resolution:
-      integrity: sha512-bclTDgJIDt17QRdq+u4CqdsQO08MXYhqdlr7O7LcCMWf8PWS5N0l9ValJbKAFcXD5xseqRF9YtUkHKAxMjS54Q==
+      integrity: sha512-Atri/5jyiVmAklqDKb/5czmLkHos6LQOag61k/C6qWozMb8UopvL3bTm62hFQXGKvGnuSRq2xIueDOKWHM/7rA==
   /@sveltejs/kit/1.0.0-next.66_svelte@3.35.0+vite@2.1.2:
     dependencies:
       '@sveltejs/vite-plugin-svelte': 1.0.0-next.5_svelte@3.35.0+vite@2.1.2
@@ -6292,7 +6292,7 @@ specifiers:
   '@nick-mazuk/ui-config': 0.8.54
   '@nick-mazuk/ui-svelte': 0.1.31
   '@sveltejs/adapter-node': next
-  '@sveltejs/adapter-vercel': ^1.0.0-next.8
+  '@sveltejs/adapter-static': ^1.0.0-next.4
   '@sveltejs/kit': next
   '@tailwindcss/aspect-ratio': ^0.2.0
   '@tailwindcss/forms': ^0.3.2
