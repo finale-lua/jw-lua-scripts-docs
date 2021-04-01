@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
     import type { Load } from '@sveltejs/kit'
     export const load: Load = async ({ fetch }) => {
-        const response = await fetch('./get-toc')
+        const response = await fetch('/library/get-toc')
         if (response.status !== 200)
             return { status: 500, error: new Error('Cound not fetch file paths') }
         const json = await response.json()
@@ -9,7 +9,7 @@
 
         return {
             props: {
-                libraryPages: json,
+                libraryPages: json.allFiles,
             },
         }
     }
