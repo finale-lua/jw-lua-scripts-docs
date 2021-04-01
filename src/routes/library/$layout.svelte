@@ -1,14 +1,15 @@
 <script context="module" lang="ts">
     import type { Load } from '@sveltejs/kit'
     export const load: Load = async ({ fetch }) => {
-        // const response = await fetch('/api/library/get-all-library-paths')
-        // if (response.status !== 200)
-        //     return { status: 500, error: new Error('Cound not fetch file paths') }
-        // const json = await response.json()
+        const response = await fetch('./get-toc')
+        if (response.status !== 200)
+            return { status: 500, error: new Error('Cound not fetch file paths') }
+        const json = await response.json()
+        console.log({ json })
 
         return {
             props: {
-                libraryPages: [],
+                libraryPages: json,
             },
         }
     }
