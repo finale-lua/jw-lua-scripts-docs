@@ -16,6 +16,7 @@
 
 <script lang="ts">
     import TableOfContents from '@nick-mazuk/ui-svelte/src/navigation/table-of-contents/table-of-contents.svelte'
+    import TextContent from '@nick-mazuk/ui-svelte/src/typography/text-content/text-content.svelte'
     import { page } from '$app/stores'
     export let libraryPages: any[] = []
 </script>
@@ -24,5 +25,7 @@
     <aside class="hidden md:block w-40 lg:w-64 flex-none">
         <TableOfContents currentItem="{$page.path}" items="{libraryPages}" />
     </aside>
-    <slot />
+    <TextContent center fullWidth>
+        <slot />
+    </TextContent>
 </div>

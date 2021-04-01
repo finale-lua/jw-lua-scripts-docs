@@ -16,6 +16,9 @@ module.exports = {
             ssr: {
                 noExternal: Object.keys(pkg.dependencies || {}),
             },
+            build: {
+                brotliSize: false,
+            }
         },
         files: {
             assets: 'static',

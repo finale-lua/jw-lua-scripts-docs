@@ -17,11 +17,8 @@
 
 <script lang="ts">
     import Markdown from '@nick-mazuk/ui-svelte/src/typography/markdown/markdown.svelte'
-    import TextContent from '@nick-mazuk/ui-svelte/src/typography/text-content/text-content.svelte'
 
     export let content = ''
 </script>
 
-<TextContent center fullWidth>
-    <Markdown content="{content}" headerIds />
-</TextContent>
+<Markdown content="{content}" headerIds />
