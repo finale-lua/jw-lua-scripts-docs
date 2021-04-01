@@ -14,7 +14,7 @@
         <HeaderBrand text="JW Lua Scripts" />
     </svelte:fragment>
     <svelte:fragment slot="right">
-        <HeaderLink href="/docs" breakpoint="none">Docs</HeaderLink>
+        <HeaderLink href="/docs/getting-started" breakpoint="none">Docs</HeaderLink>
         <HeaderLink href="https://github.com/Nick-Mazuk/jw-lua-scripts" breakpoint="none"
             ><Github />
         </HeaderLink>

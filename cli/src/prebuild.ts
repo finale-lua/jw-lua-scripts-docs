@@ -34,7 +34,7 @@ const sortDocsPages = (pages: LibraryDocData[]): LibraryDocData[] => {
 
 const addDefaultPages = (pages: LibraryDocData[]): LibraryDocData[] => {
     return [
-        { text: 'Getting started', href: '/docs' },
+        { text: 'Getting started', href: '/docs/getting-started' },
         { text: 'Library', href: '/docs/library', children: pages },
     ]
 }
