@@ -1,5 +1,6 @@
-import fs from "fs";
+import fs from "fs-extra";
 const DOCS_FOLDER = "docs/library";
+const DOCS_PUBLISH_PATH = "src/routes/docs/library";
 const TOC_TEMPLATE_PATH = "cli/src/templates/toc.svelte";
 const TOC_OUTPUT_PATH = "src/lib/components/library-docs-toc.svelte";
 const getDocsData = () => {
@@ -27,11 +28,21 @@ const creatTableOfContents = (pages) => {
   const updatedContents = componentContents.replace("const libraryPages: any[] = []", `const libraryPages: any[] = ${JSON.stringify(pages)}`);
   fs.writeFileSync(TOC_OUTPUT_PATH, updatedContents);
 };
-const main = () => {
+const removePreviousDocs = () => {
+  fs.rmdirSync(DOCS_PUBLISH_PATH, {recursive: true});
+};
+const copyDocsFiles = () => {
+  fs.copySync(DOCS_FOLDER, DOCS_PUBLISH_PATH);
+};
+const createLibraryDocs = () => {
   let pages = getDocsData();
   pages = sortDocsPages(pages);
-  console.log({pages});
   pages = addDefaultPages(pages);
   creatTableOfContents(pages);
+  removePreviousDocs();
+  copyDocsFiles();
+};
+const main = () => {
+  createLibraryDocs();
 };
 main();

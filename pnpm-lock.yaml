@@ -16,9 +16,11 @@ devDependencies:
   '@sveltejs/kit': 1.0.0-next.66_svelte@3.35.0+vite@2.1.2
   '@tailwindcss/jit': 0.1.18_postcss@8.2.8+tailwindcss@2.0.4
   '@tailwindcss/typography': 0.4.0_tailwindcss@2.0.4
+  '@types/fs-extra': 9.0.9
   autoprefixer: 10.2.5_postcss@8.2.8
   esbuild: 0.11.2
   eslint: 7.22.0
+  fs-extra: 9.1.0
   postcss: 8.2.8
   postcss-load-config: 3.0.1
   prettier: 2.2.1
@@ -906,6 +908,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-Vs0hm0vPahPMYi9tDjtP66llufgO3ST16WXaSTtDGEl9cewAl3AibmxWw6TINOqHPT9z0uABKAYjT9jNSg4npw==
+  /@types/fs-extra/9.0.9:
+    dependencies:
+      '@types/node': 14.14.37
+    dev: true
+    resolution:
+      integrity: sha512-5TqDycCl0oMzwzd1cIjSJWMKMvLCDVErle4ZTjU4EmHDURR/+yZghe6GDHMCpHtcVfq0x0gMoOM546/5TbYHrg==
   /@types/graceful-fs/4.1.5:
     dependencies:
       '@types/node': 14.14.35
@@ -939,6 +947,10 @@ packages:
   /@types/node/14.14.35:
     resolution:
       integrity: sha512-Lt+wj8NVPx0zUmUwumiVXapmaLUcAk3yPuHCFVXras9k5VT9TdhJqKqGVUQCD60OTMCl0qxJ57OiTL0Mic3Iag==
+  /@types/node/14.14.37:
+    dev: true
+    resolution:
+      integrity: sha512-XYmBiy+ohOR4Lh5jE379fV2IU+6Jn4g5qASinhitfyO71b/sCo6MKsMLF5tc7Zf2CE8hViVQyYSobJNke8OvUw==
   /@types/normalize-package-data/2.4.0:
     resolution:
       integrity: sha512-f5j5b/Gf71L+dbqxIpQ4Z2WlmI/mPJ0fOkGGmFgtb6sAu97EPczzbS3/tJKxmcYDj55OX6ssqwDAWOHIYDRDGA==
@@ -6372,9 +6384,11 @@ specifiers:
   '@tailwindcss/jit': ^0.1.18
   '@tailwindcss/line-clamp': ^0.2.0
   '@tailwindcss/typography': ^0.4.0
+  '@types/fs-extra': ^9.0.9
   autoprefixer: ^10.2.5
   esbuild: ^0.11.2
   eslint: ^7.22.0
+  fs-extra: ^9.1.0
   i: ^0.3.6
   jest: ^26.6.3
   mdsvex: ^0.9.0

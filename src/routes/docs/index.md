@@ -1,1 +1,1 @@
-# Creating JW Lua scripts
+# Getting started
