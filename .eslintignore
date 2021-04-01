@@ -3,3 +3,5 @@ node_modules
 
 *.d.ts
 *.config.js
+
+cli/dist

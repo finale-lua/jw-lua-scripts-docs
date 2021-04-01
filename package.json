@@ -5,6 +5,7 @@
     "scripts": {
         "dev": "svelte-kit dev",
         "dev:open": "svelte-kit dev --open",
+        "prebuild": "./node_modules/.bin/esbuild cli/src/prebuild --outfile=cli/dist/prebuild.mjs --platform=node --target=node12.17 && node cli/dist/prebuild.mjs",
         "build": "svelte-kit build",
         "start": "svelte-kit start",
         "check-types": "tsc --noemit",
@@ -22,6 +23,7 @@
         "@tailwindcss/jit": "^0.1.18",
         "@tailwindcss/typography": "^0.4.0",
         "autoprefixer": "^10.2.5",
+        "esbuild": "^0.11.2",
         "eslint": "^7.22.0",
         "postcss": "^8.2.8",
         "postcss-load-config": "^3.0.1",
