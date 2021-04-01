@@ -30,18 +30,3 @@
     class="h-1 bg-primary fixed top-0"
     style="transform:translateZ(100000px);z-index:1000;width:{$progress}%;opacity:{$opacity}"
 ></div>
-
-<!-- 
-<style>
-    @keyframes fadeOut {
-        0% {
-            opacity: 0.5;
-        }
-        100% {
-            opacity: 0;
-        }
-    }
-    .finished {
-        animation: fadeOut 250 ease-in-out 0.5s forwards;
-    }
-</style> -->
