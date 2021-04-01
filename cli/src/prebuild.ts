@@ -5,7 +5,7 @@ const DOCS_PUBLISH_PATH = 'src/routes/docs/library'
 const TOC_TEMPLATE_PATH = 'cli/src/templates/toc.svelte'
 const TOC_OUTPUT_PATH = 'src/lib/components/library-docs-toc.svelte'
 
-type LibraryDocData = {
+type LibraryDocumentData = {
     text: string
     href: string
     children?: {
@@ -15,31 +15,29 @@ type LibraryDocData = {
     }[]
 }
 
-const getDocsData = (): LibraryDocData[] => {
-    const data: LibraryDocData[] = fs.readdirSync(DOCS_FOLDER).map((fileName) => {
+const getDocsData = (): LibraryDocumentData[] => {
+    return fs.readdirSync(DOCS_FOLDER).map((fileName) => {
         const name = fileName.replace('.md', '')
         const splitName = name.split('-')
         const text = splitName.map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(' ')
         return { text, href: `/docs/library/${name}` }
     })
-
-    return data
 }
 
-const sortDocsPages = (pages: LibraryDocData[]): LibraryDocData[] => {
+const sortDocsPages = (pages: LibraryDocumentData[]): LibraryDocumentData[] => {
     return pages.sort((a, b) => {
         return a.text > b.text ? 1 : -1
     })
 }
 
-const addDefaultPages = (pages: LibraryDocData[]): LibraryDocData[] => {
+const addDefaultPages = (pages: LibraryDocumentData[]): LibraryDocumentData[] => {
     return [
         { text: 'Getting started', href: '/docs/getting-started' },
         { text: 'Library', href: '/docs/library', children: pages },
     ]
 }
 
-const creatTableOfContents = (pages: LibraryDocData[]) => {
+const creatTableOfContents = (pages: LibraryDocumentData[]) => {
     const componentContents = fs.readFileSync(TOC_TEMPLATE_PATH).toString()
     const updatedContents = componentContents.replace(
         'const libraryPages: any[] = []',

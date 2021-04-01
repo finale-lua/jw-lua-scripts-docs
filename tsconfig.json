@@ -17,5 +17,5 @@
         },
         "strict": true
     },
-    "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]
+    "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte", "cli/**/*.ts"]
 }

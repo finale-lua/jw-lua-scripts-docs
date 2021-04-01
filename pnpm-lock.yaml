@@ -9,11 +9,11 @@ dependencies:
   mdsvex: 0.9.0_svelte@3.35.0
   svelte-intersection-observer: 0.6.0
 devDependencies:
-  '@nick-mazuk/eslint-config': 0.7.46_8b3eb2ecc9ef2bfe1c9cf02d434fb28c
+  '@nick-mazuk/eslint-config': 0.7.50_8b3eb2ecc9ef2bfe1c9cf02d434fb28c
   '@nick-mazuk/ui-config': 0.8.54_ef3666f93dae38fdaa5181904bd89550
   '@sveltejs/adapter-node': 1.0.0-next.12
   '@sveltejs/adapter-vercel': 1.0.0-next.8
-  '@sveltejs/kit': 1.0.0-next.66_svelte@3.35.0+vite@2.1.2
+  '@sveltejs/kit': 1.0.0-next.67_svelte@3.35.0+vite@2.1.2
   '@tailwindcss/jit': 0.1.18_postcss@8.2.8+tailwindcss@2.0.4
   '@tailwindcss/typography': 0.4.0_tailwindcss@2.0.4
   '@types/fs-extra': 9.0.9
@@ -660,7 +660,7 @@ packages:
       node: '>= 10.14.2'
     resolution:
       integrity: sha512-fC6QCp7Sc5sX6g8Tvbmj4XUTbyrik0akgRy03yjXbQaBWWNWGE7SGtJk98m0N8nzegD/7SggrUlivxo5ax4KWQ==
-  /@nick-mazuk/eslint-config/0.7.46_8b3eb2ecc9ef2bfe1c9cf02d434fb28c:
+  /@nick-mazuk/eslint-config/0.7.50_8b3eb2ecc9ef2bfe1c9cf02d434fb28c:
     dependencies:
       '@typescript-eslint/eslint-plugin': 4.20.0_7448dc1756632cc6400f187319207d38
       '@typescript-eslint/parser': 4.20.0_eslint@7.23.0+typescript@4.2.3
@@ -691,7 +691,7 @@ packages:
       svelte: '*'
       typescript: '>= 4.2.3'
     resolution:
-      integrity: sha512-hG+laCmwdKos13Uh9K1HM2hXxPcWdyEL8wg0HEKt2ofP0UV65RN91YsYiqdGOgBpuezhVWVrfRn3lc6pM2ZNDQ==
+      integrity: sha512-sr46PhYH+/BKUKq5XaLrNj4SGwOvPFaOdZQ+opS0m42dngoS6fu34vmeHDwsexqqIPZGqJtcbyXf4lD/MKLuCg==
   /@nick-mazuk/lib/0.8.34:
     dependencies:
       validator: 13.5.2
@@ -797,7 +797,7 @@ packages:
     dev: true
     resolution:
       integrity: sha512-bclTDgJIDt17QRdq+u4CqdsQO08MXYhqdlr7O7LcCMWf8PWS5N0l9ValJbKAFcXD5xseqRF9YtUkHKAxMjS54Q==
-  /@sveltejs/kit/1.0.0-next.66_svelte@3.35.0+vite@2.1.2:
+  /@sveltejs/kit/1.0.0-next.67_svelte@3.35.0+vite@2.1.2:
     dependencies:
       '@sveltejs/vite-plugin-svelte': 1.0.0-next.5_svelte@3.35.0+vite@2.1.2
       cheap-watch: 1.0.3
@@ -805,12 +805,14 @@ packages:
       svelte: 3.35.0
       vite: 2.1.2
     dev: true
+    engines:
+      node: '>= 12.17.0'
     hasBin: true
     peerDependencies:
       svelte: ^3.32.1
       vite: ^2.1.0
     resolution:
-      integrity: sha512-IVC4Ssey7aA9ddtkyHGXucxG4TQFsYiJIXVzXXLDI4JNyjZQ0aXraFZQ/S+yOecPprHd1xulk5iZPpM9YnKzIQ==
+      integrity: sha512-c/UN8PWRI2eu0IoJywZ9D+adtDyGM0r9fN/1WwQnzyYUk/fLzASaxSZa1TLtgOzzY2MV8u4WzbgGLgG1JHTy0w==
   /@sveltejs/vite-plugin-svelte/1.0.0-next.5_svelte@3.35.0+vite@2.1.2:
     dependencies:
       '@rollup/pluginutils': 4.1.0
@@ -6389,7 +6391,7 @@ packages:
     resolution:
       integrity: sha512-aePbxDmcYW++PaqBsJ+HYUFwCdv4LVvdnhBy78E57PIor8/OVvhMrADFFEDh8DHDFRv/O9i3lPhsENjO7QX0+A==
 specifiers:
-  '@nick-mazuk/eslint-config': 0.7.46
+  '@nick-mazuk/eslint-config': 0.7.50
   '@nick-mazuk/lib': ^0.8.34
   '@nick-mazuk/ui-config': 0.8.54
   '@nick-mazuk/ui-svelte': 0.1.33
