@@ -1,22 +1,26 @@
 import fs from "fs";
-const LIBRARY_FOLDER = "src/routes/library";
+const DOCS_FOLDER = "docs/library";
 const TOC_TEMPLATE_PATH = "cli/src/templates/toc.svelte";
 const TOC_OUTPUT_PATH = "src/lib/components/library-docs-toc.svelte";
-const getLibraryDocsData = () => {
-  const data = fs.readdirSync(LIBRARY_FOLDER).filter((fileName) => fileName.match(".md")).map((fileName) => {
+const getDocsData = () => {
+  const data = fs.readdirSync(DOCS_FOLDER).map((fileName) => {
     const name = fileName.replace(".md", "");
     const splitName = name.split("-");
     const text = splitName.map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(" ");
-    return {text, href: `/library/${name}`};
+    return {text, href: `/docs/library/${name}`};
   });
   return data;
 };
-const sortLibraryDocs = (pages) => {
+const sortDocsPages = (pages) => {
   return pages.sort((a, b) => {
-    if (a.text === "Readme")
-      return -1;
     return a.text > b.text ? 1 : -1;
   });
+};
+const addDefaultPages = (pages) => {
+  return [
+    {text: "Usage", href: "/docs"},
+    {text: "Library", href: "/docs/library", children: pages}
+  ];
 };
 const creatTableOfContents = (pages) => {
   const componentContents = fs.readFileSync(TOC_TEMPLATE_PATH).toString();
@@ -24,8 +28,10 @@ const creatTableOfContents = (pages) => {
   fs.writeFileSync(TOC_OUTPUT_PATH, updatedContents);
 };
 const main = () => {
-  let pages = getLibraryDocsData();
-  pages = sortLibraryDocs(pages);
+  let pages = getDocsData();
+  pages = sortDocsPages(pages);
+  console.log({pages});
+  pages = addDefaultPages(pages);
   creatTableOfContents(pages);
 };
 main();
