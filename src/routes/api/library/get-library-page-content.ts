@@ -3,7 +3,7 @@ import path from 'path'
 
 import type { RequestHandler } from '@sveltejs/kit'
 
-const DOCS_PATH = path.join('src', 'docs', 'library')
+const DOCS_PATH = path.join('src', 'lib', 'docs', 'library')
 
 export const get: RequestHandler = (context) => {
     if (!context) return { status: 500 }

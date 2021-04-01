@@ -1,8 +1,9 @@
 import fs from 'fs'
+import path from 'path'
 
 import type { RequestHandler } from '@sveltejs/kit'
 
-const DOCS_PATH = 'src/docs/library'
+const DOCS_PATH = path.join('src', 'lib', 'docs', 'library')
 
 type OutPut = {
     text: string
