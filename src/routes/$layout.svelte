@@ -7,10 +7,10 @@
     import HeaderItemWrapper from '@nick-mazuk/ui-svelte/src/layouts/header/header-item-wrapper/header-item-wrapper.svelte'
     import Github from '@nick-mazuk/ui-svelte/src/elements/icon/github.svelte'
     import DarkModeSelect from '../lib/components/site/dark-mode-select.svelte'
-    import LoadProgressIndicator from '@nick-mazuk/ui-svelte/src/elements/load-progress-indicator.svelte'
+    import LoadingProgressIndicator from '@nick-mazuk/ui-svelte/src/elements/loading-progress-indicator/loading-progress-indicator.svelte'
 </script>
 
-<LoadProgressIndicator />
+<LoadingProgressIndicator />
 
 <Header sticky>
     <svelte:fragment slot="left">
