@@ -3,7 +3,7 @@
     import TextContent from '@nick-mazuk/ui-svelte/src/typography/text-content/text-content.svelte'
 </script>
 
-<div class="flex md:space-x-12 wrapper my-16">
+<div class="flex md:space-x-12 wrapper my-16 w-full">
     <aside class="hidden md:block w-40 lg:w-64 flex-none">
         <TableOfContents />
     </aside>
