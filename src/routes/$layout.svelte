@@ -8,7 +8,9 @@
     import LoadingProgressIndicator from '@nick-mazuk/ui-svelte/src/elements/loading-progress-indicator/loading-progress-indicator.svelte'
     import Footer from '@nick-mazuk/ui-svelte/src/layouts/footer/footer.svelte'
     import FooterSocialLink from '@nick-mazuk/ui-svelte/src/layouts/footer/footer-social-link/footer-social-link.svelte'
-    import DarkModeSelect from '../lib/components/site/dark-mode-select.svelte'
+    import DarkModeSelect from '@nick-mazuk/ui-svelte/src/elements/dark-mode-select/dark-mode-select.svelte'
+
+    import { darkMode } from '../lib/stores/dark-mode'
 
     const githubRepoUrl = 'https://github.com/Nick-Mazuk/jw-lua-scripts'
 </script>
@@ -21,7 +23,7 @@
     </svelte:fragment>
     <svelte:fragment slot="right">
         <HeaderLink href="/docs/getting-started" breakpoint="none">Docs</HeaderLink>
-        <HeaderLink href="{githubRepoUrl}" breakpoint="none"><Github /></HeaderLink>
+        <HeaderLink href="{githubRepoUrl}" breakpoint="none"><Github title="Github" /></HeaderLink>
     </svelte:fragment>
 </Header>
 <slot />
@@ -31,11 +33,11 @@
         ©{new Date().getFullYear()} Nick Mazuk.
     </svelte:fragment>
     <svelte:fragment slot="social-links">
-        <FooterSocialLink href="{githubRepoUrl}">
+        <FooterSocialLink href="{githubRepoUrl}" title="Github">
             <Github />
         </FooterSocialLink>
     </svelte:fragment>
     <svelte:fragment slot="theme-toggle">
-        <DarkModeSelect />
+        <DarkModeSelect store="{darkMode}" />
     </svelte:fragment>
 </Footer>
