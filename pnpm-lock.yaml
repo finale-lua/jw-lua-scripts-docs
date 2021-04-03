@@ -10,11 +10,11 @@ dependencies:
   mdsvex: 0.9.0_svelte@3.35.0
   svelte-intersection-observer: 0.6.0
 devDependencies:
-  '@nick-mazuk/eslint-config': 0.7.50_8b3eb2ecc9ef2bfe1c9cf02d434fb28c
+  '@nick-mazuk/eslint-config': 0.7.51_8b3eb2ecc9ef2bfe1c9cf02d434fb28c
   '@nick-mazuk/ui-config': 0.9.5_ef3666f93dae38fdaa5181904bd89550
   '@sveltejs/adapter-node': 1.0.0-next.12
   '@sveltejs/adapter-vercel': 1.0.0-next.8
-  '@sveltejs/kit': 1.0.0-next.69_svelte@3.35.0+vite@2.1.2
+  '@sveltejs/kit': 1.0.0-next.70_svelte@3.35.0+vite@2.1.2
   '@tailwindcss/jit': 0.1.18_postcss@8.2.8+tailwindcss@2.0.4
   '@types/fs-extra': 9.0.9
   autoprefixer: 10.2.5_postcss@8.2.8
@@ -660,7 +660,7 @@ packages:
       node: '>= 10.14.2'
     resolution:
       integrity: sha512-fC6QCp7Sc5sX6g8Tvbmj4XUTbyrik0akgRy03yjXbQaBWWNWGE7SGtJk98m0N8nzegD/7SggrUlivxo5ax4KWQ==
-  /@nick-mazuk/eslint-config/0.7.50_8b3eb2ecc9ef2bfe1c9cf02d434fb28c:
+  /@nick-mazuk/eslint-config/0.7.51_8b3eb2ecc9ef2bfe1c9cf02d434fb28c:
     dependencies:
       '@typescript-eslint/eslint-plugin': 4.20.0_7448dc1756632cc6400f187319207d38
       '@typescript-eslint/parser': 4.20.0_eslint@7.23.0+typescript@4.2.3
@@ -671,7 +671,7 @@ packages:
       eslint-plugin-deprecation: 1.2.0_eslint@7.23.0+typescript@4.2.3
       eslint-plugin-eslint-comments: 3.2.0_eslint@7.23.0
       eslint-plugin-import: 2.22.1_eslint@7.23.0
-      eslint-plugin-jest: 24.3.2_cf5f079298420514b1a3fb1ddbe88334
+      eslint-plugin-jest: 24.3.3_cf5f079298420514b1a3fb1ddbe88334
       eslint-plugin-jsx-a11y: 6.4.1_eslint@7.23.0
       eslint-plugin-no-secrets: 0.8.9_eslint@7.23.0
       eslint-plugin-prettier: 3.3.1_b12b1e2728f2b373ebd5879b14325d0d
@@ -691,7 +691,7 @@ packages:
       svelte: '*'
       typescript: '>= 4.2.3'
     resolution:
-      integrity: sha512-sr46PhYH+/BKUKq5XaLrNj4SGwOvPFaOdZQ+opS0m42dngoS6fu34vmeHDwsexqqIPZGqJtcbyXf4lD/MKLuCg==
+      integrity: sha512-+0GjXcqhYYhABccGoTiQsl2XQCYOQoE91XUKg9NyGHhwV8UV4RcXOqnOa/X2H1sapeS8u5GdknXD9O70FEoasg==
   /@nick-mazuk/lib/0.8.34:
     dependencies:
       validator: 13.5.2
@@ -795,7 +795,7 @@ packages:
     dev: true
     resolution:
       integrity: sha512-bclTDgJIDt17QRdq+u4CqdsQO08MXYhqdlr7O7LcCMWf8PWS5N0l9ValJbKAFcXD5xseqRF9YtUkHKAxMjS54Q==
-  /@sveltejs/kit/1.0.0-next.69_svelte@3.35.0+vite@2.1.2:
+  /@sveltejs/kit/1.0.0-next.70_svelte@3.35.0+vite@2.1.2:
     dependencies:
       '@sveltejs/vite-plugin-svelte': 1.0.0-next.5_svelte@3.35.0+vite@2.1.2
       cheap-watch: 1.0.3
@@ -810,7 +810,7 @@ packages:
       svelte: ^3.32.1
       vite: ^2.1.0
     resolution:
-      integrity: sha512-BWKE08AQ3mpX0pu/Ss7RSb3Mx6Pkm3TzWFI5TTqYc0yswjjMKUmyGNhJ1nUAycgvcShHm6DXgXlqveq+O9YNXA==
+      integrity: sha512-sMjPmMhYdCrre+TzFOTkb1NCJ2IoHAsJhwK4aXixeyWOcOi+rwE4W89CaJWfelqAI6zhMlm3G+2dgUX+hQfw5Q==
   /@sveltejs/vite-plugin-svelte/1.0.0-next.5_svelte@3.35.0+vite@2.1.2:
     dependencies:
       '@rollup/pluginutils': 4.1.0
@@ -1403,12 +1403,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==
-  /axe-core/4.1.3:
+  /axe-core/4.1.4:
     dev: true
     engines:
       node: '>=4'
     resolution:
-      integrity: sha512-vwPpH4Aj4122EW38mxO/fxhGKtwWTMLDIJfZ1He0Edbtjcfna/R3YB67yVhezUMzqc3Jr3+Ii50KRntlENL4xQ==
+      integrity: sha512-Pdgfv6iP0gNx9ejRGa3zE7Xgkj/iclXqLfe7BnatdZz0QnLZ3jrRHUVH8wNSdN68w05Sk3ShGTb3ydktMTooig==
   /axobject-query/2.2.0:
     dev: true
     resolution:
@@ -2305,7 +2305,7 @@ packages:
       eslint: ^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0
     resolution:
       integrity: sha512-8K7JjINHOpH64ozkAhpT3sd+FswIZTfMZTjdx052pnWrgRCVfp8op9tbjpAk3DdUeI/Ba4C8OjdC0r90erHEOw==
-  /eslint-plugin-jest/24.3.2_cf5f079298420514b1a3fb1ddbe88334:
+  /eslint-plugin-jest/24.3.3_cf5f079298420514b1a3fb1ddbe88334:
     dependencies:
       '@typescript-eslint/eslint-plugin': 4.20.0_7448dc1756632cc6400f187319207d38
       '@typescript-eslint/experimental-utils': 4.20.0_eslint@7.23.0+typescript@4.2.3
@@ -2321,14 +2321,14 @@ packages:
       '@typescript-eslint/eslint-plugin':
         optional: true
     resolution:
-      integrity: sha512-cicWDr+RvTAOKS3Q/k03+Z3odt3VCiWamNUHWd6QWbVQWcYJyYgUTu8x0mx9GfeDEimawU5kQC+nQ3MFxIM6bw==
+      integrity: sha512-IQ9tLHyKEyBw1BM3IE13WxOXQm03h/7dy1KFknUVkoY2N2+Hw7lb/3YFz/4jwcrxXt2+KhA/GoiK7jt8aK19ww==
   /eslint-plugin-jsx-a11y/6.4.1_eslint@7.23.0:
     dependencies:
       '@babel/runtime': 7.13.10
       aria-query: 4.2.2
       array-includes: 3.1.3
       ast-types-flow: 0.0.7
-      axe-core: 4.1.3
+      axe-core: 4.1.4
       axobject-query: 2.2.0
       damerau-levenshtein: 1.0.6
       emoji-regex: 9.2.2
@@ -6384,7 +6384,7 @@ packages:
     resolution:
       integrity: sha512-aePbxDmcYW++PaqBsJ+HYUFwCdv4LVvdnhBy78E57PIor8/OVvhMrADFFEDh8DHDFRv/O9i3lPhsENjO7QX0+A==
 specifiers:
-  '@nick-mazuk/eslint-config': 0.7.50
+  '@nick-mazuk/eslint-config': 0.7.51
   '@nick-mazuk/lib': ^0.8.34
   '@nick-mazuk/ui-config': 0.9.5
   '@nick-mazuk/ui-svelte': 0.1.43
