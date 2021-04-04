@@ -7,6 +7,7 @@ dependencies:
   '@tailwindcss/typography': 0.4.0_tailwindcss@2.0.4
   i: 0.3.6
   jest: 26.6.3
+  stork-search: 1.0.4
   svelte-intersection-observer: 0.6.0
 devDependencies:
   '@nick-mazuk/eslint-config': 0.7.51_8b3eb2ecc9ef2bfe1c9cf02d434fb28c
@@ -5568,6 +5569,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
+  /stork-search/1.0.4:
+    dev: false
+    resolution:
+      integrity: sha512-vxcxA/gyuPk2KaV5Fh6ZBP9r6hQGvWwAJ0diU3rutg8GYjPGPuMvwmtOqbAwlP2mWBPAt/PiNMab6jA0bB3kyg==
   /string-length/4.0.2:
     dependencies:
       char-regex: 1.0.2
@@ -6341,6 +6346,7 @@ specifiers:
   postcss-load-config: ^3.0.1
   prettier: ^2.2.1
   prettier-plugin-svelte: ^2.2.0
+  stork-search: ^1.0.4
   svelte: ^3.29.0
   svelte-check: ^1.3.0
   svelte-intersection-observer: ^0.6.0
