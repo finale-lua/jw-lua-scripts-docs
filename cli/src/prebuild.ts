@@ -32,19 +32,31 @@ const getAllFiles = (folderPath: string, arrayOfFiles?: string[]) => {
     return output
 }
 
+const createUrlFromFilePath = (filePath: string): string => {
+    return filePath.replace(/_/gu, '-').replace('.md', '')
+}
+
+const createNameFromFilePath = (filePath: string): string => {
+    const splitPath = filePath.split('/')
+    const fileName = (splitPath.pop() ?? '').replace('.md', '')
+    const name = fileName.replace(/[_-]/gu, ' ')
+    const splitName = name.split(' ')
+    return splitName.map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(' ')
+}
+
+const getFolderFromPath = (filePath: string): string => {
+    return filePath
+        .replace('docs/', '')
+        .replace(/\/[\w.-]*$/u, '')
+        .replace('.md', '')
+}
+
 const getDocsData = (allFiles: string[]): LibraryDocumentData[] => {
     const folders: { [folderName: string]: LibraryDocumentData } = {}
     allFiles.forEach((fullPath) => {
-        const filePath = fullPath.replace('docs/', '')
-        const splitPath = filePath.split('/')
-        const fileName = (splitPath.pop() ?? '').replace('.md', '')
-        const folderName = splitPath.length > 0 ? splitPath.join('/') : fileName
-
-        const name = fileName.replace(/[_-]/gu, ' ')
-        const splitName = name.split(' ')
-        const text = splitName.map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(' ')
-
-        const href = `/${fullPath.replace(/_/gu, '-').replace('.md', '')}`
+        const href = createUrlFromFilePath(fullPath)
+        const text = createNameFromFilePath(fullPath)
+        const folderName = getFolderFromPath(fullPath)
         const output = { text, href }
 
         if (typeof folders[folderName] === 'undefined') {
@@ -103,6 +115,22 @@ const addLayout = () => {
     fs.copyFileSync(LAYOUT_TEMPLATE_PATH, path.join(DOCS_PUBLISH_PATH, '$layout.svelte'))
 }
 
+const createDocsSearch = (allFiles: string[]) => {
+    const config: string[] = ['[input]', 'base_directory = "."', 'files = [']
+
+    allFiles.forEach((file) => {
+        config.push(
+            `    {path = "${file}", url = "${createUrlFromFilePath(
+                file
+            )}", title = "${createNameFromFilePath(file)}"}`
+        )
+    })
+
+    config.push(']', '', '[output]', 'filename = "docs-search-index.st"')
+
+    fs.writeFileSync('config.toml', config.join('\n'))
+}
+
 const createLibraryDocs = () => {
     const allFiles = getAllFiles(DOCS_FOLDER).sort()
     let pages = getDocsData(allFiles)
@@ -111,6 +139,7 @@ const createLibraryDocs = () => {
     removePreviousDocs()
     copyDocsFiles(allFiles)
     addLayout()
+    createDocsSearch(allFiles)
 }
 
 const main = () => {

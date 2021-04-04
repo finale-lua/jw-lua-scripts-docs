@@ -17,25 +17,34 @@ const getAllFiles = (folderPath, arrayOfFiles) => {
   });
   return output;
 };
+const createUrlFromFilePath = (filePath) => {
+  return filePath.replace(/_/gu, "-").replace(".md", "");
+};
+const createNameFromFilePath = (filePath) => {
+  var _a;
+  const splitPath = filePath.split("/");
+  const fileName = ((_a = splitPath.pop()) != null ? _a : "").replace(".md", "");
+  const name = fileName.replace(/[_-]/gu, " ");
+  const splitName = name.split(" ");
+  return splitName.map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(" ");
+};
+const getFolderFromPath = (filePath) => {
+  return filePath.replace("docs/", "").replace(/\/[\w.-]*$/u, "").replace(".md", "");
+};
 const getDocsData = (allFiles) => {
   const folders = {};
   allFiles.forEach((fullPath) => {
-    var _a, _b;
-    const filePath = fullPath.replace("docs/", "");
-    const splitPath = filePath.split("/");
-    const fileName = ((_a = splitPath.pop()) != null ? _a : "").replace(".md", "");
-    const folderName = splitPath.length > 0 ? splitPath.join("/") : fileName;
-    const name = fileName.replace(/[_-]/gu, " ");
-    const splitName = name.split(" ");
-    const text = splitName.map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(" ");
-    const href = `/${fullPath.replace(/_/gu, "-").replace(".md", "")}`;
+    var _a;
+    const href = createUrlFromFilePath(fullPath);
+    const text = createNameFromFilePath(fullPath);
+    const folderName = getFolderFromPath(fullPath);
     const output = {text, href};
     if (typeof folders[folderName] === "undefined") {
       folders[folderName] = output;
     } else {
       if (typeof folders[folderName].children === "undefined")
         folders[folderName].children = [];
-      (_b = folders[folderName].children) == null ? void 0 : _b.push(output);
+      (_a = folders[folderName].children) == null ? void 0 : _a.push(output);
     }
   });
   return Object.values(folders);
@@ -67,6 +76,14 @@ const copyDocsFiles = (files) => {
 const addLayout = () => {
   fs.copyFileSync(LAYOUT_TEMPLATE_PATH, path.join(DOCS_PUBLISH_PATH, "$layout.svelte"));
 };
+const createDocsSearch = (allFiles) => {
+  const config = ["[input]", 'base_directory = "."', "files = ["];
+  allFiles.forEach((file) => {
+    config.push(`    {path = "${file}", url = "${createUrlFromFilePath(file)}", title = "${createNameFromFilePath(file)}"}`);
+  });
+  config.push("]", "", "[output]", 'filename = "docs-search-index.st"');
+  fs.writeFileSync("config.toml", config.join("\n"));
+};
 const createLibraryDocs = () => {
   const allFiles = getAllFiles(DOCS_FOLDER).sort();
   let pages = getDocsData(allFiles);
@@ -75,6 +92,7 @@ const createLibraryDocs = () => {
   removePreviousDocs();
   copyDocsFiles(allFiles);
   addLayout();
+  createDocsSearch(allFiles);
 };
 const main = () => {
   createLibraryDocs();

@@ -1,0 +1,18 @@
+[input]
+base_directory = "."
+files = [
+    {path = "docs/getting-started.md", url = "docs/getting-started", title = "Getting Started"}
+    {path = "docs/library.md", url = "docs/library", title = "Library"}
+    {path = "docs/library/articulation.md", url = "docs/library/articulation", title = "Articulation"}
+    {path = "docs/library/configuration.md", url = "docs/library/configuration", title = "Configuration"}
+    {path = "docs/library/enigma_string.md", url = "docs/library/enigma-string", title = "Enigma String"}
+    {path = "docs/library/expression.md", url = "docs/library/expression", title = "Expression"}
+    {path = "docs/library/general_library.md", url = "docs/library/general-library", title = "General Library"}
+    {path = "docs/library/measurement.md", url = "docs/library/measurement", title = "Measurement"}
+    {path = "docs/library/note_entry.md", url = "docs/library/note-entry", title = "Note Entry"}
+    {path = "docs/library/notehead.md", url = "docs/library/notehead", title = "Notehead"}
+    {path = "docs/library/transposition.md", url = "docs/library/transposition", title = "Transposition"}
+]
+
+[output]
+filename = "docs-search-index.st"
