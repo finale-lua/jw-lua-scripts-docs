@@ -33,7 +33,7 @@ const getAllFiles = (folderPath: string, arrayOfFiles?: string[]) => {
 }
 
 const createUrlFromFilePath = (filePath: string): string => {
-    return filePath.replace(/_/gu, '-').replace('.md', '')
+    return `/${filePath.replace(/_/gu, '-').replace('.md', '')}`
 }
 
 const createNameFromFilePath = (filePath: string): string => {
@@ -122,11 +122,11 @@ const createDocsSearch = (allFiles: string[]) => {
         config.push(
             `    {path = "${file}", url = "${createUrlFromFilePath(
                 file
-            )}", title = "${createNameFromFilePath(file)}"}`
+            )}", title = "${createNameFromFilePath(file)}"},`
         )
     })
 
-    config.push(']', '', '[output]', 'filename = "docs-search-index.st"')
+    config.push(']', '', '[output]', 'filename = "static/stork.st"')
 
     fs.writeFileSync('config.toml', config.join('\n'))
 }

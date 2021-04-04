@@ -1,9 +1,6 @@
 const sveltePreprocess = require('svelte-preprocess')
 const adapter = require('@sveltejs/adapter-vercel')
 const pkg = require('./package.json')
-const { mdsvex } = require(`mdsvex`)
-
-const extensions = [`.svelte`, '.md', `.mdx`, '.svx']
 
 module.exports = {
     preprocess: [
@@ -13,9 +10,7 @@ module.exports = {
                 style: 'postcss',
             },
         }),
-        mdsvex({ extensions }),
     ],
-    extensions,
     kit: {
         adapter: adapter(),
         target: '#svelte',

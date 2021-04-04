@@ -7,7 +7,6 @@ dependencies:
   '@tailwindcss/typography': 0.4.0_tailwindcss@2.0.4
   i: 0.3.6
   jest: 26.6.3
-  mdsvex: 0.9.0_svelte@3.35.0
   svelte-intersection-observer: 0.6.0
 devDependencies:
   '@nick-mazuk/eslint-config': 0.7.51_8b3eb2ecc9ef2bfe1c9cf02d434fb28c
@@ -976,10 +975,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-RJJrrySY7A8havqpGObOB4W92QXKJo63/jFLLgpvOtsGUqbQZ9Sbgl35KMm1DjC6j7AvmmU2bIno+3IyEaemaw==
-  /@types/unist/2.0.3:
-    dev: false
-    resolution:
-      integrity: sha512-FvUupuM3rlRsRtCN+fDudtmytGO6iHJuuRKS1Ss0pG5z8oX0diNEw94UEL7hgDbpN94rgaK5R7sWm6RrSkZuAQ==
   /@types/yargs-parser/20.2.0:
     dev: false
     resolution:
@@ -1714,15 +1709,6 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-jffHquUf02h06PjQW5GAvBGj/tc=
-  /clipboard/2.0.8:
-    dependencies:
-      good-listener: 1.2.2
-      select: 1.1.2
-      tiny-emitter: 2.1.0
-    dev: false
-    optional: true
-    resolution:
-      integrity: sha512-Y6WO0unAIQp5bLmk1zdThRhgJt/x3ks6f30s3oE3H1mgIEU33XyQjEf8gsf6DxC7NPX8Y1SsNWjUjL/ywLnnbQ==
   /cliui/6.0.0:
     dependencies:
       string-width: 4.2.2
@@ -2013,11 +1999,6 @@ packages:
       node: '>=0.4.0'
     resolution:
       integrity: sha1-3zrhmayt+31ECqrgsp4icrJOxhk=
-  /delegate/3.2.0:
-    dev: false
-    optional: true
-    resolution:
-      integrity: sha512-IofjkYBZaZivn0V8nnsMJGBr4jVLxHDheKSW88PyxS5QC4Vo9ZbZVvhzlSxY87fVq3STR6r+4cGepyHkcWOQSw==
   /detect-indent/6.0.0:
     dev: true
     engines:
@@ -3004,13 +2985,6 @@ packages:
       node: '>=10'
     resolution:
       integrity: sha512-ffdmosjA807y7+lA1NM0jELARVmYul/715xiILEjo3hBLPTcirgQNnXECn5g3mtR8TOLCVbkfua1Hpen25/Xcg==
-  /good-listener/1.2.2:
-    dependencies:
-      delegate: 3.2.0
-    dev: false
-    optional: true
-    resolution:
-      integrity: sha1-1TswzfkxPf+33JoNR3CWqm0UXFA=
   /graceful-fs/4.2.6:
     resolution:
       integrity: sha512-nTnJ528pbqxYanhpDYsi4Rd8MAeaBA67+RZ10CM1m3bTAVFEDcd5AuA4a6W5YkGZ1iNXHzZz8T6TBKLeBuNriQ==
@@ -4294,17 +4268,6 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-5+/fKgMv2hARmMW7DOpykr2iLhl0NgjyELk5yn92iE7z8Se1IS9n3UsFm86hFXIkvMBmVxki8+ckcpjBeyo/hw==
-  /mdsvex/0.9.0_svelte@3.35.0:
-    dependencies:
-      '@types/unist': 2.0.3
-      prismjs: 1.23.0
-      svelte: 3.35.0
-      vfile-message: 2.0.4
-    dev: false
-    peerDependencies:
-      svelte: 3.x
-    resolution:
-      integrity: sha512-1REYRZPgGWoEkA4N0xxeJLdjOzkOwXJeQGgx8F6Gm/dVZkoBmfY49EVc0PGql/fmwj7Qrkc8eGoPg7z6Q1U5hA==
   /merge-stream/2.0.0:
     dev: false
     resolution:
@@ -4983,12 +4946,6 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-t+PqQkNaTJsnWdmeDyAesZWALuE=
-  /prismjs/1.23.0:
-    dev: false
-    optionalDependencies:
-      clipboard: 2.0.8
-    resolution:
-      integrity: sha512-c29LVsqOaLbBHuIbsTxaKENh1N2EQBOHaWv7gkHN4dgRbxSREqDnDbtFJYdpPauS4YCplMSNCABQ6Eeor69bAA==
   /progress/2.0.3:
     dev: true
     engines:
@@ -5374,11 +5331,6 @@ packages:
       node: '>=10'
     resolution:
       integrity: sha512-5LBh1Tls8c9xgGjw3QrMwETmTMVk0oFgvrFSvWx62llR2hcEInrKNZ2GZCCuuy2lvWrdl5jhbpeqc5hRYKFOcw==
-  /select/1.1.2:
-    dev: false
-    optional: true
-    resolution:
-      integrity: sha1-DnNQrN7ICxEIUoeG7B1EGNEbOW0=
   /semver/5.7.1:
     hasBin: true
     resolution:
@@ -5897,11 +5849,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-fcwX4mndzpLQKBS1DVYhGAcYaYt7vsHNIvQV+WXMvnow5cgjPphq5CaayLaGsjRdSCKZFNGt7/GYAuXaNOiYCA==
-  /tiny-emitter/2.1.0:
-    dev: false
-    optional: true
-    resolution:
-      integrity: sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
   /tmpl/1.0.4:
     dev: false
     resolution:
@@ -6092,12 +6039,6 @@ packages:
     dev: true
     resolution:
       integrity: sha1-sxxa6CVIRKOoKBVBzisEuGWnNP8=
-  /unist-util-stringify-position/2.0.3:
-    dependencies:
-      '@types/unist': 2.0.3
-    dev: false
-    resolution:
-      integrity: sha512-3faScn5I+hy9VleOq/qNbAd6pAx7iH5jYBMS9I1HgQVijz/4mv5Bvw5iw1sC/90CODiKo81G/ps8AJrISn687g==
   /universalify/0.1.2:
     dev: false
     engines:
@@ -6186,13 +6127,6 @@ packages:
       '0': node >=0.6.0
     resolution:
       integrity: sha1-OhBcoXBTr1XW4nDB+CiGguGNpAA=
-  /vfile-message/2.0.4:
-    dependencies:
-      '@types/unist': 2.0.3
-      unist-util-stringify-position: 2.0.3
-    dev: false
-    resolution:
-      integrity: sha512-DjssxRGkMvifUOJre00juHoP9DPWuzjxKuMDrhNbk2TdaYYBNMStsNhEOt3idrtI12VQYM/1+iM0KOzXi4pxwQ==
   /vite/2.1.2:
     dependencies:
       esbuild: 0.9.7
@@ -6403,7 +6337,6 @@ specifiers:
   fs-extra: ^9.1.0
   i: ^0.3.6
   jest: ^26.6.3
-  mdsvex: ^0.9.0
   postcss: ^8.2.8
   postcss-load-config: ^3.0.1
   prettier: ^2.2.1

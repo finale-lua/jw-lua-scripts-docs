@@ -18,7 +18,7 @@ const getAllFiles = (folderPath, arrayOfFiles) => {
   return output;
 };
 const createUrlFromFilePath = (filePath) => {
-  return filePath.replace(/_/gu, "-").replace(".md", "");
+  return `/${filePath.replace(/_/gu, "-").replace(".md", "")}`;
 };
 const createNameFromFilePath = (filePath) => {
   var _a;
@@ -79,9 +79,9 @@ const addLayout = () => {
 const createDocsSearch = (allFiles) => {
   const config = ["[input]", 'base_directory = "."', "files = ["];
   allFiles.forEach((file) => {
-    config.push(`    {path = "${file}", url = "${createUrlFromFilePath(file)}", title = "${createNameFromFilePath(file)}"}`);
+    config.push(`    {path = "${file}", url = "${createUrlFromFilePath(file)}", title = "${createNameFromFilePath(file)}"},`);
   });
-  config.push("]", "", "[output]", 'filename = "docs-search-index.st"');
+  config.push("]", "", "[output]", 'filename = "static/stork.st"');
   fs.writeFileSync("config.toml", config.join("\n"));
 };
 const createLibraryDocs = () => {

@@ -5,6 +5,8 @@
     "scripts": {
         "dev": "svelte-kit dev",
         "dev:open": "svelte-kit dev --open",
+        "stork": "stork --build config.toml",
+        "stork-prod": "bin/stork.bin --build config.toml",
         "prebuild": "./node_modules/.bin/esbuild cli/src/prebuild --outfile=cli/dist/prebuild.mjs --platform=node --target=node12.17 && node cli/dist/prebuild.mjs",
         "build": "svelte-kit build",
         "start": "svelte-kit start",
@@ -47,7 +49,6 @@
         "@tailwindcss/typography": "^0.4.0",
         "i": "^0.3.6",
         "jest": "^26.6.3",
-        "mdsvex": "^0.9.0",
         "svelte-intersection-observer": "^0.6.0"
     }
 }
