@@ -40,7 +40,7 @@ const getDocsData = (allFiles: string[]): LibraryDocumentData[] => {
         const fileName = (splitPath.pop() ?? '').replace('.md', '')
         const folderName = splitPath.length > 0 ? splitPath.join('/') : fileName
 
-        const name = fileName.replace(/_/gu, ' ')
+        const name = fileName.replace(/[_-]/gu, ' ')
         const splitName = name.split(' ')
         const text = splitName.map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(' ')
 

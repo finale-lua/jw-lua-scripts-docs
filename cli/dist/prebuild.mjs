@@ -25,7 +25,7 @@ const getDocsData = (allFiles) => {
     const splitPath = filePath.split("/");
     const fileName = ((_a = splitPath.pop()) != null ? _a : "").replace(".md", "");
     const folderName = splitPath.length > 0 ? splitPath.join("/") : fileName;
-    const name = fileName.replace(/_/gu, " ");
+    const name = fileName.replace(/[_-]/gu, " ");
     const splitName = name.split(" ");
     const text = splitName.map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(" ");
     const href = `/${fullPath.replace(/_/gu, "-").replace(".md", "")}`;
@@ -38,7 +38,6 @@ const getDocsData = (allFiles) => {
       (_b = folders[folderName].children) == null ? void 0 : _b.push(output);
     }
   });
-  console.log({folders});
   return Object.values(folders);
 };
 const sortDocsPages = (pages) => {

@@ -7,8 +7,8 @@
 
     const content = `# Expression
 
-- [calc_text_width](#calc_text_width)
-- [is_for_current_part](#is_for_current_part)
+-   [calc_text_width](#calc_text_width)
+-   [is_for_current_part](#is_for_current_part)
 
 ## calc_text_width
 
@@ -27,10 +27,11 @@ expression.calc_text_width(expression_def, expand_tags)
 expression.is_for_current_part(exp_assign, current_part)
 \`\`\`
 
-| Input | Type | Description |
-| --- | --- | --- |
-| \`exp_assign\` | \`unknown\` |  |
-| \`current_part\` (optional) | \`unknown\` |  |`
+| Input                     | Type      | Description |
+| ------------------------- | --------- | ----------- |
+| \`exp_assign\`              | \`unknown\` |             |
+| \`current_part\` (optional) | \`unknown\` |             |
+`
 </script>
 
 <Markdown content="{content}" headerIds />

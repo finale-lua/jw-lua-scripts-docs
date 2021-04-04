@@ -7,22 +7,18 @@
 
     const content = `# Configuration
 
-Author: Robert Patterson
-Date: March 5, 2021
+Author: Robert Patterson Date: March 5, 2021
 
-This library implements a text file scheme as follows:
-Comments start with "--"
-Leading and trailing whitespace is ignored
-Each parameter is named and delimited by a colon as follows:
+This library implements a text file scheme as follows: Comments start with "--" Leading and trailing whitespace is ignored Each parameter is named and delimited by a colon as follows:
 
 &lt;parameter-name&gt; = &lt;parameter-value&gt;
 
 Parameter values may be:
 
-- Strings delimited with either single- or double-quotes)
-- Tables delimited with {}
-- Booleans (true or false)
-- Integers
+-   Strings delimited with either single- or double-quotes)
+-   Tables delimited with {}
+-   Booleans (true or false)
+-   Integers
 
 Currently tables embedded within tables is not supported.
 
