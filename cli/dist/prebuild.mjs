@@ -1,9 +1,10 @@
 import path from "path";
 import fs from "fs-extra";
-const DOCS_FOLDER = "docs/library";
-const DOCS_PUBLISH_PATH = "src/routes/docs/library";
+const DOCS_FOLDER = "docs";
+const DOCS_PUBLISH_PATH = "src/routes/docs";
 const TOC_TEMPLATE_PATH = "cli/src/templates/toc.svelte";
 const DOCS_TEMPLATE_PATH = "cli/src/templates/docs-page.svelte";
+const LAYOUT_TEMPLATE_PATH = "cli/src/templates/docs-layout.svelte";
 const TOC_OUTPUT_PATH = "src/lib/components/library-docs-toc.svelte";
 const getAllFiles = (folderPath, arrayOfFiles) => {
   const files = fs.readdirSync(folderPath);
@@ -16,24 +17,34 @@ const getAllFiles = (folderPath, arrayOfFiles) => {
   });
   return output;
 };
-const getDocsData = () => {
-  return fs.readdirSync(DOCS_FOLDER).map((fileName) => {
-    const name = fileName.replace(".md", "");
-    const splitName = name.split("-");
+const getDocsData = (allFiles) => {
+  const folders = {};
+  allFiles.forEach((fullPath) => {
+    var _a, _b;
+    const filePath = fullPath.replace("docs/", "");
+    const splitPath = filePath.split("/");
+    const fileName = ((_a = splitPath.pop()) != null ? _a : "").replace(".md", "");
+    const folderName = splitPath.length > 0 ? splitPath.join("/") : fileName;
+    const name = fileName.replace(/_/gu, " ");
+    const splitName = name.split(" ");
     const text = splitName.map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(" ");
-    return {text, href: `/docs/library/${name}`};
+    const href = `/${fullPath.replace(/_/gu, "-").replace(".md", "")}`;
+    const output = {text, href};
+    if (typeof folders[folderName] === "undefined") {
+      folders[folderName] = output;
+    } else {
+      if (typeof folders[folderName].children === "undefined")
+        folders[folderName].children = [];
+      (_b = folders[folderName].children) == null ? void 0 : _b.push(output);
+    }
   });
+  console.log({folders});
+  return Object.values(folders);
 };
 const sortDocsPages = (pages) => {
   return pages.sort((a, b) => {
     return a.text > b.text ? 1 : -1;
   });
-};
-const addDefaultPages = (pages) => {
-  return [
-    {text: "Getting started", href: "/docs/getting-started"},
-    {text: "Library", href: "/docs/library", children: pages}
-  ];
 };
 const creatTableOfContents = (pages) => {
   const componentContents = fs.readFileSync(TOC_TEMPLATE_PATH).toString();
@@ -43,26 +54,28 @@ const creatTableOfContents = (pages) => {
 const removePreviousDocs = () => {
   fs.rmdirSync(DOCS_PUBLISH_PATH, {recursive: true});
 };
-const copyDocsFiles = () => {
+const copyDocsFiles = (files) => {
   const docsTemplateContents = fs.readFileSync(DOCS_TEMPLATE_PATH).toString();
-  const files = getAllFiles(DOCS_FOLDER);
-  console.log({files});
   files.forEach((file) => {
     const contents = fs.readFileSync(file).toString().replace(/`/gu, "\\`").replace(/</gu, "&lt;").replace(/>/gu, "&gt;");
     const fileName = file.replace(DOCS_FOLDER, "").replace(".md", ".svelte");
-    const outputPath = path.join(DOCS_PUBLISH_PATH, fileName);
+    const outputPath = path.join(DOCS_PUBLISH_PATH, fileName).replace(/_/gu, "-");
     const outputContents = docsTemplateContents.replace("MARKDOWN_PLACEHOLDER", contents);
     fs.ensureFileSync(outputPath);
     fs.writeFileSync(outputPath, outputContents);
   });
 };
+const addLayout = () => {
+  fs.copyFileSync(LAYOUT_TEMPLATE_PATH, path.join(DOCS_PUBLISH_PATH, "$layout.svelte"));
+};
 const createLibraryDocs = () => {
-  let pages = getDocsData();
+  const allFiles = getAllFiles(DOCS_FOLDER).sort();
+  let pages = getDocsData(allFiles);
   pages = sortDocsPages(pages);
-  pages = addDefaultPages(pages);
   creatTableOfContents(pages);
   removePreviousDocs();
-  copyDocsFiles();
+  copyDocsFiles(allFiles);
+  addLayout();
 };
 const main = () => {
   createLibraryDocs();

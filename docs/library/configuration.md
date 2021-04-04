@@ -13,7 +13,7 @@ Each parameter is named and delimited by a colon as follows:
 Parameter values may be:
 
 - Strings delimited with either single- or double-quotes)
-- Tables delimited with
+- Tables delimited with {}
 - Booleans (true or false)
 - Integers
 

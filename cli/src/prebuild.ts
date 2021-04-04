@@ -2,10 +2,11 @@ import path from 'path'
 
 import fs from 'fs-extra'
 
-const DOCS_FOLDER = 'docs/library'
-const DOCS_PUBLISH_PATH = 'src/routes/docs/library'
+const DOCS_FOLDER = 'docs'
+const DOCS_PUBLISH_PATH = 'src/routes/docs'
 const TOC_TEMPLATE_PATH = 'cli/src/templates/toc.svelte'
 const DOCS_TEMPLATE_PATH = 'cli/src/templates/docs-page.svelte'
+const LAYOUT_TEMPLATE_PATH = 'cli/src/templates/docs-layout.svelte'
 const TOC_OUTPUT_PATH = 'src/lib/components/library-docs-toc.svelte'
 
 type LibraryDocumentData = {
@@ -13,7 +14,6 @@ type LibraryDocumentData = {
     href: string
     children?: {
         text: string
-
         href: string
     }[]
 }
@@ -32,26 +32,37 @@ const getAllFiles = (folderPath: string, arrayOfFiles?: string[]) => {
     return output
 }
 
-const getDocsData = (): LibraryDocumentData[] => {
-    return fs.readdirSync(DOCS_FOLDER).map((fileName) => {
-        const name = fileName.replace('.md', '')
-        const splitName = name.split('-')
+const getDocsData = (allFiles: string[]): LibraryDocumentData[] => {
+    const folders: { [folderName: string]: LibraryDocumentData } = {}
+    allFiles.forEach((fullPath) => {
+        const filePath = fullPath.replace('docs/', '')
+        const splitPath = filePath.split('/')
+        const fileName = (splitPath.pop() ?? '').replace('.md', '')
+        const folderName = splitPath.length > 0 ? splitPath.join('/') : fileName
+
+        const name = fileName.replace(/_/gu, ' ')
+        const splitName = name.split(' ')
         const text = splitName.map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(' ')
-        return { text, href: `/docs/library/${name}` }
+
+        const href = `/${fullPath.replace(/_/gu, '-').replace('.md', '')}`
+        const output = { text, href }
+
+        if (typeof folders[folderName] === 'undefined') {
+            folders[folderName] = output
+        } else {
+            if (typeof folders[folderName].children === 'undefined')
+                folders[folderName].children = []
+            folders[folderName].children?.push(output)
+        }
     })
+
+    return Object.values(folders)
 }
 
 const sortDocsPages = (pages: LibraryDocumentData[]): LibraryDocumentData[] => {
     return pages.sort((a, b) => {
         return a.text > b.text ? 1 : -1
     })
-}
-
-const addDefaultPages = (pages: LibraryDocumentData[]): LibraryDocumentData[] => {
-    return [
-        { text: 'Getting started', href: '/docs/getting-started' },
-        { text: 'Library', href: '/docs/library', children: pages },
-    ]
 }
 
 const creatTableOfContents = (pages: LibraryDocumentData[]) => {
@@ -67,10 +78,8 @@ const removePreviousDocs = () => {
     fs.rmdirSync(DOCS_PUBLISH_PATH, { recursive: true })
 }
 
-const copyDocsFiles = () => {
+const copyDocsFiles = (files: string[]) => {
     const docsTemplateContents = fs.readFileSync(DOCS_TEMPLATE_PATH).toString()
-    const files = getAllFiles(DOCS_FOLDER)
-    console.log({ files })
     files.forEach((file) => {
         const contents = fs
             .readFileSync(file)
@@ -80,7 +89,7 @@ const copyDocsFiles = () => {
             .replace(/>/gu, '&gt;')
 
         const fileName = file.replace(DOCS_FOLDER, '').replace('.md', '.svelte')
-        const outputPath = path.join(DOCS_PUBLISH_PATH, fileName)
+        const outputPath = path.join(DOCS_PUBLISH_PATH, fileName).replace(/_/gu, '-')
 
         const outputContents = docsTemplateContents.replace('MARKDOWN_PLACEHOLDER', contents)
 
@@ -90,13 +99,18 @@ const copyDocsFiles = () => {
     })
 }
 
+const addLayout = () => {
+    fs.copyFileSync(LAYOUT_TEMPLATE_PATH, path.join(DOCS_PUBLISH_PATH, '$layout.svelte'))
+}
+
 const createLibraryDocs = () => {
-    let pages = getDocsData()
+    const allFiles = getAllFiles(DOCS_FOLDER).sort()
+    let pages = getDocsData(allFiles)
     pages = sortDocsPages(pages)
-    pages = addDefaultPages(pages)
     creatTableOfContents(pages)
     removePreviousDocs()
-    copyDocsFiles()
+    copyDocsFiles(allFiles)
+    addLayout()
 }
 
 const main = () => {
