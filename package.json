@@ -16,7 +16,7 @@
     },
     "devDependencies": {
         "@nick-mazuk/eslint-config": "0.7.51",
-        "@nick-mazuk/ui-config": "0.9.5",
+        "@nick-mazuk/ui-config": "0.9.6",
         "@sveltejs/adapter-node": "next",
         "@sveltejs/adapter-vercel": "1.0.0-next.8",
         "@sveltejs/kit": "next",
