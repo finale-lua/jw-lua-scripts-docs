@@ -16,6 +16,10 @@
     const githubRepoUrl = 'https://github.com/Nick-Mazuk/jw-lua-scripts'
 </script>
 
+<svelte:head>
+    <title>JW Lua Scripts</title>
+</svelte:head>
+
 <LoadingProgressIndicator />
 
 <Header sticky>
