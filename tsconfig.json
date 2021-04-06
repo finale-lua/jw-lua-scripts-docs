@@ -17,5 +17,13 @@
         },
         "strict": true
     },
-    "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte", "cli/**/*.ts", "types.d.ts"]
+    "include": [
+        "src/**/*.d.ts",
+        "src/**/*.js",
+        "src/**/*.ts",
+        "src/**/*.svelte",
+        "cli/**/*.ts",
+        "types.d.ts"
+    ],
+    "exclude": ["src/lib/lib/stork.js"]
 }

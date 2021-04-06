@@ -14,6 +14,6 @@ enigma_string.trim_first_enigma_font_tags(string)
 | -------- | -------- | ----------- |
 | `string` | `string` |             |
 
-| Output type      | Description                                          |
-| ---------------- | ---------------------------------------------------- |
-| `string | nill` | the first font info that was stripped or nil if none |
+| Output type | Description |
+| ----------- | ----------- | ---------------------------------------------------- |
+| `string     | nill`       | the first font info that was stripped or nil if none |

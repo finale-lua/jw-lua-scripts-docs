@@ -11,7 +11,6 @@
     import DarkModeSelect from '@nick-mazuk/ui-svelte/src/elements/dark-mode-select/dark-mode-select.svelte'
 
     import { darkMode } from '../lib/stores/dark-mode'
-    import SiteSearch from '../lib/components/site-search.svelte'
 
     const githubRepoUrl = 'https://github.com/Nick-Mazuk/jw-lua-scripts'
 </script>
@@ -25,9 +24,6 @@
 <Header sticky>
     <svelte:fragment slot="left">
         <HeaderBrand text="JW Lua Scripts" />
-    </svelte:fragment>
-    <svelte:fragment slot="center">
-        <SiteSearch />
     </svelte:fragment>
     <svelte:fragment slot="right">
         <HeaderLink href="/docs/getting-started" breakpoint="none">Docs</HeaderLink>

@@ -2,3 +2,5 @@
 pnpm-lock.yaml
 .vercel_build_output
 cli/dist
+static/stork.st
+static/stork.wasm

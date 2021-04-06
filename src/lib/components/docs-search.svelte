@@ -1,15 +1,19 @@
 <script lang="ts">
     import SearchInput from '@nick-mazuk/ui-svelte/src/form/search-input/search-input.svelte'
     import HeaderItemWrapper from '@nick-mazuk/ui-svelte/src/layouts/header/header-item-wrapper/header-item-wrapper.svelte'
+    
+// import '../lib/stork'
 
     let value = ''
 
     type Excerpt = {
         text: string
+        /* eslint-disable camelcase -- 3rd party api */
         highlight_ranges: { beginning: number; end: number }[]
-        score: number
         internal_annotations: []
-        fields: {}
+        /* eslint-enable camelcase -- 3rd party api */
+        score: number
+        fields: Record<string, unknown>
     }
     type Result = {
         entry: { url: string; title: string }
@@ -17,12 +21,12 @@
     }
 
     let results: Result[] = []
-    let resultsMap: { [title: string]: Result }
+    let resultsMap: { [title: string]: Result } = {}
     let isLoading = false
     let hideOptions = true
     $: {
         if (typeof window !== 'undefined' && value) {
-            results = window.stork.search('docs', value).results
+            ;({ results } = (window as any).stork.search('docs', value))
             resultsMap = {}
             results.forEach((result) => {
                 resultsMap[result.entry.title] = result
@@ -35,8 +39,8 @@
         hideOptions = value.length === 0
     }
     const handleFocus = () => {
-        window.stork.initialize('/stork.wasm')
-        window.stork.downloadIndex('docs', '/stork.st')
+        ;(window as any).stork.initialize('/stork.wasm')
+        ;(window as any).stork.downloadIndex('docs', '/stork.st')
     }
 </script>
 
