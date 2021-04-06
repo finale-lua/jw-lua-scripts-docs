@@ -1,22 +1,20 @@
-# Sveltekit template
+# JW Lua Scripts docs
 
-This is a very opinionated Sveltekit template. It's configured for my personal setup.
+This is the documentation site for the [JW Lua Scripts repository](https://github.com/Nick-Mazuk/jw-lua-scripts).
 
-## Getting started
+Visit the site: [https://jw-lua-scripts-docs.vercel.app/](https://jw-lua-scripts-docs.vercel.app/)
 
-Use [degit](https://www.npmjs.com/package/degit) to copy the contents of this repo into your current directory. By using `degit`, you remove all git data and history.
+## Development
 
-```bash
-pnpx degit nick-mazuk/sveltekit-template
-```
+This site is built with Sveltekit. However, there are some quirks to know about as much of the source code is automatically generated. This site is designed to be low maintenance. If you wish to edit the contents (i.e., not fixing a bug), create a PR for the [main repo](https://github.com/Nick-Mazuk/jw-lua-scripts) instead.
 
-Then install the dependencies:
+### Getting started
+
+After cloning, make sure to install the dependencies.
 
 ```bash
 pnpm i
 ```
-
-Now, you should be able to do whatever you want.
 
 ```bash
 pnpm dev #start development server
@@ -26,4 +24,17 @@ pnpm start # starts the production server
 
 pnpm test # run tests
 pnpm lint # format and lint everything
+```
+
+### Automatic docs generation
+
+Everything in the `/docs` folder is automatically added when the docs are updated in the main repository. Then, when the site is built, the markdown files are automatically transformed into the Svelte files in the actual site. Consequently, any edits to the `/docs` or `/src/routes/docs` folders will be overwritten when the site is deployed.
+
+Furthermore, the search files (`/src/static/stork.st` and `/src/static/stork.wasm`) are also automatically generated during deploy.
+
+To ensure you have the most recent files in development, run this:
+
+```bash
+pnpm prebuild
+pnpm stork # if this fails, make sure you have Stork search installed on your machine
 ```
