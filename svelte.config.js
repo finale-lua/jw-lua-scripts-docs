@@ -1,8 +1,7 @@
-const sveltePreprocess = require('svelte-preprocess')
-const adapter = require('@sveltejs/adapter-vercel')
-const pkg = require('./package.json')
+import sveltePreprocess from 'svelte-preprocess'
+import adapter from '@sveltejs/adapter-vercel'
 
-module.exports = {
+export default {
     preprocess: [
         sveltePreprocess({
             postcss: true,
@@ -14,14 +13,6 @@ module.exports = {
     kit: {
         adapter: adapter(),
         target: '#svelte',
-        vite: {
-            ssr: {
-                noExternal: Object.keys(pkg.dependencies || {}),
-            },
-            build: {
-                brotliSize: false,
-            },
-        },
         files: {
             assets: 'static',
             hooks: 'src/hooks',

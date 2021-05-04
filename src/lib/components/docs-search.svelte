@@ -1,8 +1,7 @@
 <script lang="ts">
     import SearchInput from '@nick-mazuk/ui-svelte/src/form/search-input/search-input.svelte'
-    import HeaderItemWrapper from '@nick-mazuk/ui-svelte/src/layouts/header/header-item-wrapper/header-item-wrapper.svelte'
-    
-// import '../lib/stork'
+
+    // import '../lib/stork'
 
     let value = ''
 
@@ -44,28 +43,23 @@
     }
 </script>
 
-<HeaderItemWrapper breakpoint="sm">
-    <div class="flex items-center flex-shrink">
-        <SearchInput
-            isLoading="{isLoading}"
-            hideOptions="{hideOptions}"
-            on:focus="{handleFocus}"
-            bind:value
-            options="{results.map((result) => result.entry.title)}"
-            width="{72}"
-        >
-            <a
-                sveltekit:prefetch
-                slot="option"
-                href="{resultsMap[option].entry.url}"
-                class="block rounded px-3 py-2 group text-left text-sm hover:bg-gray-50"
-                let:option
-            >
-                {option}
-            </a>
-        </SearchInput>
-    </div>
-</HeaderItemWrapper>
+<SearchInput
+    isLoading="{isLoading}"
+    hideOptions="{hideOptions}"
+    on:focus="{handleFocus}"
+    bind:value
+    options="{results.map((result) => result.entry.title)}"
+>
+    <a
+        sveltekit:prefetch
+        slot="option"
+        href="{resultsMap[option].entry.url}"
+        class="block rounded px-3 py-2 group text-left text-sm hover:bg-gray-50"
+        let:option
+    >
+        {option}
+    </a>
+</SearchInput>
 
 <svelte:head>
     <script src="https://files.stork-search.net/stork.js" defer></script>
