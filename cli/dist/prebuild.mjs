@@ -5,7 +5,7 @@ const DOCS_PUBLISH_PATH = "src/routes/docs";
 const TOC_TEMPLATE_PATH = "cli/src/templates/toc.svelte";
 const DOCS_TEMPLATE_PATH = "cli/src/templates/docs-page.svelte";
 const LAYOUT_TEMPLATE_PATH = "cli/src/templates/docs-layout.svelte";
-const TOC_OUTPUT_PATH = "src/lib/components/library-docs-toc.svelte";
+const TOC_OUTPUT_PATH = "src/lib/lib/library-pages.ts";
 const getAllFiles = (folderPath, arrayOfFiles) => {
   const files = fs.readdirSync(folderPath);
   let output = arrayOfFiles != null ? arrayOfFiles : [];
@@ -55,9 +55,8 @@ const sortDocsPages = (pages) => {
   });
 };
 const creatTableOfContents = (pages) => {
-  const componentContents = fs.readFileSync(TOC_TEMPLATE_PATH).toString();
-  const updatedContents = componentContents.replace("const libraryPages: any[] = []", `const libraryPages: any[] = ${JSON.stringify(pages)}`);
-  fs.writeFileSync(TOC_OUTPUT_PATH, updatedContents);
+  const contents = `export const libraryPages: any[] = ${JSON.stringify(pages)}`;
+  fs.writeFileSync(TOC_OUTPUT_PATH, contents);
 };
 const removePreviousDocs = () => {
   fs.rmdirSync(DOCS_PUBLISH_PATH, {recursive: true});
