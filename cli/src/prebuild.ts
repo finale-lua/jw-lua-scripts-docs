@@ -108,7 +108,7 @@ const copyDocsFiles = (files: string[]) => {
 }
 
 const addLayout = () => {
-    fs.copyFileSync(LAYOUT_TEMPLATE_PATH, path.join(DOCS_PUBLISH_PATH, '$layout.svelte'))
+    fs.copyFileSync(LAYOUT_TEMPLATE_PATH, path.join(DOCS_PUBLISH_PATH, '__layout.svelte'))
 }
 
 const createDocsSearch = (allFiles: string[]) => {

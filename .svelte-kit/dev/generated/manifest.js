@@ -1,8 +1,8 @@
 const c = [
-	() => import("../../../src/routes/$layout.svelte"),
-	() => import("../../../src/routes/$error.svelte"),
+	() => import("../../../src/routes/__layout.svelte"),
+	() => import("../../../src/routes/__error.svelte"),
 	() => import("../../../src/routes/index.svelte"),
-	() => import("../../../src/routes/docs/$layout.svelte"),
+	() => import("../../../src/routes/docs/__layout.svelte"),
 	() => import("../../../src/routes/docs/getting-started/adding-scripts.svelte"),
 	() => import("../../../src/routes/docs/getting-started/style-guide.svelte"),
 	() => import("../../../src/routes/docs/getting-started/resources.svelte"),

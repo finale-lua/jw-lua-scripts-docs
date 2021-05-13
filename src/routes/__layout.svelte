@@ -19,6 +19,7 @@
     import { libraryPages } from '../lib/lib/library-pages'
 
     const githubRepoUrl = 'https://github.com/Nick-Mazuk/jw-lua-scripts'
+
 </script>
 
 <svelte:head>
@@ -43,7 +44,6 @@
     </svelte:fragment>
 </Header>
 <slot />
-
 <Footer>
     <svelte:fragment slot="subfooter">
         <p>©{new Date().getFullYear()} Nick Mazuk.</p>

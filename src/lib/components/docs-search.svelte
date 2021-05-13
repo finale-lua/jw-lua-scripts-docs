@@ -1,5 +1,5 @@
 <script lang="ts">
-    import SearchInput from '@nick-mazuk/ui-svelte/src/form/search-input/search-input.svelte'
+    import SearchInput from '@nick-mazuk/ui-svelte/src/form/inputs/search-input/search-input.svelte'
 
     // import '../lib/stork'
 
@@ -41,6 +41,7 @@
         ;(window as any).stork.initialize('/stork.wasm')
         ;(window as any).stork.downloadIndex('docs', '/stork.st')
     }
+
 </script>
 
 <SearchInput

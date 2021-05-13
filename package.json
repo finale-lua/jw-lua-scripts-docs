@@ -10,6 +10,7 @@
         "prebuild": "./node_modules/.bin/esbuild cli/src/prebuild --outfile=cli/dist/prebuild.mjs --platform=node --target=node12.17 && node cli/dist/prebuild.mjs",
         "build": "svelte-kit build",
         "start": "svelte-kit start",
+        "preview": "svelte-kit preview",
         "check-types": "tsc --noemit",
         "prettier": "prettier --write . --plugin-search-dir=. --quiet",
         "svelte-check": "svelte-check",
@@ -17,10 +18,10 @@
         "lint": "npm run prettier && npm run check-types && npm run svelte-check && npm run eslint"
     },
     "devDependencies": {
-        "@nick-mazuk/eslint-config": "0.8.5",
-        "@nick-mazuk/ui-config": "0.10.30",
-        "@sveltejs/adapter-vercel": "1.0.0-next.16",
-        "@sveltejs/kit": "^1.0.0-next.99",
+        "@nick-mazuk/eslint-config": "0.8.11",
+        "@nick-mazuk/ui-config": "0.10.41",
+        "@sveltejs/adapter-vercel": "1.0.0-next.17",
+        "@sveltejs/kit": "^1.0.0-next.107",
         "@types/fs-extra": "^9.0.9",
         "autoprefixer": "^10.2.5",
         "esbuild": "^0.11.2",
@@ -39,8 +40,8 @@
         "vite": "2.2.4"
     },
     "dependencies": {
-        "@nick-mazuk/lib": "^0.8.34",
-        "@nick-mazuk/ui-svelte": "0.4.2",
+        "@nick-mazuk/lib": "^0.8.49",
+        "@nick-mazuk/ui-svelte": "0.5.3",
         "i": "^0.3.6",
         "jest": "^26.6.3",
         "stork-search": "^1.0.4"
