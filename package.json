@@ -37,7 +37,7 @@
         "tailwindcss": "^2.1.2",
         "tslib": "^2.0.0",
         "typescript": "^4.2.4",
-        "vite": "2.2.4"
+        "vite": "2.3.2"
     },
     "dependencies": {
         "@nick-mazuk/lib": "^0.8.49",
