@@ -1,13 +1,10 @@
 <script context="module">
     export const prerender = true
-
 </script>
 
 <script lang="ts">
     import Button from '@nick-mazuk/ui-svelte/src/elements/button/button.svelte'
     import ChevronRight from '@nick-mazuk/ui-svelte/src/elements/icon/chevron-right.svelte'
-    import TextInput from '@nick-mazuk/ui-svelte/src/form/inputs/text-input/text-input.svelte'
-
 </script>
 
 <main class="wrapper my-16">

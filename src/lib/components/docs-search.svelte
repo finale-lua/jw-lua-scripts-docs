@@ -41,7 +41,6 @@
         ;(window as any).stork.initialize('/stork.wasm')
         ;(window as any).stork.downloadIndex('docs', '/stork.st')
     }
-
 </script>
 
 <SearchInput

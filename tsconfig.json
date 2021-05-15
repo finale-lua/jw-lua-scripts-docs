@@ -25,7 +25,7 @@
         "cli/**/*.ts",
         "types.d.ts",
         "@nick-mazuk/lib/**/*.js",
-        "@nick-mazuk/lib/**/*.ts",
+        "@nick-mazuk/lib/**/*.ts"
     ],
     "exclude": ["src/lib/lib/stork.js"]
 }

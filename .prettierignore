@@ -5,3 +5,5 @@ cli/dist
 static/stork.st
 static/stork.wasm
 src/lib/lib/library-pages
+.svelte-kit
+docs
