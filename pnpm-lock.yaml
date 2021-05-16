@@ -3,7 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@nick-mazuk/eslint-config': 0.8.11
   '@nick-mazuk/lib': ^0.8.49
-  '@nick-mazuk/ui-config': 0.10.43
+  '@nick-mazuk/ui-config': 0.10.44
   '@nick-mazuk/ui-svelte': 0.8.4
   '@sveltejs/adapter-vercel': 1.0.0-next.17
   '@sveltejs/kit': ^1.0.0-next.107
@@ -29,14 +29,14 @@ specifiers:
 
 dependencies:
   '@nick-mazuk/lib': 0.8.49
-  '@nick-mazuk/ui-svelte': 0.8.4_13c1583d4fea60bedbae7f064823b11b
+  '@nick-mazuk/ui-svelte': 0.8.4_c2171cef23b8c1078042a49381e3b172
   i: 0.3.6
   jest: 26.6.3
   stork-search: 1.0.4
 
 devDependencies:
   '@nick-mazuk/eslint-config': 0.8.11_be3674dcae3b6f748f29cd1fed315ee1
-  '@nick-mazuk/ui-config': 0.10.43_tailwindcss@2.1.2
+  '@nick-mazuk/ui-config': 0.10.44_tailwindcss@2.1.2
   '@sveltejs/adapter-vercel': 1.0.0-next.17_svelte@3.38.2
   '@sveltejs/kit': 1.0.0-next.107_svelte@3.38.2
   '@types/fs-extra': 9.0.9
@@ -809,15 +809,15 @@ packages:
       validator: 13.6.0
     dev: false
 
-  /@nick-mazuk/ui-config/0.10.43_tailwindcss@2.1.2:
-    resolution: {integrity: sha512-modQeTbeGkqB9gK7nldnVnvrUfA6rzgBw+jz4BmqJv/epNdzlgS06NT8kKjNv78UUSNP0Zm1Im/i2YjJ24ZGvw==}
+  /@nick-mazuk/ui-config/0.10.44_tailwindcss@2.1.2:
+    resolution: {integrity: sha512-SPuph6NEhpiz0wsLzie3hQAX4EcJ3aUSKVEFufzesSKvotMximKjeqBxK3Zgpfz9H0KH4kOhb8DJHfosLV97qA==}
     peerDependencies:
       tailwindcss: ^2.1.1
     dependencies:
       tailwindcss: 2.1.2_caf414ac65a978d0d57907a0ec9fb41e
     dev: true
 
-  /@nick-mazuk/ui-svelte/0.8.4_13c1583d4fea60bedbae7f064823b11b:
+  /@nick-mazuk/ui-svelte/0.8.4_c2171cef23b8c1078042a49381e3b172:
     resolution: {integrity: sha512-cQtd47I/jE/m5eOU+gBf8EMCK5yQPSNVm2gVTdGX34hJgQCcJlQw89P1YGHJ1TuPleZv5JtguTmRzXdnohyW9w==}
     peerDependencies:
       '@nick-mazuk/lib': ^0.8.49
@@ -825,7 +825,7 @@ packages:
       tailwindcss: ^2.1.1
     dependencies:
       '@nick-mazuk/lib': 0.8.49
-      '@nick-mazuk/ui-config': 0.10.43_tailwindcss@2.1.2
+      '@nick-mazuk/ui-config': 0.10.44_tailwindcss@2.1.2
       diff: 5.0.0
       marked: 2.0.3
       svelte-intersection-observer: 0.7.0
