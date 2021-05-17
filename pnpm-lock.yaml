@@ -25,7 +25,7 @@ specifiers:
   tailwindcss: ^2.1.2
   tslib: ^2.0.0
   typescript: ^4.2.4
-  vite: 2.3.2
+  vite: 2.3.3
 
 dependencies:
   '@nick-mazuk/lib': 0.8.49
@@ -54,7 +54,7 @@ devDependencies:
   tailwindcss: 2.1.2_797cfc3ceddb49f111b184f6879a433f
   tslib: 2.2.0
   typescript: 4.2.4
-  vite: 2.3.2
+  vite: 2.3.3
 
 packages:
 
@@ -5706,6 +5706,19 @@ packages:
 
   /vite/2.3.2:
     resolution: {integrity: sha512-QhLdOompDrfkyryCNTts9HE+eJhvhN9ibKNJ5Q8DpQai+6nOsuIlaveZNg67e1O/2QaWqXeBo82eHnAs1De2bQ==}
+    engines: {node: '>=12.0.0'}
+    hasBin: true
+    dependencies:
+      esbuild: 0.11.23
+      postcss: 8.2.15
+      resolve: 1.20.0
+      rollup: 2.48.0
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
+  /vite/2.3.3:
+    resolution: {integrity: sha512-eO1iwRbn3/BfkNVMNJDeANAFCZ5NobYOFPu7IqfY7DcI7I9nFGjJIZid0EViTmLDGwwSUPmRAq3cRBbO3+DsMA==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
