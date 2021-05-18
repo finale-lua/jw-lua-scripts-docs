@@ -9,7 +9,7 @@ specifiers:
   '@sveltejs/kit': ^1.0.0-next.107
   '@types/fs-extra': ^9.0.9
   autoprefixer: ^10.2.5
-  esbuild: ^0.11.2
+  esbuild: ^0.12.0
   eslint: ^7.25.0
   fs-extra: ^10.0.0
   i: ^0.3.6
@@ -41,7 +41,7 @@ devDependencies:
   '@sveltejs/kit': 1.0.0-next.107_svelte@3.38.2
   '@types/fs-extra': 9.0.11
   autoprefixer: 10.2.5_postcss@8.2.15
-  esbuild: 0.11.23
+  esbuild: 0.12.0
   eslint: 7.26.0
   fs-extra: 10.0.0
   postcss: 8.2.15
@@ -1988,6 +1988,12 @@ packages:
 
   /esbuild/0.11.23:
     resolution: {integrity: sha512-iaiZZ9vUF5wJV8ob1tl+5aJTrwDczlvGP0JoMmnpC2B0ppiMCu8n8gmy5ZTGl5bcG081XBVn+U+jP+mPFm5T5Q==}
+    hasBin: true
+    requiresBuild: true
+    dev: true
+
+  /esbuild/0.12.0:
+    resolution: {integrity: sha512-vUKQ6TiMWGCtI7jLSrMmBVY4aj4As9J6NsFnrS9insd2F5KKD3mr1jUe+SB4KsMACkQIGtTtkksPpRmmqgxDHw==}
     hasBin: true
     requiresBuild: true
     dev: true
