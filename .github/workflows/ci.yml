@@ -13,6 +13,6 @@ jobs:
             - uses: actions/setup-node@v2.1.5
               with:
                   node-version: ${{ matrix.node }}
-            - run: npx pnpm i
+            - run: npx pnpm i --frozen-lockfile=false
             - run: npm run lint
             - run: npm run test
