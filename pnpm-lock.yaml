@@ -5,7 +5,7 @@ specifiers:
   '@nick-mazuk/lib': ^0.8.49
   '@nick-mazuk/ui-config': 0.10.53
   '@nick-mazuk/ui-svelte': 0.9.13
-  '@sveltejs/adapter-vercel': 1.0.0-next.18
+  '@sveltejs/adapter-vercel': 1.0.0-next.19
   '@sveltejs/kit': ^1.0.0-next.107
   '@types/fs-extra': ^9.0.9
   autoprefixer: ^10.2.5
@@ -37,7 +37,7 @@ dependencies:
 devDependencies:
   '@nick-mazuk/eslint-config': 0.8.11_157d6ab7d17f29a59760b96f899561f0
   '@nick-mazuk/ui-config': 0.10.53_tailwindcss@2.1.2
-  '@sveltejs/adapter-vercel': 1.0.0-next.18_svelte@3.38.2
+  '@sveltejs/adapter-vercel': 1.0.0-next.19_@sveltejs+kit@1.0.0-next.107
   '@sveltejs/kit': 1.0.0-next.107_svelte@3.38.2
   '@types/fs-extra': 9.0.11
   autoprefixer: 10.2.5_postcss@8.2.15
@@ -736,15 +736,13 @@ packages:
       '@sinonjs/commons': 1.8.3
     dev: false
 
-  /@sveltejs/adapter-vercel/1.0.0-next.18_svelte@3.38.2:
-    resolution: {integrity: sha512-l6jEJG+1Mo0FHqMIDTS4gNoWQkdpk8Bk9E3711nfp5aMybnjU380Hhkppt25u/A1bMUssrmztq6A+sd3Py2niQ==}
+  /@sveltejs/adapter-vercel/1.0.0-next.19_@sveltejs+kit@1.0.0-next.107:
+    resolution: {integrity: sha512-A2fTQDTTARahncaW5qP5sOyyw3xrCFj4rORw9dh819AvpajzO5PLwmQiAm2Fj2D8hrG7cnU0c30g89RsPsQ+OA==}
+    peerDependencies:
+      '@sveltejs/kit': 1.0.0-next.109
     dependencies:
-      '@sveltejs/kit': 1.0.0-next.108_svelte@3.38.2
+      '@sveltejs/kit': 1.0.0-next.107_svelte@3.38.2
       esbuild: 0.11.23
-    transitivePeerDependencies:
-      - rollup
-      - supports-color
-      - svelte
     dev: true
 
   /@sveltejs/kit/1.0.0-next.107_svelte@3.38.2:
@@ -759,23 +757,6 @@ packages:
       sade: 1.7.4
       svelte: 3.38.2
       vite: 2.3.2
-    transitivePeerDependencies:
-      - rollup
-      - supports-color
-    dev: true
-
-  /@sveltejs/kit/1.0.0-next.108_svelte@3.38.2:
-    resolution: {integrity: sha512-4XPuN1WsL6hksYZionnO1f+aBLifWIM/gFgDgx4u1Fzhln5usgOCe0RqrN3unmhyprawRYY5/1DUPfqfVHxSVQ==}
-    engines: {node: '>= 12.17.0'}
-    hasBin: true
-    peerDependencies:
-      svelte: ^3.38.2
-    dependencies:
-      '@sveltejs/vite-plugin-svelte': 1.0.0-next.10_svelte@3.38.2+vite@2.3.3
-      cheap-watch: 1.0.3
-      sade: 1.7.4
-      svelte: 3.38.2
-      vite: 2.3.3
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -798,28 +779,6 @@ packages:
       svelte: 3.38.2
       svelte-hmr: 0.14.4_svelte@3.38.2
       vite: 2.3.2
-    transitivePeerDependencies:
-      - rollup
-      - supports-color
-    dev: true
-
-  /@sveltejs/vite-plugin-svelte/1.0.0-next.10_svelte@3.38.2+vite@2.3.3:
-    resolution: {integrity: sha512-ImvxbhPePm2hWNTKBSA3LHAYGwiEjHjvvgfPLXm4R87sfZ+BMXql9jBmDpzUC/URBLT4BB3Jxos/i523qkJBHg==}
-    engines: {node: '>=12.0.0'}
-    peerDependencies:
-      svelte: ^3.37.0
-      vite: ^2.2.3
-    dependencies:
-      '@rollup/pluginutils': 4.1.0
-      chalk: 4.1.1
-      debug: 4.3.2
-      hash-sum: 2.0.0
-      require-relative: 0.8.7
-      slash: 4.0.0
-      source-map: 0.7.3
-      svelte: 3.38.2
-      svelte-hmr: 0.14.4_svelte@3.38.2
-      vite: 2.3.3
     transitivePeerDependencies:
       - rollup
       - supports-color
