@@ -1,9 +1,8 @@
 <script lang="ts">
     import { page } from '$app/stores'
-    import TextContent from '@nick-mazuk/ui-svelte/src/typography/text-content/text-content.svelte'
     import TableOfContents from '@nick-mazuk/ui-svelte/src/navigation/table-of-contents/table-of-contents.svelte'
 
-    import { libraryPages } from '../../lib/lib/library-pages'
+    import { libraryPages } from '$lib/lib/library-pages'
 
 </script>
 
@@ -11,7 +10,7 @@
     <aside class="hidden md:block w-40 lg:w-64 flex-none pt-1">
         <TableOfContents currentItem="{$page.path}" items="{libraryPages}" size="large" />
     </aside>
-    <TextContent center fullWidth>
+    <div class="prose max-w-full mx-auto">
         <slot />
-    </TextContent>
+    </div>
 </div>
