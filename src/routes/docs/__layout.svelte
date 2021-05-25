@@ -2,7 +2,7 @@
     import { page } from '$app/stores'
     import TableOfContents from '@nick-mazuk/ui-svelte/src/navigation/table-of-contents/table-of-contents.svelte'
 
-    import { libraryPages } from '$lib/lib/library-pages'
+    import { libraryPages } from '../../lib/lib/library-pages'
 
 </script>
 
