@@ -19,7 +19,6 @@
     import { libraryPages } from '../lib/lib/library-pages'
 
     const githubRepoUrl = 'https://github.com/Nick-Mazuk/jw-lua-scripts'
-
 </script>
 
 <svelte:head>
