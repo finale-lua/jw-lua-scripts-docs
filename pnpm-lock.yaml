@@ -2,7 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@nick-mazuk/eslint-config': 0.8.11
-  '@nick-mazuk/lib': ^0.8.51
+  '@nick-mazuk/lib': ^0.8.54
   '@nick-mazuk/ui-config': 0.10.61
   '@nick-mazuk/ui-svelte': 0.13.2
   '@sveltejs/adapter-vercel': 1.0.0-next.19
@@ -28,8 +28,8 @@ specifiers:
   vite: 2.3.4
 
 dependencies:
-  '@nick-mazuk/lib': 0.8.51
-  '@nick-mazuk/ui-svelte': 0.13.2_fb034ead3839ff601023cb09adfda478
+  '@nick-mazuk/lib': 0.8.54
+  '@nick-mazuk/ui-svelte': 0.13.2_bf3f262cd8dbedd87b36d2ff5c4995e5
   i: 0.3.6
   jest: 27.0.1
   stork-search: 1.0.4
@@ -648,8 +648,8 @@ packages:
       - svelte
     dev: true
 
-  /@nick-mazuk/lib/0.8.51:
-    resolution: {integrity: sha512-eTWcELYqmU1jpJIvtSDDf/BmttZn9FyGyECadQwGmX7VF1oZbyg/geHrrUaQsRVj/+eRxDuYwGyVkKlZf+SUMQ==}
+  /@nick-mazuk/lib/0.8.54:
+    resolution: {integrity: sha512-4qtWGCATquc8f5gEJUb1tvBa7kpKc913b+u8MgaUaHEPfbt1XXQxdsrXhyRz1U6u1xNAOhIBjxZ7UoU3auuHig==}
     dependencies:
       crypto-es: 1.2.7
       validator: 13.6.0
@@ -663,14 +663,14 @@ packages:
       tailwindcss: 2.1.2_797cfc3ceddb49f111b184f6879a433f
     dev: true
 
-  /@nick-mazuk/ui-svelte/0.13.2_fb034ead3839ff601023cb09adfda478:
+  /@nick-mazuk/ui-svelte/0.13.2_bf3f262cd8dbedd87b36d2ff5c4995e5:
     resolution: {integrity: sha512-QjhWkqhnqiw0DhvAsSgelhaPeE4V3c90N4LUK4JiHxxSWFzVyzGMnPEtkeBooOyrF8C+9iyjhfcACaMAQmffvA==}
     peerDependencies:
       '@nick-mazuk/lib': ^0.8.50
       '@nick-mazuk/ui-config': ^0.10.61
       tailwindcss: ^2.1.1
     dependencies:
-      '@nick-mazuk/lib': 0.8.51
+      '@nick-mazuk/lib': 0.8.54
       '@nick-mazuk/ui-config': 0.10.61_tailwindcss@2.1.2
       '@tiptap/core': 2.0.0-beta.68
       '@tiptap/extension-blockquote': 2.0.0-beta.13_@tiptap+core@2.0.0-beta.68
