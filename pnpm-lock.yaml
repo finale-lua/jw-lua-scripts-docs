@@ -4,7 +4,7 @@ specifiers:
   '@nick-mazuk/eslint-config': 0.8.12
   '@nick-mazuk/lib': ^0.8.54
   '@nick-mazuk/ui-config': 0.10.61
-  '@nick-mazuk/ui-svelte': 0.17.3
+  '@nick-mazuk/ui-svelte': 0.17.4
   '@sveltejs/adapter-vercel': 1.0.0-next.22
   '@sveltejs/kit': ^1.0.0-next.113
   '@types/fs-extra': ^9.0.9
@@ -28,7 +28,7 @@ specifiers:
 
 dependencies:
   '@nick-mazuk/lib': 0.8.54
-  '@nick-mazuk/ui-svelte': 0.17.3_d7f2caec531bee43a1e678ec8003e616
+  '@nick-mazuk/ui-svelte': 0.17.4_d7f2caec531bee43a1e678ec8003e616
   i: 0.3.6
   jest: 27.0.4
   stork-search: 1.0.4
@@ -691,8 +691,8 @@ packages:
       tailwindcss: 2.2.2_72be89de93206f86f2d67dd5290ec14d
     dev: true
 
-  /@nick-mazuk/ui-svelte/0.17.3_d7f2caec531bee43a1e678ec8003e616:
-    resolution: {integrity: sha512-A9YMmdH1AKMhetEejs1go+eW4sGNbKy49/mwqhFRRINXGEXw6l9bTS2jA9vI6kqedOTYOtTN9t8+scWRG8grig==}
+  /@nick-mazuk/ui-svelte/0.17.4_d7f2caec531bee43a1e678ec8003e616:
+    resolution: {integrity: sha512-VCmvDPXXER23jzqV7IVjKgu/9BESyFTCv6ewtVsBOfSb3Zu5wzTd5/iw1Kr8WQA5SpXo+avgiGwXxOKFyXrbWQ==}
     peerDependencies:
       '@nick-mazuk/lib': ^0.8.50
       '@nick-mazuk/ui-config': ^0.10.61
