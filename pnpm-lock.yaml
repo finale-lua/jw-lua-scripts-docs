@@ -3,7 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@nick-mazuk/eslint-config': 0.8.12
   '@nick-mazuk/lib': ^0.8.54
-  '@nick-mazuk/ui-config': 0.10.61
+  '@nick-mazuk/ui-config': 0.10.62
   '@nick-mazuk/ui-svelte': 0.17.4
   '@sveltejs/adapter-vercel': 1.0.0-next.22
   '@sveltejs/kit': ^1.0.0-next.113
@@ -28,14 +28,14 @@ specifiers:
 
 dependencies:
   '@nick-mazuk/lib': 0.8.54
-  '@nick-mazuk/ui-svelte': 0.17.4_d7f2caec531bee43a1e678ec8003e616
+  '@nick-mazuk/ui-svelte': 0.17.4_738826760e9042bfdd5207cad9d30474
   i: 0.3.6
   jest: 27.0.4
   stork-search: 1.0.4
 
 devDependencies:
   '@nick-mazuk/eslint-config': 0.8.12_b8bea851cb62890423a7d1faf2fdcbb9
-  '@nick-mazuk/ui-config': 0.10.61_tailwindcss@2.2.2
+  '@nick-mazuk/ui-config': 0.10.62_tailwindcss@2.2.2
   '@sveltejs/adapter-vercel': 1.0.0-next.22
   '@sveltejs/kit': 1.0.0-next.115_svelte@3.38.2
   '@types/fs-extra': 9.0.11
@@ -683,15 +683,15 @@ packages:
       validator: 13.6.0
     dev: false
 
-  /@nick-mazuk/ui-config/0.10.61_tailwindcss@2.2.2:
-    resolution: {integrity: sha512-DvPICI84FUl5CXiaktY8Z2zzW/p1ISmvn8Z7lFDScKdmy00aI0hVt3Wsaih/9aZBkYyCzSHoRn0x4Y1jLevMyA==}
+  /@nick-mazuk/ui-config/0.10.62_tailwindcss@2.2.2:
+    resolution: {integrity: sha512-B/JEG1GxkrPK/izafF962ihZp4v0/6H0bjfqI3hbar3SQVkNIg3Gq86hzy6ZmiVZZ8TXnJRyzrriIBCQRMdSWw==}
     peerDependencies:
       tailwindcss: ^2.1.1
     dependencies:
       tailwindcss: 2.2.2_72be89de93206f86f2d67dd5290ec14d
     dev: true
 
-  /@nick-mazuk/ui-svelte/0.17.4_d7f2caec531bee43a1e678ec8003e616:
+  /@nick-mazuk/ui-svelte/0.17.4_738826760e9042bfdd5207cad9d30474:
     resolution: {integrity: sha512-VCmvDPXXER23jzqV7IVjKgu/9BESyFTCv6ewtVsBOfSb3Zu5wzTd5/iw1Kr8WQA5SpXo+avgiGwXxOKFyXrbWQ==}
     peerDependencies:
       '@nick-mazuk/lib': ^0.8.50
@@ -699,7 +699,7 @@ packages:
       tailwindcss: ^2.1.1
     dependencies:
       '@nick-mazuk/lib': 0.8.54
-      '@nick-mazuk/ui-config': 0.10.61_tailwindcss@2.2.2
+      '@nick-mazuk/ui-config': 0.10.62_tailwindcss@2.2.2
       '@tiptap/core': 2.0.0-beta.84
       '@tiptap/extension-blockquote': 2.0.0-beta.14_@tiptap+core@2.0.0-beta.84
       '@tiptap/extension-bold': 2.0.0-beta.14_@tiptap+core@2.0.0-beta.84
