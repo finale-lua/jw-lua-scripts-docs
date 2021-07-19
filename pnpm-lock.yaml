@@ -5,7 +5,7 @@ specifiers:
   '@nick-mazuk/lib': ^0.8.54
   '@nick-mazuk/ui-config': 0.10.63
   '@nick-mazuk/ui-svelte': 0.26.2
-  '@sveltejs/adapter-vercel': 1.0.0-next.25
+  '@sveltejs/adapter-vercel': 1.0.0-next.26
   '@sveltejs/kit': ^1.0.0-next.113
   '@types/fs-extra': ^9.0.9
   autoprefixer: ^10.2.5
@@ -36,7 +36,7 @@ dependencies:
 devDependencies:
   '@nick-mazuk/eslint-config': 0.8.13_c2b76a1367fd671802ecd5cf1a4cd16f
   '@nick-mazuk/ui-config': 0.10.63_tailwindcss@2.2.4
-  '@sveltejs/adapter-vercel': 1.0.0-next.25
+  '@sveltejs/adapter-vercel': 1.0.0-next.26
   '@sveltejs/kit': 1.0.0-next.131_svelte@3.38.3
   '@types/fs-extra': 9.0.12
   autoprefixer: 10.3.1_postcss@8.3.5
@@ -787,8 +787,8 @@ packages:
       '@sinonjs/commons': 1.8.3
     dev: false
 
-  /@sveltejs/adapter-vercel/1.0.0-next.25:
-    resolution: {integrity: sha512-CsD/Pzf9W+H/2frLn1bVEFzYBEh29lhLwG1Aeugj3tRtO/o5JSnWdV7+9Ylo++jcmYvVReTRA9KPbsAbHsj+FA==}
+  /@sveltejs/adapter-vercel/1.0.0-next.26:
+    resolution: {integrity: sha512-t1/Gl9GF62HV99VOmI0clguuSHdJvGD2t8/y7tv9N55tLAHWk4yRV/UOilBQhX+KKjCkPn40Oln2jTXPhlr/lA==}
     dependencies:
       esbuild: 0.12.15
     dev: true
