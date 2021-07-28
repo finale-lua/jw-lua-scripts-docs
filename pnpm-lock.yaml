@@ -5,6 +5,7 @@ specifiers:
   '@nick-mazuk/lib': ^0.8.54
   '@nick-mazuk/ui-config': 0.10.63
   '@nick-mazuk/ui-svelte': 0.26.4
+  '@sveltejs/adapter-static': ^1.0.0-next.13
   '@sveltejs/adapter-vercel': 1.0.0-next.26
   '@sveltejs/kit': ^1.0.0-next.113
   '@types/fs-extra': ^9.0.9
@@ -32,6 +33,7 @@ specifiers:
 dependencies:
   '@nick-mazuk/lib': 0.8.90
   '@nick-mazuk/ui-svelte': 0.26.4_d3f66a7bb09fb857449ce76b016f4327
+  '@sveltejs/adapter-static': 1.0.0-next.13
   date-fns: 2.23.0
   i: 0.3.6
   jest: 27.0.6
@@ -782,6 +784,10 @@ packages:
     resolution: {integrity: sha512-iQADsW4LBMISqZ6Ci1dupJL9pprqwcVFTcOsEmQOEhW+KLCVn/Y4Jrvg2k19fIHCp+iFprriYPTdRcQR8NbUPg==}
     dependencies:
       '@sinonjs/commons': 1.8.3
+    dev: false
+
+  /@sveltejs/adapter-static/1.0.0-next.13:
+    resolution: {integrity: sha512-zaXJlWK9JfrjrE6nG5etB8kf4DSkbE3H8Ql6gmCk3WjdvpY85a60TMYBU9OK2iunkqpHnPYiMUGEnOGYmWlLYA==}
     dev: false
 
   /@sveltejs/adapter-vercel/1.0.0-next.26:

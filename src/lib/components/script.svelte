@@ -67,7 +67,7 @@
                 <p class="my-3">{data.notes}</p>
             {/if}
             {#if data.author.name || data.author.website || data.author.email}
-                <h4>Author</h4>
+                <h4 class="h6">Author</h4>
                 {#if data.author.name}
                     <p>{data.author.name}</p>
                 {/if}
@@ -83,7 +83,7 @@
                 {/if}
             {/if}
             {#if data.categories.length > 0}
-                <h4>Categories</h4>
+                <h4 class="h6">Categories</h4>
                 <div class="flex space-x-0.5 mt-1">
                     {#each data.categories as category}
                         <Badge>{category}</Badge>
@@ -91,14 +91,14 @@
                 </div>
             {/if}
             {#if data.version || data.date}
-                <h4>Version</h4>
+                <h4 class="h6">Version</h4>
                 <p>Version {data.version}</p>
                 {#if data.date}
                     <p>{format(new Date(data.date), 'MMMM d, YYY')}</p>
                 {/if}
             {/if}
             {#if data.requireSelection || data.requireScore}
-                <h4>Requirements</h4>
+                <h4 class="h6">Requirements</h4>
                 {#if data.requireSelection}
                     <p>Requires music selection to run</p>
                 {/if}
@@ -107,7 +107,7 @@
                 {/if}
             {/if}
             {#if data.copyright}
-                <h4>Licence</h4>
+                <h4 class="h6">Licence</h4>
                 <p>Copyright {data.copyright}</p>
             {/if}
         </div>
@@ -116,6 +116,6 @@
 
 <style>
     h4 {
-        @apply h6 text-foreground mt-3;
+        @apply text-foreground mt-3;
     }
 </style>
