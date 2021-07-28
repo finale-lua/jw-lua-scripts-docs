@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { page } from '$app/stores'
 
     import ResetItems from '$lib/components/reset-items.svelte'
@@ -8,6 +8,7 @@
     import HeaderLink from '@nick-mazuk/ui-svelte/src/components/header/header-link/header-link.svelte'
     import HeaderMobileLink from '@nick-mazuk/ui-svelte/src/components/header/header-mobile-link/header-mobile-link.svelte'
     import HeaderMobileSubgroup from '@nick-mazuk/ui-svelte/src/components/header/header-mobile-subgroup/header-mobile-subgroup.svelte'
+    import type { TocItems } from '@nick-mazuk/ui-svelte/src/components/table-of-contents'
     import Github from '@nick-mazuk/ui-svelte/src/elements/icon/github.svelte'
 
     import Footer from '@nick-mazuk/ui-svelte/src/components/footer/footer.svelte'
@@ -19,6 +20,35 @@
     import { libraryPages } from '../lib/lib/library-pages'
 
     const githubRepoUrl = 'https://github.com/Nick-Mazuk/jw-lua-scripts'
+
+    const helpPages: TocItems = [
+        {
+            text: 'Install scripts',
+            href: '/help/install',
+            children: [
+                {
+                    text: 'macOS',
+                    href: '/help/install/mac',
+                },
+                {
+                    text: 'Windows',
+                    href: '/help/install/windows',
+                },
+            ],
+        },
+        {
+            text: 'Request script',
+            href: 'https://github.com/Nick-Mazuk/jw-lua-scripts/issues/new/choose',
+        },
+        {
+            text: 'Report bug',
+            href: 'https://github.com/Nick-Mazuk/jw-lua-scripts/issues/new/choose',
+        },
+        {
+            text: 'Contribute',
+            href: '/docs/getting-started',
+        },
+    ]
 </script>
 
 <svelte:head>
@@ -30,10 +60,14 @@
 <Header sticky page="{$page.path}">
     <HeaderBrand text="JW Lua Scripts" slot="left" />
     <svelte:fragment slot="right">
+        <HeaderLink href="/help">Help</HeaderLink>
         <HeaderLink href="/docs/getting-started">Develper docs</HeaderLink>
         <HeaderLink href="{githubRepoUrl}"><Github title="Github" size="{6}" /></HeaderLink>
     </svelte:fragment>
     <svelte:fragment slot="mobile">
+        <HeaderMobileSubgroup items="{helpPages}" basePath="/help">
+            <HeaderMobileLink href="/help" slot="main">Help</HeaderMobileLink>
+        </HeaderMobileSubgroup>
         <HeaderMobileSubgroup items="{libraryPages}" basePath="/docs">
             <HeaderMobileLink href="/docs/getting-started" slot="main">
                 Developer docs

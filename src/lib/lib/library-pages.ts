@@ -1,4 +1,6 @@
-export const libraryPages: any[] = [
+import type { TocItems } from '@nick-mazuk/ui-svelte/src/components/table-of-contents';
+
+export const libraryPages: TocItems = [
     {
         text: 'Getting Started',
         href: '/docs/getting-started',

@@ -25,7 +25,8 @@
         message="Looks like the page you're looking for doesn't exist. This is just as frustrating as another Finale bug!"
         links="{[
             { href: '/', text: 'Home' },
-            { href: '/docs/getting-started', text: 'Docs' },
+            { href: '/help', text: 'Help' },
+            { href: '/docs/getting-started', text: 'Developer docs' },
         ]}"
     />
 {:else}

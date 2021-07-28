@@ -21,7 +21,7 @@
         "@nick-mazuk/eslint-config": "0.8.13",
         "@nick-mazuk/ui-config": "0.10.63",
         "@sveltejs/adapter-vercel": "1.0.0-next.26",
-        "@sveltejs/kit": "^1.0.0-next.113",
+        "@sveltejs/kit": "^1.0.0-next.138",
         "@types/fs-extra": "^9.0.9",
         "@types/js-search": "^1.4.0",
         "autoprefixer": "^10.2.5",
@@ -41,7 +41,7 @@
     },
     "dependencies": {
         "@nick-mazuk/lib": "^0.8.54",
-        "@nick-mazuk/ui-svelte": "0.26.4",
+        "@nick-mazuk/ui-svelte": "0.26.5",
         "@sveltejs/adapter-static": "^1.0.0-next.13",
         "date-fns": "^2.23.0",
         "i": "^0.3.6",

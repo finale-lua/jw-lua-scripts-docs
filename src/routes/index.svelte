@@ -7,6 +7,7 @@
     import { page } from '$app/stores'
 
     import FileCode from '@nick-mazuk/ui-svelte/src/elements/marketing-icon/file-code.svelte'
+    import Note from '@nick-mazuk/ui-svelte/src/elements/note/note.svelte'
     import EmptyState from '@nick-mazuk/ui-svelte/src/components/empty-state/empty-state.svelte'
     import SearchInput from '@nick-mazuk/ui-svelte/src/form/inputs/search-input/search-input.svelte'
     import type { TextInputChangeEvent } from '@nick-mazuk/ui-svelte/src/form/inputs/text-input'
@@ -16,6 +17,7 @@
     import type { ScriptData } from '$lib/types/script-data'
     import Container from '@nick-mazuk/ui-svelte/src/utilities/container/container.svelte'
     import { formatNumber } from '@nick-mazuk/lib/esm/number-styling'
+    import Button from '@nick-mazuk/ui-svelte/src/elements/button/button.svelte'
 
     let scripts: ScriptData[] = scriptData
     const search = new Search('name')
@@ -80,6 +82,11 @@
         Scripts to supercharge your Finale workflow, built by the Finale community
     </p>
     <Spacer />
+    <div class="flex justify-center space-x-3">
+        <Button variant="secondary" href="https://youtu.be/EFGNuGCEIq4">Learn more</Button>
+        <Button href="/help/install">Get started</Button>
+    </div>
+    <Spacer />
     <h2 class="sr-only">All scripts</h2>
     <SearchInput
         on:change="{handleSearchChange}"
@@ -111,4 +118,11 @@
             </EmptyState>
         {/if}
     </Container>
+    <Spacer />
+    <Note label="Note">
+        The development of these JW Lua scripts are totally separate from Finale, Makemusic, or
+        their affiliates. No financial, tech support or other arrangements have been made with these
+        companies. These scripts are created by the community, so they make have bugs, so use them
+        at your own risk.
+    </Note>
 </main>
