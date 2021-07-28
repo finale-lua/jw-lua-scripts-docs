@@ -26,7 +26,7 @@ specifiers:
   svelte: ^3.38.2
   svelte-check: ^2.0.0
   svelte-preprocess: ^4.7.3
-  tailwindcss: ^2.1.2
+  tailwindcss: ^2.2.7
   tslib: ^2.0.0
   typescript: ^4.2.4
 

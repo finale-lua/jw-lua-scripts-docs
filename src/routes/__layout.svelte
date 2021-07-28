@@ -10,6 +10,7 @@
     import HeaderMobileSubgroup from '@nick-mazuk/ui-svelte/src/components/header/header-mobile-subgroup/header-mobile-subgroup.svelte'
     import type { TocItems } from '@nick-mazuk/ui-svelte/src/components/table-of-contents'
     import Github from '@nick-mazuk/ui-svelte/src/elements/icon/github.svelte'
+    import Facebook from '@nick-mazuk/ui-svelte/src/elements/icon/facebook.svelte'
 
     import Footer from '@nick-mazuk/ui-svelte/src/components/footer/footer.svelte'
     import FooterSocialLinkWrapper from '@nick-mazuk/ui-svelte/src/components/footer/footer-social-link-wrapper/footer-social-link-wrapper.svelte'
@@ -18,8 +19,11 @@
 
     import { darkMode } from '../lib/stores/dark-mode'
     import { libraryPages } from '../lib/lib/library-pages'
+    import HeaderItemWrapper from '@nick-mazuk/ui-svelte/src/components/header/header-item-wrapper/header-item-wrapper.svelte'
+    import Button from '@nick-mazuk/ui-svelte/src/elements/button/button.svelte'
 
     const githubRepoUrl = 'https://github.com/Nick-Mazuk/jw-lua-scripts'
+    const facebookGroupUrl = 'https://www.facebook.com/groups/742277119576336/'
 
     const helpPages: TocItems = [
         {
@@ -61,10 +65,17 @@
     <HeaderBrand text="JW Lua Scripts" slot="left" />
     <svelte:fragment slot="right">
         <HeaderLink href="/help">Help</HeaderLink>
-        <HeaderLink href="/docs/getting-started">Develper docs</HeaderLink>
+        <HeaderLink href="/docs/getting-started">Developer docs</HeaderLink>
         <HeaderLink href="{githubRepoUrl}"><Github title="Github" size="{6}" /></HeaderLink>
+        <HeaderLink href="{facebookGroupUrl}"
+            ><Facebook title="Facebook group" size="{6}" /></HeaderLink
+        >
+        <HeaderItemWrapper>
+            <Button size="small" href="/scripts">View scripts</Button>
+        </HeaderItemWrapper>
     </svelte:fragment>
     <svelte:fragment slot="mobile">
+        <HeaderMobileLink href="/scripts">Scripts</HeaderMobileLink>
         <HeaderMobileSubgroup items="{helpPages}" basePath="/help">
             <HeaderMobileLink href="/help" slot="main">Help</HeaderMobileLink>
         </HeaderMobileSubgroup>
@@ -83,8 +94,11 @@
     <svelte:fragment slot="subfooter">
         <p>©{new Date().getFullYear()} Nick Mazuk.</p>
         <FooterSocialLinkWrapper>
-            <FooterSocialLink href="{githubRepoUrl}" title="Github">
+            <FooterSocialLink href="{githubRepoUrl}" title="GitHub">
                 <Github />
+            </FooterSocialLink>
+            <FooterSocialLink href="{facebookGroupUrl}" title="Facebook group">
+                <Facebook />
             </FooterSocialLink>
         </FooterSocialLinkWrapper>
         <DarkModeSelect store="{darkMode}" />

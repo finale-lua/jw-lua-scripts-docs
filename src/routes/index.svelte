@@ -1,128 +1,216 @@
-<script context="module">
-    export const prerender = true
-</script>
-
 <script lang="ts">
-    import { Search } from 'js-search'
-    import { page } from '$app/stores'
-
-    import FileCode from '@nick-mazuk/ui-svelte/src/elements/marketing-icon/file-code.svelte'
-    import Note from '@nick-mazuk/ui-svelte/src/elements/note/note.svelte'
-    import EmptyState from '@nick-mazuk/ui-svelte/src/components/empty-state/empty-state.svelte'
-    import SearchInput from '@nick-mazuk/ui-svelte/src/form/inputs/search-input/search-input.svelte'
-    import type { TextInputChangeEvent } from '@nick-mazuk/ui-svelte/src/form/inputs/text-input'
-    import Spacer from '@nick-mazuk/ui-svelte/src/utilities/spacer/spacer.svelte'
-    import Script from '$lib/components/script.svelte'
-    import scriptData from '$lib/lib/script-data.json'
-    import type { ScriptData } from '$lib/types/script-data'
-    import Container from '@nick-mazuk/ui-svelte/src/utilities/container/container.svelte'
-    import { formatNumber } from '@nick-mazuk/lib/esm/number-styling'
     import Button from '@nick-mazuk/ui-svelte/src/elements/button/button.svelte'
+    import Github from '@nick-mazuk/ui-svelte/src/elements/icon/github.svelte'
+    import Accordion from '@nick-mazuk/ui-svelte/src/components/accordion/accordion.svelte'
+    import AccordionGroup from '@nick-mazuk/ui-svelte/src/components/accordion/accordion-group/accordion-group.svelte'
 
-    let scripts: ScriptData[] = scriptData
-    const search = new Search('name')
-    search.addIndex('name')
-    search.addIndex('shortDescription')
-    search.addIndex(['author', 'name'])
-    search.addIndex('categories')
-
-    const allIndexes = new Set<number>()
-
-    const normalizeName = (name: string) => name.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    scripts.forEach((script, index) => {
-        search.addDocument({
-            ...script,
-            name: normalizeName(script.name),
-            index,
-        })
-        allIndexes.add(index)
-    })
-
-    let searchValue = $page.query.get('search') ?? ''
-
-    const handleSearchChange = (event: TextInputChangeEvent) =>
-        (searchValue = event.detail.parsedValue)
-
-    type DisplayedDocuments = { items: Set<number>; first: number; last: number }
-    const searchCache: {
-        [key: string]: DisplayedDocuments
-    } = {
-        '': {
-            items: allIndexes,
-            first: 0,
-            last: scripts.length - 1,
-        },
-    }
-
-    let displayedDocuments: DisplayedDocuments = searchCache['']
-    $: {
-        const currentSearch = searchValue.trim()
-        if (currentSearch in searchCache) {
-            displayedDocuments = searchCache[currentSearch]
-        } else {
-            const results: ScriptData[] = search.search(currentSearch)
-            const sortedResults = results.sort((a, b) => a.name.localeCompare(b.name))
-            displayedDocuments = {
-                items: new Set(results.map((script: ScriptData) => script.index)),
-                first: sortedResults[0]?.index ?? -1,
-                last: sortedResults[sortedResults.length - 1]?.index ?? -1,
-            }
-            searchCache[currentSearch] = displayedDocuments
-        }
-    }
-    $: if (typeof window !== 'undefined')
-        window.history.replaceState(null, '', searchValue ? `?search=${searchValue}` : '.')
+    import Container from '@nick-mazuk/ui-svelte/src/utilities/container/container.svelte'
+    import Seo from '@nick-mazuk/ui-svelte/src/utilities/seo/seo.svelte'
+    import Spacer from '@nick-mazuk/ui-svelte/src/utilities/spacer/spacer.svelte'
+    import Feature from '$lib/components/home/feature.svelte'
 </script>
 
-<main class="wrapper my-6" id="main-content">
-    <Spacer />
-    <h1 class="h3 text-center">Supercharge Finale</h1>
-    <Spacer y="{0.5}" />
-    <p class="text-center text-lg balance">
-        Scripts to supercharge your Finale workflow, built by the Finale community
-    </p>
-    <Spacer />
-    <div class="flex justify-center space-x-3">
-        <Button variant="secondary" href="https://youtu.be/EFGNuGCEIq4">Learn more</Button>
-        <Button href="/help/install">Get started</Button>
+<Seo title="" siteName="JW Lua Scripts" />
+
+<main id="main-content">
+    <section class="wrapper my-16">
+        <h1 class="sr-only">About JW Lua scripts</h1>
+        <h2 class="h3 sm:h1 text-center text-balance">Real speed.<br />Unlimited power.</h2>
+        <Spacer />
+        <p
+            class="text-lg sm:text-2xl font-semibold text-gray-700 text-center max-w-lg mx-auto text-balance"
+        >
+            Use Finale faster than the blink of an eye. Simplify workflows into just one click. All
+            for free, forever.
+        </p>
+        <Spacer />
+        <div class="flex justify-center">
+            <Button href="/" size="large">View all scripts</Button>
+        </div>
+    </section>
+    <div class="py-16 bg-gray-100 border-t border-b mt-64">
+        <div class="wrapper">
+            <div
+                class="rounded-xl bg-background shadow-xl h-96 -mt-64 relative z-10 border-4 border-highlight"
+            ></div>
+        </div>
+        <Feature
+            title="Create advanced notation in a second"
+            description="String harmonics, jeté, and microtonal transpositions are notoriously difficult in Finale. Now, create this advanced notation in just a second. Literally."
+        />
+        <Feature
+            reversed
+            title="Fix those annoying Finale bugs"
+            description="No more colliding hairpins and dynamics. No more manually adjusting measure numbers. No more of those hidden, gray playback notes clogging up your view. Fix each of these in just one click."
+        />
+        <Feature
+            title="…and do so much more"
+            description="JW Lua hooks directly into Finale. That means you can do almost anything with JW Lua—fix playback, generate parts, or even see how many notes you wrote. Anything is possible! And as more people write JW Lua scripts, we all benefit."
+        />
     </div>
-    <Spacer />
-    <h2 class="sr-only">All scripts</h2>
-    <SearchInput
-        on:change="{handleSearchChange}"
-        placeholder="Search…"
-        defaultValue="{searchValue}"
-        helpText="Found {formatNumber(displayedDocuments.items.size)} script{displayedDocuments
-            .items.size === 1
-            ? ''
-            : 's'}"
-    />
-    <Spacer />
-    <Container>
-        {#each scripts as item, index}
-            <Script
-                data="{item}"
-                show="{displayedDocuments.items.has(index)}"
-                first="{index === displayedDocuments.first}"
-                last="{index === displayedDocuments.last}"
-            />
-        {/each}
-        {#if displayedDocuments.items.size === 0}
-            <EmptyState
-                title="No scripts found"
-                description="There are no scripts that match your search"
+    <section class="py-16 bg-primary text-background dark:text-foreground">
+        <div class="wrapper">
+            <h2 class="h4 text-center">By Finale users, for Finale users</h2>
+            <Spacer y="{0.5}" />
+            <div class="mx-auto max-w-lg text-lg">
+                These JW Lua scripts are created by the Finale community. And they are free and open
+                source, meaning you can view the source code, modify them, and add your own.
+            </div>
+            <Spacer />
+            <div class="flex justify-center space-x-3">
+                <Button prefix="{Github}" href="https://github.com/Nick-Mazuk/jw-lua-scripts">
+                    View on GitHub
+                </Button>
+                <div class="light">
+                    <Button variant="secondary" href="/docs/getting-started">Contribute</Button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="my-16 wrapper !max-w-2xl">
+        <h2 class="h4 text-center">FAQ</h2>
+        <Spacer />
+        <AccordionGroup>
+            <Accordion title="What is JW Lua?" size="small">
+                <p>
+                    JW Lua is a plugin created by Jari Williams that allows other Finale users to
+                    create plugins for Finale.
+                </p>
+                <p>
+                    The popularity of JW Lua has exploded over the last few years. Popular Finale
+                    tools like the JetStream Finale Controller and the Perfect Layout plugin are
+                    created with JW Lua.
+                </p>
+                <p>
+                    And because JW Lua hooks directly into Finale, pretty much anything is possible.
+                    If you can do something in Finale, JW Lua can probably do it as well.
+                </p>
+            </Accordion>
+            <Accordion title="What is a JW Lua script?" size="small">
+                <p>
+                    JW Lua is a plugin for Finale. This plugin can run code created by Finale users
+                    called JW Lua scripts.
+                </p>
+            </Accordion>
+            <Accordion title="Why should I use JW Lua?" size="small">
+                <p>
+                    JW Lua is fast. Insanely fast. Most scripts run in less than 0.01 seconds.
+                    That's 10x faster than the blink of an eye.
+                </p>
+                <p>
+                    If there's something that normally takes you several minutes to do, JW Lua can
+                    do it in just a single click.
+                </p>
+            </Accordion>
+            <Accordion title="Do I need to know how to code?" size="small">
+                <p>Absolutely not! You don't need to write any code to use a JW Lua script.</p>
+
+                <p>
+                    Though if you want to create your own JW Lua script, you will need to learn how
+                    to code. Luckily, there's a YouTube playlist on <a
+                        href="https://www.youtube.com/playlist?list=PLsFZ0c2Wsoy9ZF6a0ZihC_-SPf3FkOh8o"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        learning to code in JW Lua
+                    </a>.
+                </p>
+            </Accordion>
+            <Accordion title="What version of Finale will I need?" size="small">
+                <p>
+                    JW Lua scripts work best on Finale v25 or later. However, many scripts will also
+                    work on earlier versions of Finale. Most scripts are only checked with the most
+                    recent version of Finale (this is community-run, after all), though there's no
+                    reason to believe they won't work on earlier versions.
+                </p>
+                <p>
+                    JW Lua works on both macOS and Windows versions of Finale. We do not know if JW
+                    Lua will work if or when MakeMusic releases a version of Finale optimized for
+                    Apple Silicon.
+                </p>
+            </Accordion>
+            <Accordion title="Who wrote these scripts?" size="small">
+                <p>
+                    Many people in the Finale community contribute to these scripts. Prominent
+                    contributors include:
+                </p>
+                <ul>
+                    <li><strong>Robert Patterson</strong>, the creator of the Patterson plugins</li>
+                    <li><strong>Nick Mazuk</strong>, the creator of Finale Superuser</li>
+                    <li>
+                        <strong>CJ Garcia</strong>, prominent member of the JetStream Finale
+                        Controler team
+                    </li>
+                    <li>
+                        <strong>Jacob Winkler</strong>, prominent member of the JetStream Finale
+                        Controler team
+                    </li>
+                </ul>
+                <p>
+                    Because these scripts are open source, can find a complete list of contributors
+                    in the <a
+                        href="https://github.com/Nick-Mazuk/jw-lua-scripts"
+                        target="_blank"
+                        rel="noreferrer">GitHub repository</a
+                    >.
+                </p>
+                <p>
+                    But rest assured, all scripts and edits are peer-reviewed before they are
+                    published to this site. That helps to keep them high-quality.
+                </p>
+            </Accordion>
+            <Accordion title="How can I get help?" size="small">
+                <p>There are a few ways:</p>
+                <ul>
+                    <li>
+                        <strong
+                            >Check out the <a sveltekit:prefetch href="/help">help docs</a></strong
+                        >. The most common questions are answered in there.
+                    </li>
+                    <li>
+                        <strong>
+                            Check out the <a
+                                href="https://www.facebook.com/groups/742277119576336/"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                Facebook group</a
+                            ></strong
+                        >. This is a group for JW Lua in general (and not just these scripts), but
+                        you should be able to get help there
+                    </li>
+                    <li>
+                        <strong
+                            >Report bugs to the <a
+                                href="https://github.com/Nick-Mazuk/jw-lua-scripts"
+                                target="_blank"
+                                rel="noreferrer">GitHub repository</a
+                            ></strong
+                        >. That is where all the developers keep track of all the code, so that's
+                        the best place to report bugs.
+                    </li>
+                </ul>
+            </Accordion>
+        </AccordionGroup>
+    </section>
+    <section class="my-16 wrapper">
+        <Container
+            class="flex flex-col justify-between space-y-6 sm:flex-row sm:space-x-6 sm:space-y-0 sm:items-center"
+        >
+            <div class="text-center sm:text-left">
+                <h2 class="h5">Get started</h2>
+                <p>Start speeding up your Finale workflow with JW Lua</p>
+            </div>
+            <div
+                class="flex w-full flex-col space-y-3 justify-center flex-none sm:flex-row sm:space-x-3 sm:space-y-0 sm:w-auto"
             >
-                <svelte:fragment slot="image">
-                    <FileCode class="w-32" />
-                </svelte:fragment>
-            </EmptyState>
-        {/if}
-    </Container>
-    <Spacer />
-    <Note label="Note">
-        The development of these JW Lua scripts are totally separate from Finale, Makemusic, or
-        their affiliates. No financial, tech support or other arrangements have been made with these
-        companies. These scripts are created by the community, so they make have bugs, so use them
-        at your own risk.
-    </Note>
+                <div class="w-full flex items-stretch flex-col sm:w-auto flex-none">
+                    <Button variant="secondary" href="/help/install">Install instructions</Button>
+                </div>
+                <div class="w-full flex items-stretch flex-col sm:w-auto flex-none">
+                    <Button href="/scripts">View all scripts</Button>
+                </div>
+            </div>
+        </Container>
+    </section>
 </main>
