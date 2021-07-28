@@ -30,12 +30,14 @@
 <Header sticky page="{$page.path}">
     <HeaderBrand text="JW Lua Scripts" slot="left" />
     <svelte:fragment slot="right">
-        <HeaderLink href="/docs/getting-started">Docs</HeaderLink>
+        <HeaderLink href="/docs/getting-started">Develper docs</HeaderLink>
         <HeaderLink href="{githubRepoUrl}"><Github title="Github" size="{6}" /></HeaderLink>
     </svelte:fragment>
     <svelte:fragment slot="mobile">
         <HeaderMobileSubgroup items="{libraryPages}" basePath="/docs">
-            <HeaderMobileLink href="/docs/getting-started" slot="main">Docs</HeaderMobileLink>
+            <HeaderMobileLink href="/docs/getting-started" slot="main">
+                Developer docs
+            </HeaderMobileLink>
         </HeaderMobileSubgroup>
         <HeaderMobileLink href="{githubRepoUrl}">
             <Github title="Github" size="{6}" />

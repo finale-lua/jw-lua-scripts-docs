@@ -97,12 +97,14 @@
                     <p>{format(new Date(data.date), 'MMMM d, YYY')}</p>
                 {/if}
             {/if}
-            <h4>Requirements</h4>
-            {#if data.requireSelection}
-                <p>Requires music selection to run</p>
-            {/if}
-            {#if data.requireScore}
-                <p>Requires score view to run</p>
+            {#if data.requireSelection || data.requireScore}
+                <h4>Requirements</h4>
+                {#if data.requireSelection}
+                    <p>Requires music selection to run</p>
+                {/if}
+                {#if data.requireScore}
+                    <p>Requires score view to run</p>
+                {/if}
             {/if}
             {#if data.copyright}
                 <h4>Licence</h4>

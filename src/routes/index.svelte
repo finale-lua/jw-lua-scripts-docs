@@ -4,6 +4,7 @@
 
 <script lang="ts">
     import { Search } from 'js-search'
+    import { page } from '$app/stores'
 
     import FileCode from '@nick-mazuk/ui-svelte/src/elements/marketing-icon/file-code.svelte'
     import EmptyState from '@nick-mazuk/ui-svelte/src/components/empty-state/empty-state.svelte'
@@ -23,30 +24,31 @@
     search.addIndex(['author', 'name'])
     search.addIndex('categories')
 
-    const allNames = new Set<string>()
+    const allIndexes = new Set<number>()
 
     const normalizeName = (name: string) => name.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    scripts.forEach((script) => {
+    scripts.forEach((script, index) => {
         search.addDocument({
             ...script,
             name: normalizeName(script.name),
+            index,
         })
-        allNames.add(normalizeName(script.name))
+        allIndexes.add(index)
     })
 
-    let searchValue = ''
+    let searchValue = $page.query.get('search') ?? ''
 
     const handleSearchChange = (event: TextInputChangeEvent) =>
         (searchValue = event.detail.parsedValue)
 
-    type DisplayedDocuments = { items: Set<string>; first: string; last: string }
+    type DisplayedDocuments = { items: Set<number>; first: number; last: number }
     const searchCache: {
         [key: string]: DisplayedDocuments
     } = {
         '': {
-            items: allNames,
-            first: normalizeName(scripts[0].name),
-            last: normalizeName(scripts[scripts.length - 1].name),
+            items: allIndexes,
+            first: 0,
+            last: scripts.length - 1,
         },
     }
 
@@ -58,12 +60,14 @@
             const results: ScriptData[] = search.search(searchValue)
             const sortedResults = results.sort((a, b) => a.name.localeCompare(b.name))
             displayedDocuments = {
-                items: new Set(results.map((script: ScriptData) => script.name)),
-                first: normalizeName(sortedResults[0]?.name ?? ''),
-                last: normalizeName(sortedResults[results.length - 1]?.name ?? ''),
+                items: new Set(results.map((script: ScriptData) => script.index)),
+                first: sortedResults[0]?.index ?? -1,
+                last: sortedResults[sortedResults.length - 1]?.index ?? -1,
             }
         }
     }
+    $: if (typeof window !== 'undefined')
+        window.history.replaceState(null, '', searchValue ? `?search=${searchValue}` : '.')
 </script>
 
 <main class="wrapper my-6" id="main-content">
@@ -78,6 +82,7 @@
     <SearchInput
         on:change="{handleSearchChange}"
         placeholder="Search…"
+        defaultValue="{searchValue}"
         helpText="Found {formatNumber(displayedDocuments.items.size)} script{displayedDocuments
             .items.size === 1
             ? ''
@@ -85,12 +90,12 @@
     />
     <Spacer />
     <Container>
-        {#each scripts as item}
+        {#each scripts as item, index}
             <Script
                 data="{item}"
-                show="{displayedDocuments.items.has(normalizeName(item.name))}"
-                first="{normalizeName(item.name) === displayedDocuments.first}"
-                last="{normalizeName(item.name) === displayedDocuments.last}"
+                show="{displayedDocuments.items.has(index)}"
+                first="{index === displayedDocuments.first}"
+                last="{index === displayedDocuments.last}"
             />
         {/each}
         {#if displayedDocuments.items.size === 0}
@@ -99,7 +104,7 @@
                 description="There are no scripts that match your search"
             >
                 <svelte:fragment slot="image">
-                    <FileCode class="w-40" />
+                    <FileCode class="w-32" />
                 </svelte:fragment>
             </EmptyState>
         {/if}
