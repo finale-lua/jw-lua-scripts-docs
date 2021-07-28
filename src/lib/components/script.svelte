@@ -33,6 +33,7 @@
     class:pt-0="{first}"
     class:pb-0="{last}"
     class:border-none="{last}"
+    style="content-visibility: auto; content-intrinsic-size: 1px 105px"
 >
     <div class="flex space-x-6 items-center justify-between">
         <div>
