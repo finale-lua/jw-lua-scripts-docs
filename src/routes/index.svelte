@@ -54,16 +54,18 @@
 
     let displayedDocuments: DisplayedDocuments = searchCache['']
     $: {
-        if (searchValue in searchCache) {
-            displayedDocuments = searchCache[searchValue]
+        const currentSearch = searchValue.trim()
+        if (currentSearch in searchCache) {
+            displayedDocuments = searchCache[currentSearch]
         } else {
-            const results: ScriptData[] = search.search(searchValue)
+            const results: ScriptData[] = search.search(currentSearch)
             const sortedResults = results.sort((a, b) => a.name.localeCompare(b.name))
             displayedDocuments = {
                 items: new Set(results.map((script: ScriptData) => script.index)),
                 first: sortedResults[0]?.index ?? -1,
                 last: sortedResults[sortedResults.length - 1]?.index ?? -1,
             }
+            searchCache[currentSearch] = displayedDocuments
         }
     }
     $: if (typeof window !== 'undefined')
