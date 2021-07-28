@@ -15,7 +15,8 @@
             "$app/*": [".svelte/dev/runtime/app/*", ".svelte/build/runtime/app/*"],
             "$lib/*": ["src/lib"]
         },
-        "strict": true
+        "strict": true,
+        "resolveJsonModule": true
     },
     "include": [
         "src/**/*.d.ts",
