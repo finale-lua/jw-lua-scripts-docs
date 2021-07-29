@@ -22,7 +22,6 @@ specifiers:
   postcss-load-config: ^3.0.1
   prettier: ^2.2.1
   prettier-plugin-svelte: ^2.2.0
-  stork-search: ^1.0.4
   svelte: ^3.38.2
   svelte-check: ^2.0.0
   svelte-preprocess: ^4.7.3
@@ -39,7 +38,6 @@ dependencies:
   i: 0.3.6
   jest: 27.0.6
   js-search: 2.0.0
-  stork-search: 1.0.4
 
 devDependencies:
   '@nick-mazuk/eslint-config': 0.8.13_99a0c81d07418cdfadb3128f76a6773d
@@ -4930,10 +4928,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       escape-string-regexp: 2.0.0
-    dev: false
-
-  /stork-search/1.0.4:
-    resolution: {integrity: sha512-vxcxA/gyuPk2KaV5Fh6ZBP9r6hQGvWwAJ0diU3rutg8GYjPGPuMvwmtOqbAwlP2mWBPAt/PiNMab6jA0bB3kyg==}
     dev: false
 
   /string-length/4.0.2:
