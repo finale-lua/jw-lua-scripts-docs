@@ -1,4 +1,4 @@
-import type { TocItems } from '@nick-mazuk/ui-svelte/src/components/table-of-contents';
+import type { TocItems } from '@nick-mazuk/ui-svelte/src/components/table-of-contents'
 
 export const libraryPages: TocItems = [
     {

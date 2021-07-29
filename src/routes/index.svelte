@@ -9,9 +9,22 @@
     import Spacer from '@nick-mazuk/ui-svelte/src/utilities/spacer/spacer.svelte'
     import Feature from '$lib/components/home/feature.svelte'
     import Image from '$lib/components/image.svelte'
+
+    import luaLogo from '$lib/assets/images/lua-logo.gif'
 </script>
 
-<Seo title="" siteName="JW Lua Scripts" />
+<Seo
+    title=""
+    siteName="JW Lua Scripts"
+    description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
+    openGraph="{{
+        image: {
+            src: luaLogo,
+            width: 128,
+            height: 128,
+        },
+    }}"
+/>
 
 <main id="main-content">
     <section class="wrapper my-16">

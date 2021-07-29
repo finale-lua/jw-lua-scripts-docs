@@ -16,6 +16,8 @@
     import Button from '@nick-mazuk/ui-svelte/src/elements/button/button.svelte'
     import Seo from '@nick-mazuk/ui-svelte/src/utilities/seo/seo.svelte'
 
+    import luaLogo from '$lib/assets/images/lua-logo.gif'
+
     let scripts: ScriptData[] = scriptData
     const search = new Search('name')
     search.addIndex('name')
@@ -75,7 +77,18 @@
         )
 </script>
 
-<Seo title="Scripts" siteName="JW Lua Scripts" />
+<Seo
+    title="Scripts"
+    siteName="JW Lua Scripts"
+    description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
+    openGraph="{{
+        image: {
+            src: luaLogo,
+            width: 128,
+            height: 128,
+        },
+    }}"
+/>
 
 <main class="wrapper my-6" id="main-content">
     <Spacer />

@@ -3,9 +3,22 @@
     import Spacer from '@nick-mazuk/ui-svelte/src/utilities/spacer/spacer.svelte'
     import AccordionGroup from '@nick-mazuk/ui-svelte/src/components/accordion/accordion-group/accordion-group.svelte'
     import Accordion from '@nick-mazuk/ui-svelte/src/components/accordion/accordion.svelte'
+
+    import luaLogo from '$lib/assets/images/lua-logo.gif'
 </script>
 
-<Seo title="Windows Installation" siteName="JW Lua Scripts" />
+<Seo
+    title="Windows Installation"
+    siteName="JW Lua Scripts"
+    description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
+    openGraph="{{
+        image: {
+            src: luaLogo,
+            width: 128,
+            height: 128,
+        },
+    }}"
+/>
 
 <main id="main-content" class="my-12 wrapper !max-w-2xl">
     <h1 class="h3">Windows installation</h1>

@@ -5,9 +5,22 @@
 
     import Seo from '@nick-mazuk/ui-svelte/src/utilities/seo/seo.svelte'
     import Spacer from '@nick-mazuk/ui-svelte/src/utilities/spacer/spacer.svelte'
+
+    import luaLogo from '$lib/assets/images/lua-logo.gif'
 </script>
 
-<Seo title="Install" siteName="JW Lua Scripts" />
+<Seo
+    title="Install"
+    siteName="JW Lua Scripts"
+    description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
+    openGraph="{{
+        image: {
+            src: luaLogo,
+            width: 128,
+            height: 128,
+        },
+    }}"
+/>
 
 <main id="main-content">
     <div class="wrapper !max-w-2xl my-6">
