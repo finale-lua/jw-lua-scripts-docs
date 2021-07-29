@@ -1,24 +1,15 @@
 <script lang="ts">
-    import { onMount } from 'svelte'
+    import type { ImageSource } from '../lib/images'
+    import { images } from '../lib/images'
 
-    export let source: string
+    export let source: ImageSource
     let classes = ''
     export { classes as class }
     export let alt: string
-    export let width: number
-
-    let sourceOriginal: string
-    let sourceWebp: string
-    let sourceAvif: string
-    onMount(async () => {
-        sourceOriginal = (await import(`../assets/images/${source}.png?w=${width}`)).default
-        sourceWebp = (await import(`../assets/images/${source}.png?webp&w=${width}`)).default
-        sourceAvif = (await import(`../assets/images/${source}.png?avif&w=${width}`)).default
-    })
 </script>
 
 <picture>
-    <source srcset="{sourceAvif}" type="image/avif" />
-    <source srcset="{sourceWebp}" type="image/webp" />
-    <img src="{sourceOriginal}" alt="{alt}" class="{classes}" loading="lazy" />
+    <source srcset="{images[source].avif}" type="image/avif" />
+    <source srcset="{images[source].webp}" type="image/webp" />
+    <img src="{images[source].png}" alt="{alt}" class="{classes}" loading="lazy" />
 </picture>

@@ -1,11 +1,12 @@
 <script lang="ts">
     import { onDestroy, onMount } from 'svelte'
     import Image from '../image.svelte'
+    import type { ImageSource } from '../../lib/images'
 
     export let title: string
     export let description: string
     export let reversed = false
-    export let images: string[]
+    export let images: ImageSource[]
 
     let currentImage = 0
     let interval: NodeJS.Timeout | undefined
@@ -41,7 +42,6 @@
             {#each images as image, index}
                 <Image
                     source="{image}"
-                    width="{1200}"
                     alt=""
                     class="absolute w-full h-full object-cover {transitionClasses} {index ===
                     currentImage

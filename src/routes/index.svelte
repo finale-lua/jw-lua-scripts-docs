@@ -48,7 +48,7 @@
                 class="relative rounded-xl shadow-xl -mt-64 z-10 aspect-w-2 aspect-h-1 w-full overflow-hidden"
             >
                 <Image
-                    source="indeterminate-clusters"
+                    source="indeterminateClusters"
                     alt=""
                     width="{1600}"
                     class="absolute w-full h-full object-cover"
@@ -58,25 +58,25 @@
         <Feature
             title="Create advanced notation in a second"
             description="String harmonics, jeté, and microtonal transpositions are notoriously difficult in Finale. Now, create this advanced notation in just a second. Literally."
-            images="{['jete-harmonic']}"
+            images="{['jeteHarmonic']}"
         />
         <Feature
             reversed
             title="Fix those annoying Finale bugs"
             description="No more colliding hairpins and dynamics. No more manually adjusting measure numbers. No more tempo marks that are wider than the multimeasure rest. Fix each of these in just one click."
             images="{[
-                'hairpins-before',
-                'hairpins-after',
-                'tempo-multimeasure-rest-before',
-                'tempo-multimeasure-rest-after',
-                'measure-number-before',
-                'measure-number-after',
+                'hairpinsBefore',
+                'hairpinsAfter',
+                'tempoRestBefore',
+                'tempoRestAfter',
+                'measureNumberBefore',
+                'measureNumberAfter',
             ]}"
         />
         <Feature
             title="…and do so much more"
             description="JW Lua hooks directly into Finale. That means you can do almost anything with JW Lua—fix playback, generate parts, or even see how many notes you wrote. Anything is possible! And as more people write JW Lua scripts, we all benefit."
-            images="{['duplicate-articulation-before', 'duplicate-articulation-after']}"
+            images="{['duplicateArticulationBefore', 'duplicateArticulationAfter']}"
         />
     </div>
     <section class="py-16 bg-primary text-background dark:text-foreground">
