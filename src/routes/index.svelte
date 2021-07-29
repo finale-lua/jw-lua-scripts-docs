@@ -48,7 +48,7 @@
                 class="relative rounded-xl shadow-xl -mt-64 z-10 aspect-w-2 aspect-h-1 w-full overflow-hidden"
             >
                 <Image
-                    src="indeterminate-clusters"
+                    source="indeterminate-clusters"
                     alt=""
                     width="{1600}"
                     class="absolute w-full h-full object-cover"

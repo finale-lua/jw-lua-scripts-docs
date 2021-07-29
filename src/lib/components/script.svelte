@@ -1,8 +1,8 @@
 <script lang="ts">
     import Badge from '@nick-mazuk/ui-svelte/src/elements/badge/badge.svelte'
-    import type { ScriptData } from '$lib/types/script-data'
+    import type { ScriptData } from '../types/script-data'
     import Button from '@nick-mazuk/ui-svelte/src/elements/button/button.svelte'
-    import { download } from '$lib/lib/download-file'
+    import { download } from '../lib/download-file'
     import { sentenceCase } from '@nick-mazuk/lib/text-styling'
     import { format } from 'date-fns'
 
@@ -68,7 +68,7 @@
                 <p class="my-3">{data.notes}</p>
             {/if}
             {#if data.author.name || data.author.website || data.author.email}
-                <h4 class="h6">Author</h4>
+                <h4 class="h6 text-foreground mt-3">Author</h4>
                 {#if data.author.name}
                     <p>{data.author.name}</p>
                 {/if}
@@ -84,7 +84,7 @@
                 {/if}
             {/if}
             {#if data.categories.length > 0}
-                <h4 class="h6">Categories</h4>
+                <h4 class="h6 text-foreground mt-3">Categories</h4>
                 <div class="flex space-x-0.5 mt-1">
                     {#each data.categories as category}
                         <Badge>{category}</Badge>
@@ -92,14 +92,14 @@
                 </div>
             {/if}
             {#if data.version || data.date}
-                <h4 class="h6">Version</h4>
+                <h4 class="h6 text-foreground mt-3">Version</h4>
                 <p>Version {data.version}</p>
                 {#if data.date}
                     <p>{format(new Date(data.date), 'MMMM d, YYY')}</p>
                 {/if}
             {/if}
             {#if data.requireSelection || data.requireScore}
-                <h4 class="h6">Requirements</h4>
+                <h4 class="h6 text-foreground mt-3">Requirements</h4>
                 {#if data.requireSelection}
                     <p>Requires music selection to run</p>
                 {/if}
@@ -108,15 +108,9 @@
                 {/if}
             {/if}
             {#if data.copyright}
-                <h4 class="h6">Licence</h4>
+                <h4 class="h6 text-foreground mt-3">Licence</h4>
                 <p>Copyright {data.copyright}</p>
             {/if}
         </div>
     {/if}
 </article>
-
-<style>
-    h4 {
-        @apply text-foreground mt-3;
-    }
-</style>

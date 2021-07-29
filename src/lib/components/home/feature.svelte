@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onDestroy, onMount } from 'svelte'
-
     import Image from '../image.svelte'
+
     export let title: string
     export let description: string
     export let reversed = false
@@ -40,7 +40,7 @@
         >
             {#each images as image, index}
                 <Image
-                    src="{image}"
+                    source="{image}"
                     width="{1200}"
                     alt=""
                     class="absolute w-full h-full object-cover {transitionClasses} {index ===

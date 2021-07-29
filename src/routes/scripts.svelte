@@ -9,8 +9,8 @@
     import type { TextInputChangeEvent } from '@nick-mazuk/ui-svelte/src/form/inputs/text-input'
     import Spacer from '@nick-mazuk/ui-svelte/src/utilities/spacer/spacer.svelte'
     import Script from '$lib/components/script.svelte'
-    import scriptData from '$lib/lib/script-data.json'
-    import type { ScriptData } from '$lib/types/script-data'
+    import scriptData from '../lib/lib/script-data.json'
+    import type { ScriptData } from '../lib/types/script-data'
     import Container from '@nick-mazuk/ui-svelte/src/utilities/container/container.svelte'
     import { formatNumber } from '@nick-mazuk/lib/esm/number-styling'
     import Button from '@nick-mazuk/ui-svelte/src/elements/button/button.svelte'
@@ -18,7 +18,7 @@
 
     import luaLogo from '$lib/assets/images/lua-logo.gif'
 
-    let scripts: ScriptData[] = scriptData
+    const scripts: ScriptData[] = scriptData
     const search = new Search('name')
     search.addIndex('name')
     search.addIndex('shortDescription')
@@ -27,7 +27,7 @@
 
     const allIndexes = new Set<number>()
 
-    const normalizeName = (name: string) => name.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    const normalizeName = (name: string) => name.normalize('NFD').replace(/[\u0300-\u036F]/gu, '')
     scripts.forEach((script, index) => {
         search.addDocument({
             ...script,
@@ -59,22 +59,23 @@
         if (currentSearch in searchCache) {
             displayedDocuments = searchCache[currentSearch]
         } else {
-            const results: ScriptData[] = search.search(currentSearch)
+            const results = search.search(currentSearch) as (ScriptData & { index: number })[]
             const sortedResults = results.sort((a, b) => a.name.localeCompare(b.name))
             displayedDocuments = {
-                items: new Set(results.map((script: ScriptData) => script.index)),
+                items: new Set(results.map((script) => script.index)),
                 first: sortedResults[0]?.index ?? -1,
                 last: sortedResults[sortedResults.length - 1]?.index ?? -1,
             }
             searchCache[currentSearch] = displayedDocuments
         }
     }
-    $: if (typeof window !== 'undefined')
+    $: if (typeof window !== 'undefined') {
         window.history.replaceState(
             null,
             '',
             searchValue ? `/scripts?search=${searchValue}` : '/scripts'
         )
+    }
 </script>
 
 <Seo

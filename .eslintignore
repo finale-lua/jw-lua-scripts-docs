@@ -10,3 +10,4 @@ src/routes/docs
 static/stork.st
 static/stork.wasm
 .svelte-kit
+cypress
