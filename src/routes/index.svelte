@@ -18,10 +18,10 @@
     title=""
     siteName="JW Lua Scripts"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
-    canonicalUrl="{`https://${$page.host}/${$page.path}`}"
+    canonicalUrl="{`https://jw-lua-scripts-docs.vercel.app/${$page.path}`}"
     openGraph="{{
         image: {
-            src: `https://${$page.host}${luaLogo}`,
+            src: `https://jw-lua-scripts-docs.vercel.app${luaLogo}`,
             width: 128,
             height: 128,
         },
