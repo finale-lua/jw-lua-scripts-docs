@@ -69,7 +69,7 @@ function imagePreprocess(options = {}) {
                     let { content, offset } = processed
 
                     for (const attribute of attributes) {
-                        if (attribute.value[0]?.type === 'Text') {
+                        if (attribute.value[0] && attribute.value[0].type === 'Text') {
                             const value = attribute.value[0]
                             if (value.data.startsWith('http')) continue
 
