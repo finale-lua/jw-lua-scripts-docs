@@ -8,6 +8,7 @@
     import Seo from '@nick-mazuk/ui-svelte/src/utilities/seo/seo.svelte'
     import Spacer from '@nick-mazuk/ui-svelte/src/utilities/spacer/spacer.svelte'
     import Feature from '$lib/components/home/feature.svelte'
+    import Image from '$lib/components/image.svelte'
 </script>
 
 <Seo title="" siteName="JW Lua Scripts" />
@@ -20,7 +21,7 @@
         <p
             class="text-lg sm:text-2xl font-semibold text-gray-700 text-center max-w-lg mx-auto text-balance"
         >
-            Use Finale faster than the blink of an eye. Simplify workflows into just one click. All
+            Use Finale faster than the blink of an eye. Simplify workflows to just one click. All
             for free, forever.
         </p>
         <Spacer />
@@ -28,24 +29,41 @@
             <Button href="/" size="large">View all scripts</Button>
         </div>
     </section>
-    <div class="py-16 bg-gray-100 border-t border-b mt-64">
+    <div class="py-16 bg-gray-100 border-t border-b mt-56">
         <div class="wrapper">
             <div
-                class="rounded-xl bg-background shadow-xl h-96 -mt-64 relative z-10 border-4 border-highlight"
-            ></div>
+                class="relative rounded-xl shadow-xl -mt-64 z-10 aspect-w-2 aspect-h-1 w-full overflow-hidden"
+            >
+                <Image
+                    src="indeterminate-clusters"
+                    alt=""
+                    width="{1600}"
+                    class="absolute w-full h-full object-cover"
+                />
+            </div>
         </div>
         <Feature
             title="Create advanced notation in a second"
             description="String harmonics, jeté, and microtonal transpositions are notoriously difficult in Finale. Now, create this advanced notation in just a second. Literally."
+            images="{['jete-harmonic']}"
         />
         <Feature
             reversed
             title="Fix those annoying Finale bugs"
-            description="No more colliding hairpins and dynamics. No more manually adjusting measure numbers. No more of those hidden, gray playback notes clogging up your view. Fix each of these in just one click."
+            description="No more colliding hairpins and dynamics. No more manually adjusting measure numbers. No more tempo marks that are wider than the multimeasure rest. Fix each of these in just one click."
+            images="{[
+                'hairpins-before',
+                'hairpins-after',
+                'tempo-multimeasure-rest-before',
+                'tempo-multimeasure-rest-after',
+                'measure-number-before',
+                'measure-number-after',
+            ]}"
         />
         <Feature
             title="…and do so much more"
             description="JW Lua hooks directly into Finale. That means you can do almost anything with JW Lua—fix playback, generate parts, or even see how many notes you wrote. Anything is possible! And as more people write JW Lua scripts, we all benefit."
+            images="{['duplicate-articulation-before', 'duplicate-articulation-after']}"
         />
     </div>
     <section class="py-16 bg-primary text-background dark:text-foreground">

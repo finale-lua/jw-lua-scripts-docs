@@ -1,5 +1,7 @@
 import sveltePreprocess from 'svelte-preprocess'
 import adapter from '@sveltejs/adapter-static'
+import { imagetools } from 'vite-imagetools'
+import imagePreprocess from './image-preprocess.cjs'
 
 export default {
     preprocess: [
@@ -9,6 +11,7 @@ export default {
                 style: 'postcss',
             },
         }),
+        imagePreprocess(),
     ],
     kit: {
         adapter: adapter(),
@@ -20,6 +23,9 @@ export default {
             routes: 'src/routes',
             serviceWorker: 'src/service-worker',
             template: 'src/app.html',
+        },
+        vite: {
+            plugins: [imagetools()],
         },
     },
 }
