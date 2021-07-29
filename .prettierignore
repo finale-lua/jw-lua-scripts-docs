@@ -7,3 +7,4 @@ static/stork.wasm
 src/lib/lib/library-pages
 .svelte-kit
 docs
+build

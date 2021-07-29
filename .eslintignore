@@ -11,3 +11,4 @@ static/stork.st
 static/stork.wasm
 .svelte-kit
 cypress
+build
