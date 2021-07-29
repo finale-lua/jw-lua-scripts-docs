@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { page } from '$app/stores'
     import Button from '@nick-mazuk/ui-svelte/src/elements/button/button.svelte'
     import Github from '@nick-mazuk/ui-svelte/src/elements/icon/github.svelte'
     import Accordion from '@nick-mazuk/ui-svelte/src/components/accordion/accordion.svelte'
@@ -17,9 +18,10 @@
     title=""
     siteName="JW Lua Scripts"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
+    canonicalUrl="{`https://${$page.host}/${$page.path}`}"
     openGraph="{{
         image: {
-            src: luaLogo,
+            src: `https://${$page.host}${luaLogo}`,
             width: 128,
             height: 128,
         },
@@ -39,7 +41,7 @@
         </p>
         <Spacer />
         <div class="flex justify-center">
-            <Button href="/" size="large">View all scripts</Button>
+            <Button href="/scripts" size="large">View all scripts</Button>
         </div>
     </section>
     <div class="py-16 bg-gray-100 border-t border-b mt-56">

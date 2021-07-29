@@ -82,9 +82,10 @@
     title="Scripts"
     siteName="JW Lua Scripts"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
+    canonicalUrl="{`https://${$page.host}/${$page.path}`}"
     openGraph="{{
         image: {
-            src: luaLogo,
+            src: `https://${$page.host}${luaLogo}`,
             width: 128,
             height: 128,
         },

@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { page } from '$app/stores'
+
     import Container from '@nick-mazuk/ui-svelte/src/utilities/container/container.svelte'
     import Apple from '@nick-mazuk/ui-svelte/src/elements/icon/apple.svelte'
     import Windows from '@nick-mazuk/ui-svelte/src/elements/icon/windows.svelte'
@@ -13,9 +15,10 @@
     title="Install"
     siteName="JW Lua Scripts"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
+    canonicalUrl="{`https://${$page.host}/${$page.path}`}"
     openGraph="{{
         image: {
-            src: luaLogo,
+            src: `https://${$page.host}${luaLogo}`,
             width: 128,
             height: 128,
         },

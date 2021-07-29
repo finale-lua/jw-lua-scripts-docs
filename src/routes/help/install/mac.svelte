@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { page } from '$app/stores'
+
     import Seo from '@nick-mazuk/ui-svelte/src/utilities/seo/seo.svelte'
     import Spacer from '@nick-mazuk/ui-svelte/src/utilities/spacer/spacer.svelte'
     import AccordionGroup from '@nick-mazuk/ui-svelte/src/components/accordion/accordion-group/accordion-group.svelte'
@@ -11,9 +13,10 @@
     title="macOS Installation"
     siteName="JW Lua Scripts"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
+    canonicalUrl="{`https://${$page.host}/${$page.path}`}"
     openGraph="{{
         image: {
-            src: luaLogo,
+            src: `https://${$page.host}${luaLogo}`,
             width: 128,
             height: 128,
         },

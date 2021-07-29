@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { page } from '$app/stores'
+
     import Container from '@nick-mazuk/ui-svelte/src/utilities/container/container.svelte'
     import Download from '@nick-mazuk/ui-svelte/src/elements/marketing-icon/download.svelte'
     import Bug from '@nick-mazuk/ui-svelte/src/elements/marketing-icon/bug.svelte'
@@ -15,9 +17,10 @@
     title="Help"
     siteName="JW Lua Scripts"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
+    canonicalUrl="{`https://${$page.host}/${$page.path}`}"
     openGraph="{{
         image: {
-            src: luaLogo,
+            src: `https://${$page.host}${luaLogo}`,
             width: 128,
             height: 128,
         },
