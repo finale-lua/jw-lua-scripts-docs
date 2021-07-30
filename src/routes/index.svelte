@@ -11,7 +11,7 @@
     import Feature from '$lib/components/home/feature.svelte'
     import Image from '$lib/components/image.svelte'
 
-    import luaLogo from '$lib/assets/images/lua-logo.gif'
+    import luaLogo from '$lib/assets/images/lua-logo.png'
 </script>
 
 <Seo
@@ -22,8 +22,8 @@
     openGraph="{{
         image: {
             src: `https://jw-lua-scripts-docs.vercel.app${luaLogo}`,
-            width: 128,
-            height: 128,
+            width: 630,
+            height: 630,
         },
     }}"
 />

@@ -16,7 +16,7 @@
     import Button from '@nick-mazuk/ui-svelte/src/elements/button/button.svelte'
     import Seo from '@nick-mazuk/ui-svelte/src/utilities/seo/seo.svelte'
 
-    import luaLogo from '$lib/assets/images/lua-logo.gif'
+    import luaLogo from '$lib/assets/images/lua-logo.png'
 
     const scripts: ScriptData[] = scriptData
     const search = new Search('name')
@@ -86,8 +86,8 @@
     openGraph="{{
         image: {
             src: `https://jw-lua-scripts-docs.vercel.app${luaLogo}`,
-            width: 128,
-            height: 128,
+            width: 630,
+            height: 630,
         },
     }}"
 />
