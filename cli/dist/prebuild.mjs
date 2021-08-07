@@ -38,7 +38,7 @@ const getDocsData = (allFiles) => {
     const href = createUrlFromFilePath(fullPath);
     const text = createNameFromFilePath(fullPath);
     const folderName = getFolderFromPath(fullPath);
-    const output = {text, href};
+    const output = { text, href };
     if (typeof folders[folderName] === "undefined") {
       folders[folderName] = output;
     } else {
@@ -59,7 +59,7 @@ const creatTableOfContents = (pages) => {
   fs.writeFileSync(TOC_OUTPUT_PATH, contents);
 };
 const removePreviousDocs = () => {
-  fs.rmdirSync(DOCS_PUBLISH_PATH, {recursive: true});
+  fs.rmdirSync(DOCS_PUBLISH_PATH, { recursive: true });
 };
 const copyDocsFiles = (files) => {
   const docsTemplateContents = fs.readFileSync(DOCS_TEMPLATE_PATH).toString();

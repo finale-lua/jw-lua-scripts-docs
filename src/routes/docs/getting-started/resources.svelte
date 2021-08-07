@@ -1,5 +1,3 @@
-
-
 <script lang="ts">
     import Markdown from '@nick-mazuk/ui-svelte/src/typography/markdown/markdown.svelte'
 
