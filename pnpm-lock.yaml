@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@nick-mazuk/eslint-config': 0.8.14
+  '@nick-mazuk/eslint-config': 0.8.15
   '@nick-mazuk/lib': ^0.8.54
   '@nick-mazuk/ui-config': 0.10.63
   '@nick-mazuk/ui-svelte': 0.26.7
@@ -40,7 +40,7 @@ dependencies:
   js-search: 2.0.0
 
 devDependencies:
-  '@nick-mazuk/eslint-config': 0.8.14_413b498d8c7a751bfd535a54852e9dcc
+  '@nick-mazuk/eslint-config': 0.8.15_413b498d8c7a751bfd535a54852e9dcc
   '@nick-mazuk/ui-config': 0.10.63_tailwindcss@2.2.7
   '@sveltejs/adapter-vercel': 1.0.0-next.27
   '@sveltejs/kit': 1.0.0-next.144_svelte@3.42.1
@@ -656,8 +656,8 @@ packages:
       chalk: 4.1.2
     dev: false
 
-  /@nick-mazuk/eslint-config/0.8.14_413b498d8c7a751bfd535a54852e9dcc:
-    resolution: {integrity: sha512-A513dkiEGkT3v3iHMvXod3EhfGDiMHjmJmVMbC5p4pPDkQGmjn4hEUXYLWsj0KE0gHTCYjAuaBngWvm5Q/E7Jg==}
+  /@nick-mazuk/eslint-config/0.8.15_413b498d8c7a751bfd535a54852e9dcc:
+    resolution: {integrity: sha512-9PUiNYqwK9E7toEp2n3/eae9Zb+ZlBTx4xCynnh9rDCcdPqc804oaib4KJSD9n1CZQPmYfa+1Yvy9QCgCyO4FQ==}
     peerDependencies:
       eslint: '>= 7.25.0'
       typescript: '>= 4.2.4'
@@ -678,7 +678,7 @@ packages:
       eslint-plugin-promise: 5.1.0_eslint@7.32.0
       eslint-plugin-react: 7.24.0_eslint@7.32.0
       eslint-plugin-react-hooks: 4.2.0_eslint@7.32.0
-      eslint-plugin-sonarjs: 0.9.1_eslint@7.32.0
+      eslint-plugin-sonarjs: 0.10.0_eslint@7.32.0
       eslint-plugin-svelte3: 3.2.0_eslint@7.32.0+svelte@3.42.1
       eslint-plugin-testing-library: 4.10.1_eslint@7.32.0+typescript@4.3.5
       eslint-plugin-unicorn: 35.0.0_eslint@7.32.0
@@ -2384,8 +2384,8 @@ packages:
       string.prototype.matchall: 4.0.5
     dev: true
 
-  /eslint-plugin-sonarjs/0.9.1_eslint@7.32.0:
-    resolution: {integrity: sha512-KKFofk1LPjGHWeAZijYWv32c/C4mz+OAeBNVxhxHu1hknrTOhu415MWC8qKdAdsmOlBPShs9evM4mI1o7MNMhw==}
+  /eslint-plugin-sonarjs/0.10.0_eslint@7.32.0:
+    resolution: {integrity: sha512-FBRIBmWQh2UAfuLSnuYEfmle33jIup9hfkR0X8pkfjeCKNpHUG8qyZI63ahs3aw8CJrv47QJ9ccdK3ZxKH016A==}
     engines: {node: '>=10'}
     peerDependencies:
       eslint: ^5.0.0 || ^6.0.0 || ^7.0.0
