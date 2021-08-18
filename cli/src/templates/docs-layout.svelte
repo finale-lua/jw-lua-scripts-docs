@@ -28,9 +28,9 @@
         {#if githubUrl}
             <Spacer />
             <div class="flex justify-end">
-                <Button variant="secondary" prefix="{Github}" href="{githubUrl}"
-                    >Edit page on GitHub</Button
-                >
+                <Button variant="secondary" prefix="{Github}" href="{githubUrl}">
+                    Edit page on GitHub
+                </Button>
             </div>
         {/if}
     </div>
