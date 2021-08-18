@@ -38,9 +38,11 @@
     })
 
     let searchValue = $page.query.get('search') ?? ''
-
-    const handleSearchChange = (event: TextInputChangeEvent) =>
-        (searchValue = event.detail.parsedValue)
+    let shouldUpdateUrlQuery = false
+    const handleSearchChange = (event: TextInputChangeEvent) => {
+        searchValue = event.detail.parsedValue
+        shouldUpdateUrlQuery = true
+    }
 
     type DisplayedDocuments = { items: Set<number>; first: number; last: number }
     const searchCache: {
@@ -69,7 +71,7 @@
             searchCache[currentSearch] = displayedDocuments
         }
     }
-    $: if (typeof window !== 'undefined') {
+    $: if (typeof window !== 'undefined' && shouldUpdateUrlQuery) {
         window.history.replaceState(
             null,
             '',
