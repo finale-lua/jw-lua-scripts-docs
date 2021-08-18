@@ -40,7 +40,7 @@
     },
     "dependencies": {
         "@nick-mazuk/lib": "^0.8.54",
-        "@nick-mazuk/ui-svelte": "0.26.7",
+        "@nick-mazuk/ui-svelte": "0.28.1",
         "@sveltejs/adapter-static": "^1.0.0-next.13",
         "date-fns": "^2.23.0",
         "i": "^0.3.6",
