@@ -3,7 +3,9 @@ base_directory = "."
 files = [
     {path = "docs/getting-started.md", url = "/docs/getting-started", title = "Getting Started"},
     {path = "docs/getting-started/adding-scripts.md", url = "/docs/getting-started/adding-scripts", title = "Adding Scripts"},
+    {path = "docs/getting-started/getting-help.md", url = "/docs/getting-started/getting-help", title = "Getting Help"},
     {path = "docs/getting-started/resources.md", url = "/docs/getting-started/resources", title = "Resources"},
+    {path = "docs/getting-started/script-checklist.md", url = "/docs/getting-started/script-checklist", title = "Script Checklist"},
     {path = "docs/getting-started/style-guide.md", url = "/docs/getting-started/style-guide", title = "Style Guide"},
     {path = "docs/library.md", url = "/docs/library", title = "Library"},
     {path = "docs/library/articulation.md", url = "/docs/library/articulation", title = "Articulation"},

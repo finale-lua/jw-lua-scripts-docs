@@ -1,5 +1,10 @@
 <script lang="ts">
+    import { page } from '$app/stores'
+
     import Markdown from '@nick-mazuk/ui-svelte/src/typography/markdown/markdown.svelte'
+    import Seo from '@nick-mazuk/ui-svelte/src/utilities/seo/seo.svelte'
+
+    import luaLogo from '$lib/assets/images/lua-logo.png'
 
     const content = `# Configuration
 
@@ -46,5 +51,19 @@ Searches for a file with the input filename in the \`script_settings\` directory
 | \`file_name\` | \`string\` | the file name of the config file (which will be prepended with the \`script_settings\` directory) |
 | \`parameter_list\` | \`table\` | a table with the parameter name as key and the default value as value |`
 </script>
+
+<Seo
+    title="Configuration"
+    siteName="JW Lua Scripts Docs"
+    description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
+    canonicalUrl="{`https://jw-lua-scripts-docs.vercel.app/${$page.path}`}"
+    openGraph="{{
+        image: {
+            src: `https://jw-lua-scripts-docs.vercel.app${luaLogo}`,
+            width: 630,
+            height: 630,
+        },
+    }}"
+/>
 
 <Markdown content="{content}" headerIds />

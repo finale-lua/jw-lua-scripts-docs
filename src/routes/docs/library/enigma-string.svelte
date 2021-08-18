@@ -1,5 +1,10 @@
 <script lang="ts">
+    import { page } from '$app/stores'
+
     import Markdown from '@nick-mazuk/ui-svelte/src/typography/markdown/markdown.svelte'
+    import Seo from '@nick-mazuk/ui-svelte/src/utilities/seo/seo.svelte'
+
+    import luaLogo from '$lib/assets/images/lua-logo.png'
 
     const content = `# Enigma String
 
@@ -137,5 +142,19 @@ Calculates the advance width of the input string taking into account all font an
 | --- | --- |
 | \`number\` | the width of the string |`
 </script>
+
+<Seo
+    title="Enigma String"
+    siteName="JW Lua Scripts Docs"
+    description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
+    canonicalUrl="{`https://jw-lua-scripts-docs.vercel.app/${$page.path}`}"
+    openGraph="{{
+        image: {
+            src: `https://jw-lua-scripts-docs.vercel.app${luaLogo}`,
+            width: 630,
+            height: 630,
+        },
+    }}"
+/>
 
 <Markdown content="{content}" headerIds />

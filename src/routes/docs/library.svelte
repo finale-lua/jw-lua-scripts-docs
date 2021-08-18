@@ -1,5 +1,10 @@
 <script lang="ts">
+    import { page } from '$app/stores'
+
     import Markdown from '@nick-mazuk/ui-svelte/src/typography/markdown/markdown.svelte'
+    import Seo from '@nick-mazuk/ui-svelte/src/utilities/seo/seo.svelte'
+
+    import luaLogo from '$lib/assets/images/lua-logo.png'
 
     const content = `# Library
 
@@ -65,5 +70,19 @@ As you can see, the comments are very easy to write and produce readable, search
 You can find a complete list of syntax you can use for documentation here: [https://github.com/Nick-Mazuk/lua-docs-generator/blob/main/documentation.md](https://github.com/Nick-Mazuk/lua-docs-generator/blob/main/documentation.md)
 `
 </script>
+
+<Seo
+    title="Library"
+    siteName="JW Lua Scripts Docs"
+    description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
+    canonicalUrl="{`https://jw-lua-scripts-docs.vercel.app/${$page.path}`}"
+    openGraph="{{
+        image: {
+            src: `https://jw-lua-scripts-docs.vercel.app${luaLogo}`,
+            width: 630,
+            height: 630,
+        },
+    }}"
+/>
 
 <Markdown content="{content}" headerIds />

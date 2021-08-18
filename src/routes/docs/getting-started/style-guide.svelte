@@ -1,5 +1,10 @@
 <script lang="ts">
+    import { page } from '$app/stores'
+
     import Markdown from '@nick-mazuk/ui-svelte/src/typography/markdown/markdown.svelte'
+    import Seo from '@nick-mazuk/ui-svelte/src/utilities/seo/seo.svelte'
+
+    import luaLogo from '$lib/assets/images/lua-logo.png'
 
     const content = `# Style guide
 
@@ -200,5 +205,19 @@ It will not correct any variable or function names.
 Thanks again for your interest in JW Lua. If you feel as if there’s anything missing in this guide or have any questions, comments, or concerns, feel free to reach out to me (CJ Garcia - CJGarciaMusic@gmail.com) or if you want help with your code please post to the [JW Lua Facebook group](https://www.facebook.com/groups/742277119576336) where many other talented folks will happily help guide your way.
 `
 </script>
+
+<Seo
+    title="Style Guide"
+    siteName="JW Lua Scripts Docs"
+    description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
+    canonicalUrl="{`https://jw-lua-scripts-docs.vercel.app/${$page.path}`}"
+    openGraph="{{
+        image: {
+            src: `https://jw-lua-scripts-docs.vercel.app${luaLogo}`,
+            width: 630,
+            height: 630,
+        },
+    }}"
+/>
 
 <Markdown content="{content}" headerIds />

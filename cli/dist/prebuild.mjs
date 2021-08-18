@@ -61,13 +61,17 @@ const creatTableOfContents = (pages) => {
 const removePreviousDocs = () => {
   fs.rmdirSync(DOCS_PUBLISH_PATH, { recursive: true });
 };
+const kabobToSentenceCase = (name) => {
+  return name.split("-").map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(" ");
+};
 const copyDocsFiles = (files) => {
   const docsTemplateContents = fs.readFileSync(DOCS_TEMPLATE_PATH).toString();
   files.forEach((file) => {
+    var _a;
     const contents = fs.readFileSync(file).toString().replace(/`/gu, "\\`").replace(/</gu, "&lt;").replace(/>/gu, "&gt;");
     const fileName = file.replace(DOCS_FOLDER, "").replace(".md", ".svelte");
     const outputPath = path.join(DOCS_PUBLISH_PATH, fileName).replace(/_/gu, "-");
-    const outputContents = docsTemplateContents.replace("MARKDOWN_PLACEHOLDER", contents);
+    const outputContents = docsTemplateContents.replace("MARKDOWN_PLACEHOLDER", contents).replace("TITLE_PLACEHOLDER", kabobToSentenceCase(((_a = fileName.split("/").pop()) != null ? _a : "").replace(".svelte", "").replace("_", "-")));
     fs.ensureFileSync(outputPath);
     fs.writeFileSync(outputPath, outputContents);
   });

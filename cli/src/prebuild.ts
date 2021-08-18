@@ -86,6 +86,13 @@ const removePreviousDocs = () => {
     fs.rmdirSync(DOCS_PUBLISH_PATH, { recursive: true })
 }
 
+const kabobToSentenceCase = (name: string) => {
+    return name
+        .split('-')
+        .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+        .join(' ')
+}
+
 const copyDocsFiles = (files: string[]) => {
     const docsTemplateContents = fs.readFileSync(DOCS_TEMPLATE_PATH).toString()
     files.forEach((file) => {
@@ -99,7 +106,14 @@ const copyDocsFiles = (files: string[]) => {
         const fileName = file.replace(DOCS_FOLDER, '').replace('.md', '.svelte')
         const outputPath = path.join(DOCS_PUBLISH_PATH, fileName).replace(/_/gu, '-')
 
-        const outputContents = docsTemplateContents.replace('MARKDOWN_PLACEHOLDER', contents)
+        const outputContents = docsTemplateContents
+            .replace('MARKDOWN_PLACEHOLDER', contents)
+            .replace(
+                'TITLE_PLACEHOLDER',
+                kabobToSentenceCase(
+                    (fileName.split('/').pop() ?? '').replace('.svelte', '').replace('_', '-')
+                )
+            )
 
         fs.ensureFileSync(outputPath)
 
