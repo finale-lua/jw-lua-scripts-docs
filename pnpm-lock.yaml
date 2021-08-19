@@ -3,7 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@nick-mazuk/eslint-config': 0.8.15
   '@nick-mazuk/lib': ^0.8.54
-  '@nick-mazuk/ui-config': 0.10.63
+  '@nick-mazuk/ui-config': 0.10.64
   '@nick-mazuk/ui-svelte': 0.29.1
   '@sveltejs/adapter-static': ^1.0.0-next.13
   '@sveltejs/adapter-vercel': 1.0.0-next.27
@@ -32,7 +32,7 @@ specifiers:
 
 dependencies:
   '@nick-mazuk/lib': 0.8.95
-  '@nick-mazuk/ui-svelte': 0.29.1_dffcea5374a5aee138cf2bce347507c1
+  '@nick-mazuk/ui-svelte': 0.29.1_4dc3ce57ba2c7668ddda9630d5d2680b
   '@sveltejs/adapter-static': 1.0.0-next.16
   date-fns: 2.23.0
   i: 0.3.6
@@ -41,7 +41,7 @@ dependencies:
 
 devDependencies:
   '@nick-mazuk/eslint-config': 0.8.15_413b498d8c7a751bfd535a54852e9dcc
-  '@nick-mazuk/ui-config': 0.10.63_tailwindcss@2.2.7
+  '@nick-mazuk/ui-config': 0.10.64_tailwindcss@2.2.7
   '@sveltejs/adapter-vercel': 1.0.0-next.27
   '@sveltejs/kit': 1.0.0-next.144_svelte@3.42.1
   '@types/fs-extra': 9.0.12
@@ -697,15 +697,15 @@ packages:
       validator: 13.6.0
     dev: false
 
-  /@nick-mazuk/ui-config/0.10.63_tailwindcss@2.2.7:
-    resolution: {integrity: sha512-9phAZhyEbtq662g+JE8dlx/XqbsBJe5tmulwoqB0X0sm8zT7avUuxXqosg2B/LA6ze8dM7+/km9x6Ov0hIIteQ==}
+  /@nick-mazuk/ui-config/0.10.64_tailwindcss@2.2.7:
+    resolution: {integrity: sha512-TLwIr3TgXZQp0gD3YpdjGAcaHDI3mPCHmT/6S4ZwUaG2gdN8rzhzWfNPt7so+yJ8IqF/2EWRvR4CIdcDN0FinQ==}
     peerDependencies:
       tailwindcss: ^2.1.1
     dependencies:
       tailwindcss: 2.2.7_7b69a43ec4689fa7484dee35f79a7806
     dev: true
 
-  /@nick-mazuk/ui-svelte/0.29.1_dffcea5374a5aee138cf2bce347507c1:
+  /@nick-mazuk/ui-svelte/0.29.1_4dc3ce57ba2c7668ddda9630d5d2680b:
     resolution: {integrity: sha512-EpE1w3T/wa2YmgW4RTZuBdaEwp2LrtH4a1lxjCbek+lOxcm37btmpgK8Y6qkXL7vb9yda1MezDfh+m73UkjgwA==}
     peerDependencies:
       '@nick-mazuk/lib': ^0.8.50
@@ -713,7 +713,7 @@ packages:
       tailwindcss: ^2.1.1
     dependencies:
       '@nick-mazuk/lib': 0.8.95
-      '@nick-mazuk/ui-config': 0.10.63_tailwindcss@2.2.7
+      '@nick-mazuk/ui-config': 0.10.64_tailwindcss@2.2.7
       '@tiptap/core': 2.0.0-beta.93
       '@tiptap/extension-blockquote': 2.0.0-beta.15_@tiptap+core@2.0.0-beta.93
       '@tiptap/extension-bold': 2.0.0-beta.15_@tiptap+core@2.0.0-beta.93
