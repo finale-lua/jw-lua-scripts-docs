@@ -25,7 +25,7 @@ export default {
             template: 'src/app.html',
         },
         prerender: {
-            pages: ['*']
+            pages: ['*'],
         },
         vite: {
             plugins: [imagetools()],
