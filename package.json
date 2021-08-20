@@ -43,8 +43,6 @@
         "@nick-mazuk/ui-svelte": "0.29.6",
         "@sveltejs/adapter-static": "^1.0.0-next.13",
         "date-fns": "^2.23.0",
-        "i": "^0.3.6",
-        "jest": "^27.0.0",
         "js-search": "^2.0.0"
     }
 }
