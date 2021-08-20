@@ -16,6 +16,13 @@
 
     const handleDownload = async () => {
         isDownloading = true
+        fetch('/api/download-script', {
+            method: 'POST',
+            body: JSON.stringify({
+                author: data.author.name,
+                scriptName: data.fileName,
+            }),
+        })
         const response = await fetch(
             `https://raw.githubusercontent.com/Nick-Mazuk/jw-lua-scripts/master/dist/${data.fileName}`
         )
