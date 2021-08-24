@@ -40,7 +40,6 @@
                         <li>
                             <a
                                 href="http://finaletips.nu/index.php/download/category/28-beta-version?download=233:jw-lua-beta-v0-54-for-64-bit-windows"
-                                download
                             >
                                 Finale v25 and later
                             </a> (recommended)
@@ -48,7 +47,6 @@
                         <li>
                             <a
                                 href="http://finaletips.nu/index.php/download/category/28-beta-version?download=175:jw-lua-beta-v0-54-for-windows"
-                                download
                             >
                                 Finale v2014.5 and earlier
                             </a> (not compatible with all scripts)
