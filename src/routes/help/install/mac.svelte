@@ -40,6 +40,8 @@
                         <li>
                             <a
                                 href="http://finaletips.nu/index.php/download/category/28-beta-version?download=234:jw-lua-beta-v0-54-for-64-bit-mac"
+                                target="_blank"
+                                rel="noreferrer"
                             >
                                 Finale v25 and later
                             </a> (recommended)
@@ -47,6 +49,8 @@
                         <li>
                             <a
                                 href="http://finaletips.nu/index.php/download/category/28-beta-version?download=176:jw-lua-beta-v0-54-for-mac"
+                                target="_blank"
+                                rel="noreferrer"
                             >
                                 Finale v2014.5 and earlier
                             </a> (not compatible with all scripts)
