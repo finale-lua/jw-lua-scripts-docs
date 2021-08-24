@@ -35,13 +35,15 @@
             <ol>
                 <li>
                     <strong>Download the most recent version of JW Lua</strong> for your version of
-                    Finale.
+                    Finale. If these links don't work, you can find the
+                    <a href="http://finaletips.nu/index.php/download/category/28-beta-version">
+                        original downloads here
+                    </a>.
                     <ul>
                         <li>
                             <a
                                 href="http://finaletips.nu/index.php/download/category/28-beta-version?download=234:jw-lua-beta-v0-54-for-64-bit-mac"
-                                target="_blank"
-                                rel="noreferrer"
+                                download
                             >
                                 Finale v25 and later
                             </a> (recommended)
@@ -49,8 +51,7 @@
                         <li>
                             <a
                                 href="http://finaletips.nu/index.php/download/category/28-beta-version?download=176:jw-lua-beta-v0-54-for-mac"
-                                target="_blank"
-                                rel="noreferrer"
+                                download
                             >
                                 Finale v2014.5 and earlier
                             </a> (not compatible with all scripts)
