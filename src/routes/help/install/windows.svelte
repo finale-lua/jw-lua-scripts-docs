@@ -27,7 +27,7 @@
     <h1 class="h3">Windows installation</h1>
     <Spacer />
     <AccordionGroup>
-        <Accordion title="Installing JW Lua">
+        <Accordion title="Installing JW Lua" defaultExpanded>
             <p>
                 To use these JW Lua scripts, you first need to install JW Lua. Luckily, this is a
                 one-time process.
