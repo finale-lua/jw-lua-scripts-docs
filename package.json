@@ -9,11 +9,10 @@
         "build": "svelte-kit build",
         "start": "svelte-kit start",
         "preview": "svelte-kit preview",
-        "check-types": "tsc --noemit",
         "prettier": "prettier --write . --plugin-search-dir=. --quiet",
         "svelte-check": "svelte-check --ignore=cli/src/templates",
         "eslint": "eslint . --quiet",
-        "lint": "npm run prettier && npm run check-types && npm run svelte-check && npm run eslint"
+        "lint": "npm run prettier && npm run svelte-check && npm run eslint"
     },
     "devDependencies": {
         "@nick-mazuk/eslint-config": "0.8.15",
