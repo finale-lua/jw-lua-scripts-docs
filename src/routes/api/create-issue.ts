@@ -19,6 +19,11 @@ export const post: RequestHandler = async ({ rawBody }) => {
             },
         }
     }
+
+    let authorNotice = ''
+    if (fullName || email) authorNotice += ' by'
+    if (fullName) authorNotice += ` ${fullName}`
+    if (email) authorNotice += ` ${email}`
     const response = await fetch('https://api.github.com/repos/Nick-Mazuk/jw-lua-scripts/issues', {
         method: 'POST',
         headers: {
@@ -30,9 +35,7 @@ export const post: RequestHandler = async ({ rawBody }) => {
         body: JSON.stringify({
             title: `Bug report`,
             labels: ['bug'],
-            body: `**Description**\n\n${description}\n\n**Metadata**\n\n- ${finale}\n- ${os}\n- Script: ${script}\n\n_Created through the website${
-                fullName || email ? `by ${fullName} ${email}` : ''
-            }_`,
+            body: `**Description**\n\n${description}\n\n**Metadata**\n\n- ${finale}\n- ${os}\n- Script: ${script}\n\n_Created through the website${authorNotice}_`,
         }),
     })
     const json = await response.json()
