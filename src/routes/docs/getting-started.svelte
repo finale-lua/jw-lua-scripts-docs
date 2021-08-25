@@ -32,10 +32,10 @@ Next, learn how to [add scripts to this repository](/docs/getting-started/adding
     title="Getting Started"
     siteName="JW Lua Scripts Docs"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
-    canonicalUrl="{`https://jw-lua-scripts-docs.vercel.app/${$page.path}`}"
+    canonicalUrl="{`https://jwluascripts.com/${$page.path}`}"
     openGraph="{{
         image: {
-            src: `https://jw-lua-scripts-docs.vercel.app${luaLogo}`,
+            src: `https://jwluascripts.com${luaLogo}`,
             width: 630,
             height: 630,
         },

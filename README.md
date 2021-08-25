@@ -2,7 +2,7 @@
 
 This is the documentation site for the [JW Lua Scripts repository](https://github.com/Nick-Mazuk/jw-lua-scripts).
 
-Visit the site: [https://jw-lua-scripts-docs.vercel.app/](https://jw-lua-scripts-docs.vercel.app/)
+Visit the site: [https://jwluascripts.com/](https://jwluascripts.com/)
 
 ## Development
 

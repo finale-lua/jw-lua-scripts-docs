@@ -301,10 +301,10 @@ If the input entry is V1, only the current measure and layer is searched.
     title="Note Entry"
     siteName="JW Lua Scripts Docs"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
-    canonicalUrl="{`https://jw-lua-scripts-docs.vercel.app/${$page.path}`}"
+    canonicalUrl="{`https://jwluascripts.com/${$page.path}`}"
     openGraph="{{
         image: {
-            src: `https://jw-lua-scripts-docs.vercel.app${luaLogo}`,
+            src: `https://jwluascripts.com${luaLogo}`,
             width: 630,
             height: 630,
         },
