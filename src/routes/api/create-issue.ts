@@ -24,7 +24,7 @@ export const post: RequestHandler = async ({ rawBody }) => {
         headers: {
             Authorization: `Basic ${Buffer.from(
                 `Nick-Mazuk:${import.meta.env.VITE_GITHUB_ACCESS_TOKEN}`
-            ).toString('base64url')}`,
+            ).toString('base64')}`,
             accept: 'application/vnd.github.v3+json',
         },
         body: JSON.stringify({

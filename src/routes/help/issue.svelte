@@ -25,11 +25,12 @@
             method: 'post',
             body: JSON.stringify(data),
         })
-        const json = await response.json()
+        if (response.status !== 200) return false
 
+        const json = await response.json()
         if (typeof json.url === 'string') issueUrl = json.url
 
-        return response.status === 200
+        return true
     }
 </script>
 
