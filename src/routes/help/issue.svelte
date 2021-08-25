@@ -61,7 +61,6 @@
             name="description"
             placeholder="{`I encountered this.\n\nSteps to reproduce the behavior:\n1. Go to '...'\n2. Click on '....'\n3. Scroll down to '....'\n4. See error\n\nI expected this to happen.`}"
             type="textarea"
-            defaultValue="IGNORE. This is a test for a new issue reporting system for the JW Lua scripts website. The page will allow users without GitHub accounts to create a GitHub issue like this one."
             maxCharacters="{1000}"
         />
         <Select label="Finale version" name="finale" defaultValue="Finale v27">
