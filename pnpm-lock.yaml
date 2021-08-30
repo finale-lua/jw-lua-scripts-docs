@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@nick-mazuk/eslint-config': 0.8.15
+  '@nick-mazuk/eslint-config': 0.8.16
   '@nick-mazuk/lib': ^0.8.54
   '@nick-mazuk/ui-config': 0.10.64
   '@nick-mazuk/ui-svelte': 0.29.18
@@ -39,7 +39,7 @@ dependencies:
   redis: 3.1.2
 
 devDependencies:
-  '@nick-mazuk/eslint-config': 0.8.15_413b498d8c7a751bfd535a54852e9dcc
+  '@nick-mazuk/eslint-config': 0.8.16_413b498d8c7a751bfd535a54852e9dcc
   '@nick-mazuk/ui-config': 0.10.64_tailwindcss@2.2.7
   '@sveltejs/adapter-vercel': 1.0.0-next.27
   '@sveltejs/kit': 1.0.0-next.144_svelte@3.42.1
@@ -344,8 +344,8 @@ packages:
     resolution: {integrity: sha512-wdppn25U8z/2yiaT6YGquE6X8sSv7hNMWSXYSSU1jGv/yd6XqjXgTDJ8KP4NgjTXfJ3GbRjeeb8RTV7a/VpM+w==}
     dev: true
 
-  /@nick-mazuk/eslint-config/0.8.15_413b498d8c7a751bfd535a54852e9dcc:
-    resolution: {integrity: sha512-9PUiNYqwK9E7toEp2n3/eae9Zb+ZlBTx4xCynnh9rDCcdPqc804oaib4KJSD9n1CZQPmYfa+1Yvy9QCgCyO4FQ==}
+  /@nick-mazuk/eslint-config/0.8.16_413b498d8c7a751bfd535a54852e9dcc:
+    resolution: {integrity: sha512-I7edW4rg47XBCGygGdcoQY4/4t8rrnIR5yvJpNjHMexBVLAwDZbsDt6535ImheuxbOXy7g/rEsb4w11Mv36kRQ==}
     peerDependencies:
       eslint: '>= 7.25.0'
       typescript: '>= 4.2.4'
@@ -362,7 +362,7 @@ packages:
       eslint-plugin-jest: 24.4.0_8acbcf4842302c074111ae8720519eaa
       eslint-plugin-jsx-a11y: 6.4.1_eslint@7.32.0
       eslint-plugin-no-secrets: 0.8.9_eslint@7.32.0
-      eslint-plugin-prettier: 3.4.0_5a48a349ffec60f5257b5f148f5199c3
+      eslint-plugin-prettier: 4.0.0_5a48a349ffec60f5257b5f148f5199c3
       eslint-plugin-promise: 5.1.0_eslint@7.32.0
       eslint-plugin-react: 7.24.0_eslint@7.32.0
       eslint-plugin-react-hooks: 4.2.0_eslint@7.32.0
@@ -1717,13 +1717,13 @@ packages:
       eslint: 7.32.0
     dev: true
 
-  /eslint-plugin-prettier/3.4.0_5a48a349ffec60f5257b5f148f5199c3:
-    resolution: {integrity: sha512-UDK6rJT6INSfcOo545jiaOwB701uAIt2/dR7WnFQoGCVl1/EMqdANBmwUaqqQ45aXprsTGzSa39LI1PyuRBxxw==}
+  /eslint-plugin-prettier/4.0.0_5a48a349ffec60f5257b5f148f5199c3:
+    resolution: {integrity: sha512-98MqmCJ7vJodoQK359bqQWaxOE0CS8paAz/GgjaZLyex4TTk3g9HugoO89EqWCrFiOqn9EVvcoo7gZzONCWVwQ==}
     engines: {node: '>=6.0.0'}
     peerDependencies:
-      eslint: '>=5.0.0'
+      eslint: '>=7.28.0'
       eslint-config-prettier: '*'
-      prettier: '>=1.13.0'
+      prettier: '>=2.0.0'
     peerDependenciesMeta:
       eslint-config-prettier:
         optional: true
