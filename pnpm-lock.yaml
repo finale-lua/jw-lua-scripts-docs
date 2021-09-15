@@ -6,7 +6,7 @@ specifiers:
   '@nick-mazuk/ui-config': 0.10.64
   '@nick-mazuk/ui-svelte': 0.29.19
   '@sveltejs/adapter-static': ^1.0.0-next.13
-  '@sveltejs/adapter-vercel': 1.0.0-next.28
+  '@sveltejs/adapter-vercel': 1.0.0-next.29
   '@sveltejs/kit': ^1.0.0-next.138
   '@types/fs-extra': ^9.0.9
   '@types/js-search': ^1.4.0
@@ -41,7 +41,7 @@ dependencies:
 devDependencies:
   '@nick-mazuk/eslint-config': 0.8.17_413b498d8c7a751bfd535a54852e9dcc
   '@nick-mazuk/ui-config': 0.10.64_tailwindcss@2.2.7
-  '@sveltejs/adapter-vercel': 1.0.0-next.28
+  '@sveltejs/adapter-vercel': 1.0.0-next.29
   '@sveltejs/kit': 1.0.0-next.144_svelte@3.42.1
   '@types/fs-extra': 9.0.12
   '@types/js-search': 1.4.0
@@ -465,8 +465,8 @@ packages:
     resolution: {integrity: sha512-xGFcg+GHF0BL1fyWx2vCzlYj4S4R+Od9cF00soo1TVp/scGOi1G9grSYYW4x5H+iDn1sscoJ65OGBGWIcOgrXg==}
     dev: false
 
-  /@sveltejs/adapter-vercel/1.0.0-next.28:
-    resolution: {integrity: sha512-a2n4UCuTu5LhUoS5KiI5xasgvIXW8qKnSSKOnTTLYlZhpJ5VnSKWyT9hUOoVsAEGkeZw+2SYxxI3Vckw6ZhSng==}
+  /@sveltejs/adapter-vercel/1.0.0-next.29:
+    resolution: {integrity: sha512-2DMz4qCm5+v+/8npdbyT/uQVMr3elSOH5ZJ24k3VLug60n6/sS4RyU++RO8gjiVQqxyGvdfRFJXAX6xV4K6hzg==}
     dependencies:
       esbuild: 0.12.19
     dev: true
@@ -2092,6 +2092,7 @@ packages:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
+    requiresBuild: true
     dev: true
     optional: true
 
