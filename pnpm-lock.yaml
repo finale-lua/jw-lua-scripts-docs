@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@nick-mazuk/eslint-config': 0.8.17
+  '@nick-mazuk/eslint-config': 0.8.18
   '@nick-mazuk/lib': ^0.8.54
   '@nick-mazuk/ui-config': 0.10.64
   '@nick-mazuk/ui-svelte': 0.29.19
@@ -39,7 +39,7 @@ dependencies:
   redis: 3.1.2
 
 devDependencies:
-  '@nick-mazuk/eslint-config': 0.8.17_413b498d8c7a751bfd535a54852e9dcc
+  '@nick-mazuk/eslint-config': 0.8.18_413b498d8c7a751bfd535a54852e9dcc
   '@nick-mazuk/ui-config': 0.10.64_tailwindcss@2.2.7
   '@sveltejs/adapter-vercel': 1.0.0-next.30
   '@sveltejs/kit': 1.0.0-next.144_svelte@3.42.1
@@ -344,8 +344,8 @@ packages:
     resolution: {integrity: sha512-wdppn25U8z/2yiaT6YGquE6X8sSv7hNMWSXYSSU1jGv/yd6XqjXgTDJ8KP4NgjTXfJ3GbRjeeb8RTV7a/VpM+w==}
     dev: true
 
-  /@nick-mazuk/eslint-config/0.8.17_413b498d8c7a751bfd535a54852e9dcc:
-    resolution: {integrity: sha512-67KZ+xcKCSmp6qAn/gPFaBBUWMQBEwG9zNEKeQCWhtgfLfESS4E4Tg/952fTE1m8dJaH/S4EZort6rPzmicf3w==}
+  /@nick-mazuk/eslint-config/0.8.18_413b498d8c7a751bfd535a54852e9dcc:
+    resolution: {integrity: sha512-ijTgjD6gRIYFAPt198IZ3nuB1y+gwMUU2+ttj8XGo081FVAjhvJaybF9l2hNdmM8wEiwresL3vAOdk02yWWj2g==}
     peerDependencies:
       eslint: '>= 7.25.0'
       typescript: '>= 4.2.4'
@@ -359,7 +359,7 @@ packages:
       eslint-plugin-deprecation: 1.2.1_eslint@7.32.0+typescript@4.3.5
       eslint-plugin-eslint-comments: 3.2.0_eslint@7.32.0
       eslint-plugin-import: 2.24.0_eslint@7.32.0
-      eslint-plugin-jest: 24.4.0_8acbcf4842302c074111ae8720519eaa
+      eslint-plugin-jest: 25.0.1_8acbcf4842302c074111ae8720519eaa
       eslint-plugin-jsx-a11y: 6.4.1_eslint@7.32.0
       eslint-plugin-no-secrets: 0.8.9_eslint@7.32.0
       eslint-plugin-prettier: 4.0.0_5a48a349ffec60f5257b5f148f5199c3
@@ -1972,12 +1972,12 @@ packages:
       tsconfig-paths: 3.10.1
     dev: true
 
-  /eslint-plugin-jest/24.4.0_8acbcf4842302c074111ae8720519eaa:
-    resolution: {integrity: sha512-8qnt/hgtZ94E9dA6viqfViKBfkJwFHXgJmTWlMGDgunw1XJEGqm3eiPjDsTanM3/u/3Az82nyQM9GX7PM/QGmg==}
-    engines: {node: '>=10'}
+  /eslint-plugin-jest/25.0.1_8acbcf4842302c074111ae8720519eaa:
+    resolution: {integrity: sha512-h54W6EOFGWHvKmGQul1Ahc8nLfzWR7jbynjeb4NT/acg6yOaRPQv6MXeSuQO3a7+21xaVtmULowYANuu4JIimQ==}
+    engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
     peerDependencies:
-      '@typescript-eslint/eslint-plugin': '>= 4'
-      eslint: '>=5'
+      '@typescript-eslint/eslint-plugin': ^4.0.0
+      eslint: ^6.0.0 || ^7.0.0
     peerDependenciesMeta:
       '@typescript-eslint/eslint-plugin':
         optional: true
