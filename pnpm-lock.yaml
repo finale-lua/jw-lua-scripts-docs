@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@nick-mazuk/eslint-config': 0.8.22
+  '@nick-mazuk/eslint-config': 0.8.23
   '@nick-mazuk/lib': ^0.8.54
   '@nick-mazuk/ui-config': 0.10.64
   '@nick-mazuk/ui-svelte': 0.29.19
@@ -39,7 +39,7 @@ dependencies:
   redis: 3.1.2
 
 devDependencies:
-  '@nick-mazuk/eslint-config': 0.8.22_413b498d8c7a751bfd535a54852e9dcc
+  '@nick-mazuk/eslint-config': 0.8.23_413b498d8c7a751bfd535a54852e9dcc
   '@nick-mazuk/ui-config': 0.10.64_tailwindcss@2.2.7
   '@sveltejs/adapter-vercel': 1.0.0-next.31
   '@sveltejs/kit': 1.0.0-next.144_svelte@3.42.1
@@ -344,8 +344,8 @@ packages:
     resolution: {integrity: sha512-wdppn25U8z/2yiaT6YGquE6X8sSv7hNMWSXYSSU1jGv/yd6XqjXgTDJ8KP4NgjTXfJ3GbRjeeb8RTV7a/VpM+w==}
     dev: true
 
-  /@nick-mazuk/eslint-config/0.8.22_413b498d8c7a751bfd535a54852e9dcc:
-    resolution: {integrity: sha512-9YlWHRbQICM921PcoRB9VE2QUv0EgbkyRQxwDdCSq/o6XHLTZ8ubY3+NcCqNHFp3xrvOb8MKl3iW7I3F2Hxusg==}
+  /@nick-mazuk/eslint-config/0.8.23_413b498d8c7a751bfd535a54852e9dcc:
+    resolution: {integrity: sha512-2Io6bBVZS4QMw0u4rGRDpKAuNP/18rUUhz+OlHNm2cHydiKjg9LehXop8RMLeqbh8ryFo1SfTRqSC4Tufq47fA==}
     peerDependencies:
       eslint: '>= 7.25.0'
       typescript: '>= 4.2.4'
@@ -370,7 +370,7 @@ packages:
       eslint-plugin-svelte3: 3.2.0_eslint@7.32.0+svelte@3.42.1
       eslint-plugin-testing-library: 5.0.0_eslint@7.32.0+typescript@4.3.5
       eslint-plugin-unicorn: 38.0.0_eslint@7.32.0
-      eslint-plugin-unused-imports: 1.1.2
+      eslint-plugin-unused-imports: 2.0.0_7f1ad909ad60592e773b785889f7b353
       prettier: 2.3.2
       typescript: 4.3.5
     transitivePeerDependencies:
@@ -2195,10 +2195,18 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-unused-imports/1.1.2:
-    resolution: {integrity: sha512-dfiCZiv/lSkOp6/JIjP+ASIs1vxLgiN1NISM+oxcO799+FEZQXy0Se1CaAHQt4BCInBOJ9LK0ILCe1lMMI+YGA==}
-    engines: {node: '>=0.10.0'}
+  /eslint-plugin-unused-imports/2.0.0_7f1ad909ad60592e773b785889f7b353:
+    resolution: {integrity: sha512-3APeS/tQlTrFa167ThtP0Zm0vctjr4M44HMpeg1P4bK6wItarumq0Ma82xorMKdFsWpphQBlRPzw/pxiVELX1A==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      '@typescript-eslint/eslint-plugin': ^5.0.0
+      eslint: ^8.0.0
+    peerDependenciesMeta:
+      '@typescript-eslint/eslint-plugin':
+        optional: true
     dependencies:
+      '@typescript-eslint/eslint-plugin': 5.0.0_a4af64102f5528ae51482fb2e9a7ef91
+      eslint: 7.32.0
       eslint-rule-composer: 0.3.0
     dev: true
 
