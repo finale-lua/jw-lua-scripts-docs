@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@nick-mazuk/eslint-config': 0.8.23
+  '@nick-mazuk/eslint-config': 0.8.24
   '@nick-mazuk/lib': ^0.8.54
   '@nick-mazuk/ui-config': 0.10.64
   '@nick-mazuk/ui-svelte': 0.29.19
@@ -39,7 +39,7 @@ dependencies:
   redis: 3.1.2
 
 devDependencies:
-  '@nick-mazuk/eslint-config': 0.8.23_413b498d8c7a751bfd535a54852e9dcc
+  '@nick-mazuk/eslint-config': 0.8.24_413b498d8c7a751bfd535a54852e9dcc
   '@nick-mazuk/ui-config': 0.10.64_tailwindcss@2.2.7
   '@sveltejs/adapter-vercel': 1.0.0-next.31
   '@sveltejs/kit': 1.0.0-next.144_svelte@3.42.1
@@ -344,8 +344,8 @@ packages:
     resolution: {integrity: sha512-wdppn25U8z/2yiaT6YGquE6X8sSv7hNMWSXYSSU1jGv/yd6XqjXgTDJ8KP4NgjTXfJ3GbRjeeb8RTV7a/VpM+w==}
     dev: true
 
-  /@nick-mazuk/eslint-config/0.8.23_413b498d8c7a751bfd535a54852e9dcc:
-    resolution: {integrity: sha512-2Io6bBVZS4QMw0u4rGRDpKAuNP/18rUUhz+OlHNm2cHydiKjg9LehXop8RMLeqbh8ryFo1SfTRqSC4Tufq47fA==}
+  /@nick-mazuk/eslint-config/0.8.24_413b498d8c7a751bfd535a54852e9dcc:
+    resolution: {integrity: sha512-gfrAoA9vLuFidM0hFOvIErwsgY78c99ViCGwsp67XnLS2zSRZB1tMGQQI3+73VF8nGt83mjiNd5reiDP5D7qOg==}
     peerDependencies:
       eslint: '>= 7.25.0'
       typescript: '>= 4.2.4'
@@ -369,7 +369,7 @@ packages:
       eslint-plugin-sonarjs: 0.10.0_eslint@7.32.0
       eslint-plugin-svelte3: 3.2.0_eslint@7.32.0+svelte@3.42.1
       eslint-plugin-testing-library: 5.0.0_eslint@7.32.0+typescript@4.3.5
-      eslint-plugin-unicorn: 38.0.0_eslint@7.32.0
+      eslint-plugin-unicorn: 39.0.0_eslint@7.32.0
       eslint-plugin-unused-imports: 2.0.0_7f1ad909ad60592e773b785889f7b353
       prettier: 2.3.2
       typescript: 4.3.5
@@ -2169,8 +2169,8 @@ packages:
       - typescript
     dev: true
 
-  /eslint-plugin-unicorn/38.0.0_eslint@7.32.0:
-    resolution: {integrity: sha512-8Ut3S0RTkk+9T90RmIi1NqiJ4AVCreaMjHaIXxO/IgYCNp+zxixj8Q3eXikf8RZi4vwytxefVqx6mU5LSEEx2w==}
+  /eslint-plugin-unicorn/39.0.0_eslint@7.32.0:
+    resolution: {integrity: sha512-fd5RK2FtYjGcIx3wra7csIE/wkkmBo22T1gZtRTsLr1Mb+KsFKJ+JOdSqhHXQUrI/JTs/Mon64cEYzTgSCbltw==}
     engines: {node: '>=12'}
     peerDependencies:
       eslint: '>=7.32.0'
