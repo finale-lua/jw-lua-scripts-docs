@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@nick-mazuk/eslint-config': 0.8.24
+  '@nick-mazuk/eslint-config': 0.8.25
   '@nick-mazuk/lib': ^0.8.54
   '@nick-mazuk/ui-config': 0.10.64
   '@nick-mazuk/ui-svelte': 0.29.19
@@ -39,7 +39,7 @@ dependencies:
   redis: 3.1.2
 
 devDependencies:
-  '@nick-mazuk/eslint-config': 0.8.24_413b498d8c7a751bfd535a54852e9dcc
+  '@nick-mazuk/eslint-config': 0.8.25_413b498d8c7a751bfd535a54852e9dcc
   '@nick-mazuk/ui-config': 0.10.64_tailwindcss@2.2.7
   '@sveltejs/adapter-vercel': 1.0.0-next.31
   '@sveltejs/kit': 1.0.0-next.144_svelte@3.42.1
@@ -344,8 +344,8 @@ packages:
     resolution: {integrity: sha512-wdppn25U8z/2yiaT6YGquE6X8sSv7hNMWSXYSSU1jGv/yd6XqjXgTDJ8KP4NgjTXfJ3GbRjeeb8RTV7a/VpM+w==}
     dev: true
 
-  /@nick-mazuk/eslint-config/0.8.24_413b498d8c7a751bfd535a54852e9dcc:
-    resolution: {integrity: sha512-gfrAoA9vLuFidM0hFOvIErwsgY78c99ViCGwsp67XnLS2zSRZB1tMGQQI3+73VF8nGt83mjiNd5reiDP5D7qOg==}
+  /@nick-mazuk/eslint-config/0.8.25_413b498d8c7a751bfd535a54852e9dcc:
+    resolution: {integrity: sha512-f+igRB/mSeLg628hbve9qVuy+0yQdM0CHWtBg98jb9QRJ5Ipqi2uiGcZzY0R0N3vyFk0f0ZDYkWl5i8sfXTlfw==}
     peerDependencies:
       eslint: '>= 7.25.0'
       typescript: '>= 4.2.4'
@@ -366,7 +366,7 @@ packages:
       eslint-plugin-promise: 5.1.0_eslint@7.32.0
       eslint-plugin-react: 7.24.0_eslint@7.32.0
       eslint-plugin-react-hooks: 4.2.0_eslint@7.32.0
-      eslint-plugin-sonarjs: 0.10.0_eslint@7.32.0
+      eslint-plugin-sonarjs: 0.11.0_eslint@7.32.0
       eslint-plugin-svelte3: 3.2.0_eslint@7.32.0+svelte@3.42.1
       eslint-plugin-testing-library: 5.0.0_eslint@7.32.0+typescript@4.3.5
       eslint-plugin-unicorn: 39.0.0_eslint@7.32.0
@@ -2145,11 +2145,11 @@ packages:
       string.prototype.matchall: 4.0.5
     dev: true
 
-  /eslint-plugin-sonarjs/0.10.0_eslint@7.32.0:
-    resolution: {integrity: sha512-FBRIBmWQh2UAfuLSnuYEfmle33jIup9hfkR0X8pkfjeCKNpHUG8qyZI63ahs3aw8CJrv47QJ9ccdK3ZxKH016A==}
-    engines: {node: '>=10'}
+  /eslint-plugin-sonarjs/0.11.0_eslint@7.32.0:
+    resolution: {integrity: sha512-ei/WuZiL0wP+qx2KrxKyZs3+eDbxiGAhFSm3GKCOOAUkg+G2ny6TSXDB2j67tvyqHefi+eoQsAgGQvz+nEtIBw==}
+    engines: {node: '>=12'}
     peerDependencies:
-      eslint: ^5.0.0 || ^6.0.0 || ^7.0.0
+      eslint: ^5.0.0 || ^6.0.0 || ^7.0.0|| ^8.0.0
     dependencies:
       eslint: 7.32.0
     dev: true
