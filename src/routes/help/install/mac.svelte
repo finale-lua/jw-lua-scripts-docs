@@ -158,7 +158,7 @@
                 </li>
                 <li>
                     <strong>Click "open" next to the Plug-in Groups section</strong>. Note that
-                    there are two "open" buttons. You want to click the top one.
+                    there are two "open" buttons. You want to click the bottom one.
                 </li>
                 <li>
                     <strong>Find the saved <code>.lua</code> and select it</strong>. Click "open",
