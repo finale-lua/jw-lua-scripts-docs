@@ -21,7 +21,7 @@
         "@sveltejs/kit": "^1.0.0-next.138",
         "@types/fs-extra": "^9.0.9",
         "@types/js-search": "^1.4.0",
-        "@types/redis": "^2.8.31",
+        "@types/redis": "^4.0.0",
         "autoprefixer": "^10.2.5",
         "esbuild": "^0.14.0",
         "eslint": "^7.25.0",
@@ -44,6 +44,6 @@
         "@sveltejs/adapter-static": "^1.0.0-next.13",
         "date-fns": "^2.23.0",
         "js-search": "^2.0.0",
-        "redis": "^3.1.2"
+        "redis": "^4.0.0"
     }
 }
