@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-static'
+import adapter from '@sveltejs/adapter-vercel'
 import sveltePreprocess from 'svelte-preprocess'
 import { imagetools } from 'vite-imagetools'
 import imagePreprocess from './image-preprocess.cjs'
