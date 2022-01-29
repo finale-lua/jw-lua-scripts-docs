@@ -1,15 +1,28 @@
 <script lang="ts">
     import { page } from '$app/stores'
     import luaLogo from '$lib/assets/images/lua-logo.png'
+    import Hero from '$lib/components/help/install/hero.svelte'
+    import InstallOption from '$lib/components/help/install/install-option.svelte'
+    import InstallOptions from '$lib/components/help/install/install-options.svelte'
+    import MacOsInstall from '$lib/components/help/install/macos.svelte'
+    import PluginInstallDone from '$lib/components/help/install/plugin-install-done.svelte'
+    import WindowsInstall from '$lib/components/help/install/windows.svelte'
+    import type { FinaleVersion, OS, PluginVersion } from '$lib/lib/install-data'
+    import { finaleName, finaleVersions } from '$lib/lib/install-data'
+    import Button from '@nick-mazuk/ui-svelte/src/elements/button/button.svelte'
     import Apple from '@nick-mazuk/ui-svelte/src/elements/icon/apple.svelte'
     import Windows from '@nick-mazuk/ui-svelte/src/elements/icon/windows.svelte'
-    import Container from '@nick-mazuk/ui-svelte/src/utilities/container/container.svelte'
+    import Note from '@nick-mazuk/ui-svelte/src/elements/note/note.svelte'
     import Seo from '@nick-mazuk/ui-svelte/src/utilities/seo/seo.svelte'
     import Spacer from '@nick-mazuk/ui-svelte/src/utilities/spacer/spacer.svelte'
+
+    let operatingSystem: OS | undefined
+    let finaleVersion: FinaleVersion | undefined
+    let pluginVersion: PluginVersion | undefined
 </script>
 
 <Seo
-    title="Install"
+    title="macOS Installation"
     siteName="Finale Lua"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
     canonicalUrl="{`https://finalelua.com/${$page.path}`}"
@@ -22,29 +35,62 @@
     }}"
 />
 
-<main id="main-content">
-    <div class="wrapper !max-w-2xl my-6">
-        <h1 class="h4 text-center">Using Lua scripts</h1>
-        <Spacer y="{0.5}" />
-        <p class="text-center">Select your operating system</p>
+<main id="main-content" class="my-12 wrapper !max-w-2xl">
+    <Hero bind:operatingSystem bind:finaleVersion bind:pluginVersion />
+    {#if typeof operatingSystem === 'undefined'}
+        <InstallOptions title="Select your operating system">
+            <InstallOption
+                name="macOS"
+                icon="{Apple}"
+                on:click="{() => (operatingSystem = 'macOS')}"
+            />
+            <InstallOption
+                name="Windows"
+                icon="{Windows}"
+                on:click="{() => (operatingSystem = 'Windows')}"
+            />
+        </InstallOptions>
+    {:else if typeof finaleVersion === 'undefined'}
+        <InstallOptions title="Select your Finale version">
+            {#each finaleVersions as version}
+                <InstallOption
+                    name="{finaleName[version].full}"
+                    on:click="{() => {
+                        finaleVersion = version
+                        if (version === '2014.5') {
+                            pluginVersion = 'JW Lua'
+                        }
+                    }}"
+                />
+            {/each}
+        </InstallOptions>
+    {:else if typeof pluginVersion === 'undefined'}
+        <InstallOptions title="Select your plugin version">
+            <InstallOption
+                name="RGP Lua (recommended)"
+                on:click="{() => (pluginVersion = 'RGP Lua')}"
+            />
+            <InstallOption name="JW Lua" on:click="{() => (pluginVersion = 'JW Lua')}" />
+        </InstallOptions>
         <Spacer />
-        <div class="grid grid-cols-2 gap-6">
-            <Container
-                padding="{8}"
-                href="/help/install/mac"
-                class="flex flex-col items-center space-y-6"
-            >
-                <Apple size="{12}" color="--c-gray" />
-                <p class="text-lg">macOS</p>
-            </Container>
-            <Container
-                padding="{8}"
-                href="/help/install/windows"
-                class="flex flex-col items-center space-y-6"
-            >
-                <Windows size="{12}" color="--c-gray" />
-                <p class="text-lg">Windows</p>
-            </Container>
-        </div>
-    </div>
+        <Note>
+            <span class="font-bold">
+                Choose RGP Lua unless you have a specific reason to use JW Lua.
+            </span>
+            Use JW Lua if you're using {finaleName['2014.5'].full}, or a developer on Windows
+            wanting a slightly better experience. Otherwise, choose RGP Lua.
+        </Note>
+    {:else if finaleVersion === '2014.5' && pluginVersion === 'RGP Lua'}
+        <p>RGP Lua is not supported on {finaleName[finaleVersion].full}.</p>
+        <Spacer />
+        <Button variant="primary" on:click="{() => (pluginVersion = 'JW Lua')}">
+            Choose JW Lua instead
+        </Button>
+    {:else if operatingSystem === 'macOS'}
+        <MacOsInstall bind:finaleVersion bind:pluginVersion />
+        <PluginInstallDone pluginVersion="{pluginVersion}" />
+    {:else}
+        <WindowsInstall bind:finaleVersion bind:pluginVersion />
+        <PluginInstallDone pluginVersion="{pluginVersion}" />
+    {/if}
 </main>

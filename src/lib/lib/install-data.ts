@@ -7,7 +7,7 @@ export type FinaleVersion = typeof finaleVersions[number]
 
 export const finaleName: Record<FinaleVersion, { short: string; full: string }> = {
     '2014.5': {
-        short: 'Finale 2014.5',
+        short: 'Finale 2014.5 or earlier',
         full: 'Finale 2014.5 or earlier',
     },
     '25': {

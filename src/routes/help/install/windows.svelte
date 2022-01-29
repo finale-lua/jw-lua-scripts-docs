@@ -65,52 +65,6 @@
                     Finale.
                 </li>
             </ol>
-            <p>Congratulations, you're all set!</p>
-        </Accordion>
-        <Accordion title="Installing scripts">
-            <p>Once you've installed JW Lua, you can now install and run the JW Lua scripts.</p>
-            <ol>
-                <li>
-                    <strong>Find the script you want and click "download"</strong>. This will
-                    download a <code>.lua</code> file. You can search for and find scripts on the
-                    <a sveltekit:prefetch href="/">homepage</a> of this site.
-                </li>
-                <li>
-                    <strong>Save the downloaded script</strong>. You can save it anywhere on your
-                    computer, though make sure you can keep it there permenantly. The two most
-                    common places to save these JW Lua scripts are in the same folder as the three
-                    unzipped files from installing JW Lua, or a cloud-synced folder (like for
-                    Dropbox or Google Drive).
-                </li>
-                <li>
-                    <strong>Open Finale and open a document</strong>. The plug-in menu does not
-                    appear unlesss a document is opened.
-                </li>
-                <li>
-                    <strong>Go to Plug-ins > JW Lua > JW Lua…</strong> to open the JW Lua plug-in.
-                </li>
-                <li>
-                    <strong>
-                        Go to the manager tab and click on the <code>[menu]</code> plug-in group.
-                    </strong>
-                </li>
-                <li>
-                    <strong>Click "open" next to the Plug-in Groups section</strong>. Note that
-                    there are two "open" buttons. You want to click the top one.
-                </li>
-                <li>
-                    <strong>Find the saved <code>.lua</code> and select it</strong>. Click "open",
-                    and the file should now be listed under Items in Group.
-                </li>
-                <li>
-                    <strong>Close JW Lua</strong>. You may also get a warning that the changes will
-                    not be reflected until you restart Finale, you can close this warning.
-                </li>
-                <li>
-                    <strong>Restart Finale and view the new script under Plug-ins > JW Lua</strong>.
-                    You can now run this script!
-                </li>
-            </ol>
         </Accordion>
     </AccordionGroup>
 </main>

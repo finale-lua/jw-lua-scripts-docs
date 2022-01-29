@@ -9,38 +9,42 @@
     export let operatingSystem: OS | undefined = undefined
 </script>
 
-<h1 class="h3">Installation</h1>
+<h1 class="h3">Plugin Installation</h1>
 
-{#if finaleVersion && pluginVersion && operatingSystem}
-    <Spacer />
-    <p class="text-gray text-lg">
-        {pluginVersion} for {finaleName[finaleVersion].short} on {operatingSystem}
-    </p>
-    <div class="grid gap-6 grid-cols-1 sm:grid-cols-3">
-        <Select
-            defaultValue="{pluginVersion}"
-            on:change="{(event) => (pluginVersion = event.detail)}"
-        >
-            {#each pluginVersions as version}
-                <option value="{version}">{version}</option>
-            {/each}
-        </Select>
-        <Select
-            defaultValue="{finaleVersion}"
-            on:change="{(event) => (finaleVersion = event.detail)}"
-        >
-            {#each finaleVersions as version}
-                <option value="{version}">{finaleName[version].full}</option>
-            {/each}
-        </Select>
-        <Select
-            defaultValue="{operatingSystem}"
-            on:change="{(event) => (operatingSystem = event.detail)}"
-        >
-            {#each os as version}
-                <option value="{version}">{version}</option>
-            {/each}
-        </Select>
-    </div>
-{/if}
 <Spacer />
+
+{#if operatingSystem || finaleVersion || pluginVersion}
+    <div class="grid gap-6 grid-cols-1 sm:grid-cols-3">
+        {#if operatingSystem}
+            <Select
+                defaultValue="{operatingSystem}"
+                on:change="{(event) => (operatingSystem = event.detail)}"
+            >
+                {#each os as version}
+                    <option value="{version}">{version}</option>
+                {/each}
+            </Select>
+        {/if}
+        {#if finaleVersion}
+            <Select
+                defaultValue="{finaleVersion}"
+                on:change="{(event) => (finaleVersion = event.detail)}"
+            >
+                {#each finaleVersions as version}
+                    <option value="{version}">{finaleName[version].full}</option>
+                {/each}
+            </Select>
+        {/if}
+        {#if pluginVersion}
+            <Select
+                defaultValue="{pluginVersion}"
+                on:change="{(event) => (pluginVersion = event.detail)}"
+            >
+                {#each pluginVersions as version}
+                    <option value="{version}">{version}</option>
+                {/each}
+            </Select>
+        {/if}
+    </div>
+    <Spacer />
+{/if}
