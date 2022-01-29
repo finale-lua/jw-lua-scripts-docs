@@ -1,22 +1,20 @@
 <script lang="ts">
-    import { Search } from 'js-search'
     import { page } from '$app/stores'
-
+    import luaLogo from '$lib/assets/images/lua-logo.png'
+    import Script from '$lib/components/script.svelte'
+    import { formatNumber } from '@nick-mazuk/lib/esm/number-styling'
+    import EmptyState from '@nick-mazuk/ui-svelte/src/components/empty-state/empty-state.svelte'
+    import Button from '@nick-mazuk/ui-svelte/src/elements/button/button.svelte'
     import FileCode from '@nick-mazuk/ui-svelte/src/elements/marketing-icon/file-code.svelte'
     import Note from '@nick-mazuk/ui-svelte/src/elements/note/note.svelte'
-    import EmptyState from '@nick-mazuk/ui-svelte/src/components/empty-state/empty-state.svelte'
     import SearchInput from '@nick-mazuk/ui-svelte/src/form/inputs/search-input/search-input.svelte'
     import type { TextInputChangeEvent } from '@nick-mazuk/ui-svelte/src/form/inputs/text-input'
+    import Container from '@nick-mazuk/ui-svelte/src/utilities/container/container.svelte'
+    import Seo from '@nick-mazuk/ui-svelte/src/utilities/seo/seo.svelte'
     import Spacer from '@nick-mazuk/ui-svelte/src/utilities/spacer/spacer.svelte'
-    import Script from '$lib/components/script.svelte'
+    import { Search } from 'js-search'
     import scriptData from '../lib/lib/script-data.json'
     import type { ScriptData } from '../lib/types/script-data'
-    import Container from '@nick-mazuk/ui-svelte/src/utilities/container/container.svelte'
-    import { formatNumber } from '@nick-mazuk/lib/esm/number-styling'
-    import Button from '@nick-mazuk/ui-svelte/src/elements/button/button.svelte'
-    import Seo from '@nick-mazuk/ui-svelte/src/utilities/seo/seo.svelte'
-
-    import luaLogo from '$lib/assets/images/lua-logo.png'
 
     const scripts: ScriptData[] = scriptData
     const search = new Search('name')
@@ -82,12 +80,12 @@
 
 <Seo
     title="Scripts"
-    siteName="JW Lua Scripts"
+    siteName="Finale Lua"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
-    canonicalUrl="{`https://jwluascripts.com/${$page.path}`}"
+    canonicalUrl="{`https://finalelua.com/${$page.path}`}"
     openGraph="{{
         image: {
-            src: `https://jwluascripts.com${luaLogo}`,
+            src: `https://finalelua.com${luaLogo}`,
             width: 630,
             height: 630,
         },
@@ -140,8 +138,8 @@
     </Container>
     <Spacer />
     <Note label="Note">
-        The development of these JW Lua scripts are totally separate from Finale, Makemusic, or
-        their affiliates. No financial, tech support or other arrangements have been made with these
+        The development of these Lua scripts are totally separate from Finale, Makemusic, or their
+        affiliates. No financial, tech support or other arrangements have been made with these
         companies. These scripts are created by the community, so they make have bugs, so use them
         at your own risk.
     </Note>

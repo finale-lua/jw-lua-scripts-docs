@@ -4,10 +4,9 @@
     import Button from '@nick-mazuk/ui-svelte/src/elements/button/button.svelte'
     import Github from '@nick-mazuk/ui-svelte/src/elements/icon/github.svelte'
     import Spacer from '@nick-mazuk/ui-svelte/src/utilities/spacer/spacer.svelte'
-
     import { libraryPages } from '../../lib/lib/library-pages'
 
-    const githubPrefix = 'https://github.com/Nick-Mazuk/jw-lua-scripts/blob/master/'
+    const githubPrefix = 'https://github.com/finale-lua/lua-scripts/blob/master/'
     let githubUrl = ''
     $: {
         const path = $page.path.replace('/docs/', '')

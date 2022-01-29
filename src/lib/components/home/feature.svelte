@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onDestroy, onMount } from 'svelte'
-    import Image from '../image.svelte'
     import type { ImageSource } from '../../lib/images'
+    import Image from '../image.svelte'
 
     export let title: string
     export let description: string
@@ -54,14 +54,14 @@
                     class="absolute inset-0 flex items-end justify-center pb-1 pointer-events-none select-none"
                 >
                     <p class:opacity-0="{currentImage % 2 !== 0}" class="{transitionClasses}">
-                        Before JW Lua
+                        Before RGP Lua
                     </p>
                 </div>
                 <div
                     class="absolute inset-0 flex items-end justify-center pb-1 pointer-events-none select-none"
                 >
                     <p class:opacity-0="{currentImage % 2 === 0}" class="{transitionClasses}">
-                        After JW Lua
+                        After RGP Lua
                     </p>
                 </div>
             {/if}

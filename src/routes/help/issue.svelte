@@ -1,21 +1,17 @@
 <script lang="ts">
     import { page } from '$app/stores'
-
-    import scriptData from '../../lib/lib/script-data.json'
-    import type { ScriptData } from '../../lib/types/script-data'
-
+    import luaLogo from '$lib/assets/images/lua-logo.png'
+    import Note from '@nick-mazuk/ui-svelte/src/elements/note/note.svelte'
+    import type { HandleSubmit } from '@nick-mazuk/ui-svelte/src/form'
     import FormEntity from '@nick-mazuk/ui-svelte/src/form/form-entity/form-entity.svelte'
     import EmailInput from '@nick-mazuk/ui-svelte/src/form/inputs/email-input/email-input.svelte'
     import NameInput from '@nick-mazuk/ui-svelte/src/form/inputs/name-input/name-input.svelte'
-    import TextInput from '@nick-mazuk/ui-svelte/src/form/inputs/text-input/text-input.svelte'
     import Select from '@nick-mazuk/ui-svelte/src/form/inputs/select/select.svelte'
-
+    import TextInput from '@nick-mazuk/ui-svelte/src/form/inputs/text-input/text-input.svelte'
     import Seo from '@nick-mazuk/ui-svelte/src/utilities/seo/seo.svelte'
     import Spacer from '@nick-mazuk/ui-svelte/src/utilities/spacer/spacer.svelte'
-
-    import luaLogo from '$lib/assets/images/lua-logo.png'
-    import type { HandleSubmit } from '@nick-mazuk/ui-svelte/src/form'
-    import Note from '@nick-mazuk/ui-svelte/src/elements/note/note.svelte'
+    import scriptData from '../../lib/lib/script-data.json'
+    import type { ScriptData } from '../../lib/types/script-data'
 
     const scripts: ScriptData[] = scriptData
     let issueUrl = ''
@@ -36,12 +32,12 @@
 
 <Seo
     title="Report issue"
-    siteName="JW Lua Scripts"
+    siteName="Finale Lua"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
-    canonicalUrl="{`https://jwluascripts.com/${$page.path}`}"
+    canonicalUrl="{`https://finalelua.com/${$page.path}`}"
     openGraph="{{
         image: {
-            src: `https://jwluascripts.com${luaLogo}`,
+            src: `https://finalelua.com${luaLogo}`,
             width: 630,
             height: 630,
         },

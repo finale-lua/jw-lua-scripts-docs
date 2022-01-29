@@ -1,10 +1,10 @@
 <script lang="ts">
-    import Badge from '@nick-mazuk/ui-svelte/src/elements/badge/badge.svelte'
-    import type { ScriptData } from '../types/script-data'
-    import Button from '@nick-mazuk/ui-svelte/src/elements/button/button.svelte'
-    import { download } from '../lib/download-file'
     import { sentenceCase } from '@nick-mazuk/lib/text-styling'
+    import Badge from '@nick-mazuk/ui-svelte/src/elements/badge/badge.svelte'
+    import Button from '@nick-mazuk/ui-svelte/src/elements/button/button.svelte'
     import { format } from 'date-fns'
+    import { download } from '../lib/download-file'
+    import type { ScriptData } from '../types/script-data'
 
     export let data: ScriptData
     export let show: boolean
@@ -24,7 +24,7 @@
             }),
         })
         const response = await fetch(
-            `https://raw.githubusercontent.com/Nick-Mazuk/jw-lua-scripts/master/dist/${data.fileName}`
+            `https://raw.githubusercontent.com/finale-lua/lua-scripts/master/dist/${data.fileName}`
         )
         const file = await response.text()
         download(data.fileName, file)

@@ -1,10 +1,8 @@
 <script lang="ts">
     import { page } from '$app/stores'
-
+    import luaLogo from '$lib/assets/images/lua-logo.png'
     import Markdown from '@nick-mazuk/ui-svelte/src/typography/markdown/markdown.svelte'
     import Seo from '@nick-mazuk/ui-svelte/src/utilities/seo/seo.svelte'
-
-    import luaLogo from '$lib/assets/images/lua-logo.png'
 
     const content = `# Getting started
 
@@ -24,7 +22,7 @@ If you've never used Git or GitHub before, that's ok. These docs will walk you t
 
 Next, learn how to [add scripts to this repository](/docs/getting-started/adding-scripts).
 
-&gt; Note: All scripts added to the repo will have a CC0 license. See [LICENSE](https://github.com/Nick-Mazuk/jw-lua-scripts/blob/master/LICENSE) for specific terms. This is to encourage widespread use and encourage other JW Lua coders to build off your scripts.
+&gt; Note: All scripts added to the repo will have a CC0 license. See [LICENSE](https://github.com/finale-lua/lua-scripts/blob/master/LICENSE) for specific terms. This is to encourage widespread use and encourage other JW Lua coders to build off your scripts.
 `
 </script>
 
@@ -32,10 +30,10 @@ Next, learn how to [add scripts to this repository](/docs/getting-started/adding
     title="Getting Started"
     siteName="JW Lua Scripts Docs"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
-    canonicalUrl="{`https://jwluascripts.com/${$page.path}`}"
+    canonicalUrl="{`https://finalelua.com/${$page.path}`}"
     openGraph="{{
         image: {
-            src: `https://jwluascripts.com${luaLogo}`,
+            src: `https://finalelua.com${luaLogo}`,
             width: 630,
             height: 630,
         },

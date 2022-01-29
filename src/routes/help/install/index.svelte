@@ -1,24 +1,21 @@
 <script lang="ts">
     import { page } from '$app/stores'
-
-    import Container from '@nick-mazuk/ui-svelte/src/utilities/container/container.svelte'
+    import luaLogo from '$lib/assets/images/lua-logo.png'
     import Apple from '@nick-mazuk/ui-svelte/src/elements/icon/apple.svelte'
     import Windows from '@nick-mazuk/ui-svelte/src/elements/icon/windows.svelte'
-
+    import Container from '@nick-mazuk/ui-svelte/src/utilities/container/container.svelte'
     import Seo from '@nick-mazuk/ui-svelte/src/utilities/seo/seo.svelte'
     import Spacer from '@nick-mazuk/ui-svelte/src/utilities/spacer/spacer.svelte'
-
-    import luaLogo from '$lib/assets/images/lua-logo.png'
 </script>
 
 <Seo
     title="Install"
-    siteName="JW Lua Scripts"
+    siteName="Finale Lua"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
-    canonicalUrl="{`https://jwluascripts.com/${$page.path}`}"
+    canonicalUrl="{`https://finalelua.com/${$page.path}`}"
     openGraph="{{
         image: {
-            src: `https://jwluascripts.com${luaLogo}`,
+            src: `https://finalelua.com${luaLogo}`,
             width: 630,
             height: 630,
         },
@@ -27,7 +24,7 @@
 
 <main id="main-content">
     <div class="wrapper !max-w-2xl my-6">
-        <h1 class="h4 text-center">Using JW Lua scripts</h1>
+        <h1 class="h4 text-center">Using Lua scripts</h1>
         <Spacer y="{0.5}" />
         <p class="text-center">Select your operating system</p>
         <Spacer />

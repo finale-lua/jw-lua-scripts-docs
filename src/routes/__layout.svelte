@@ -1,28 +1,24 @@
 <script lang="ts">
     import { page } from '$app/stores'
-
     import ResetItems from '$lib/components/reset-items.svelte'
-
+    import FooterSocialLinkWrapper from '@nick-mazuk/ui-svelte/src/components/footer/footer-social-link-wrapper/footer-social-link-wrapper.svelte'
+    import FooterSocialLink from '@nick-mazuk/ui-svelte/src/components/footer/footer-social-link/footer-social-link.svelte'
+    import Footer from '@nick-mazuk/ui-svelte/src/components/footer/footer.svelte'
     import HeaderBrand from '@nick-mazuk/ui-svelte/src/components/header/header-brand/header-brand.svelte'
-    import Header from '@nick-mazuk/ui-svelte/src/components/header/header.svelte'
+    import HeaderItemWrapper from '@nick-mazuk/ui-svelte/src/components/header/header-item-wrapper/header-item-wrapper.svelte'
     import HeaderLink from '@nick-mazuk/ui-svelte/src/components/header/header-link/header-link.svelte'
     import HeaderMobileLink from '@nick-mazuk/ui-svelte/src/components/header/header-mobile-link/header-mobile-link.svelte'
     import HeaderMobileSubgroup from '@nick-mazuk/ui-svelte/src/components/header/header-mobile-subgroup/header-mobile-subgroup.svelte'
+    import Header from '@nick-mazuk/ui-svelte/src/components/header/header.svelte'
     import type { TocItems } from '@nick-mazuk/ui-svelte/src/components/table-of-contents'
-    import Github from '@nick-mazuk/ui-svelte/src/elements/icon/github.svelte'
-    import Facebook from '@nick-mazuk/ui-svelte/src/elements/icon/facebook.svelte'
-
-    import Footer from '@nick-mazuk/ui-svelte/src/components/footer/footer.svelte'
-    import FooterSocialLinkWrapper from '@nick-mazuk/ui-svelte/src/components/footer/footer-social-link-wrapper/footer-social-link-wrapper.svelte'
-    import FooterSocialLink from '@nick-mazuk/ui-svelte/src/components/footer/footer-social-link/footer-social-link.svelte'
-    import DarkModeSelect from '@nick-mazuk/ui-svelte/src/elements/dark-mode-select/dark-mode-select.svelte'
-
-    import { darkMode } from '../lib/stores/dark-mode'
-    import { libraryPages } from '../lib/lib/library-pages'
-    import HeaderItemWrapper from '@nick-mazuk/ui-svelte/src/components/header/header-item-wrapper/header-item-wrapper.svelte'
     import Button from '@nick-mazuk/ui-svelte/src/elements/button/button.svelte'
+    import DarkModeSelect from '@nick-mazuk/ui-svelte/src/elements/dark-mode-select/dark-mode-select.svelte'
+    import Facebook from '@nick-mazuk/ui-svelte/src/elements/icon/facebook.svelte'
+    import Github from '@nick-mazuk/ui-svelte/src/elements/icon/github.svelte'
+    import { libraryPages } from '../lib/lib/library-pages'
+    import { darkMode } from '../lib/stores/dark-mode'
 
-    const githubRepoUrl = 'https://github.com/Nick-Mazuk/jw-lua-scripts'
+    const githubRepoUrl = 'https://github.com/finale-lua/lua-scripts'
     const facebookGroupUrl = 'https://www.facebook.com/groups/742277119576336/'
 
     const helpPages: TocItems = [
@@ -42,11 +38,11 @@
         },
         {
             text: 'Request script',
-            href: 'https://github.com/Nick-Mazuk/jw-lua-scripts/issues/new/choose',
+            href: 'https://github.com/finale-lua/lua-scripts/issues/new/choose',
         },
         {
             text: 'Report bug',
-            href: 'https://github.com/Nick-Mazuk/jw-lua-scripts/issues/new/choose',
+            href: 'https://github.com/finale-lua/lua-scripts/issues/new/choose',
         },
         {
             text: 'Contribute',
@@ -56,13 +52,13 @@
 </script>
 
 <svelte:head>
-    <title>JW Lua Scripts</title>
+    <title>Finale Lua</title>
 </svelte:head>
 
 <ResetItems />
 
 <Header sticky page="{$page.path}">
-    <HeaderBrand text="JW Lua Scripts" slot="left" />
+    <HeaderBrand text="Finale Lua" slot="left" />
     <svelte:fragment slot="right">
         <HeaderLink href="/help">Help</HeaderLink>
         <HeaderLink href="/docs/getting-started">Developer docs</HeaderLink>

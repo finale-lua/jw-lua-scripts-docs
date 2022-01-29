@@ -1,10 +1,8 @@
 <script lang="ts">
     import { page } from '$app/stores'
-
+    import luaLogo from '$lib/assets/images/lua-logo.png'
     import Markdown from '@nick-mazuk/ui-svelte/src/typography/markdown/markdown.svelte'
     import Seo from '@nick-mazuk/ui-svelte/src/utilities/seo/seo.svelte'
-
-    import luaLogo from '$lib/assets/images/lua-logo.png'
 
     const content = `# Enigma String
 
@@ -106,7 +104,7 @@ Changes the entire text block to have the input font info.
 enigma_string.remove_inserts (fcstring, replace_with_generic)
 \`\`\`
 
-Removes text inserts other than font commands and replaces them with 
+Removes text inserts other than font commands and replaces them with
 
 | Input | Type | Description |
 | --- | --- | --- |
@@ -147,10 +145,10 @@ Calculates the advance width of the input string taking into account all font an
     title="Enigma String"
     siteName="JW Lua Scripts Docs"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
-    canonicalUrl="{`https://jwluascripts.com/${$page.path}`}"
+    canonicalUrl="{`https://finalelua.com/${$page.path}`}"
     openGraph="{{
         image: {
-            src: `https://jwluascripts.com${luaLogo}`,
+            src: `https://finalelua.com${luaLogo}`,
             width: 630,
             height: 630,
         },

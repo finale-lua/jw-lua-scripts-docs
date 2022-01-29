@@ -4,7 +4,11 @@
     import AccordionGroup from '@nick-mazuk/ui-svelte/src/components/accordion/accordion-group/accordion-group.svelte'
     import Accordion from '@nick-mazuk/ui-svelte/src/components/accordion/accordion.svelte'
     import Seo from '@nick-mazuk/ui-svelte/src/utilities/seo/seo.svelte'
-    import Spacer from '@nick-mazuk/ui-svelte/src/utilities/spacer/spacer.svelte'
+    import type { FinaleVersion } from '../../../lib/install-data'
+    import Hero from './hero.svelte'
+
+    export let pluginName: string
+    export let finaleVersion: FinaleVersion
 </script>
 
 <Seo
@@ -22,10 +26,9 @@
 />
 
 <main id="main-content" class="my-12 wrapper !max-w-2xl">
-    <h1 class="h3">macOS installation</h1>
-    <Spacer />
+    <Hero operatingSystem="macOS" bind:finaleVersion pluginVersion="RGP Lua" />
     <AccordionGroup>
-        <Accordion title="Installing RGP Lua or JW Lua" defaultExpanded>
+        <Accordion title="Installing {pluginName}" defaultExpanded>
             <p>
                 To use these JW Lua scripts, you first need to install JW Lua. Luckily, this is a
                 one-time process.

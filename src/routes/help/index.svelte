@@ -1,26 +1,23 @@
 <script lang="ts">
     import { page } from '$app/stores'
-
-    import Container from '@nick-mazuk/ui-svelte/src/utilities/container/container.svelte'
-    import Download from '@nick-mazuk/ui-svelte/src/elements/marketing-icon/download.svelte'
+    import luaLogo from '$lib/assets/images/lua-logo.png'
     import Bug from '@nick-mazuk/ui-svelte/src/elements/marketing-icon/bug.svelte'
+    import Download from '@nick-mazuk/ui-svelte/src/elements/marketing-icon/download.svelte'
     import HandsHelping from '@nick-mazuk/ui-svelte/src/elements/marketing-icon/hands-helping.svelte'
     import LightbulbOn from '@nick-mazuk/ui-svelte/src/elements/marketing-icon/lightbulb-on.svelte'
-
+    import Container from '@nick-mazuk/ui-svelte/src/utilities/container/container.svelte'
     import Seo from '@nick-mazuk/ui-svelte/src/utilities/seo/seo.svelte'
     import Spacer from '@nick-mazuk/ui-svelte/src/utilities/spacer/spacer.svelte'
-
-    import luaLogo from '$lib/assets/images/lua-logo.png'
 </script>
 
 <Seo
     title="Help"
-    siteName="JW Lua Scripts"
+    siteName="Finale Lua"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
-    canonicalUrl="{`https://jwluascripts.com/${$page.path}`}"
+    canonicalUrl="{`https://finalelua.com/${$page.path}`}"
     openGraph="{{
         image: {
-            src: `https://jwluascripts.com${luaLogo}`,
+            src: `https://finalelua.com${luaLogo}`,
             width: 630,
             height: 630,
         },
@@ -42,7 +39,7 @@
             </Container>
             <Container
                 padding="{8}"
-                href="https://github.com/Nick-Mazuk/jw-lua-scripts/issues/new/choose"
+                href="https://github.com/finale-lua/lua-scripts/issues/new/choose"
                 class="flex flex-col items-center space-y-6"
             >
                 <LightbulbOn class="h-12" variant="gray" />

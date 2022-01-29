@@ -24,7 +24,7 @@ export const post: RequestHandler = async ({ rawBody }) => {
     if (fullName || email) authorNotice += ' by'
     if (fullName) authorNotice += ` ${fullName}`
     if (email) authorNotice += ` ${email}`
-    const response = await fetch('https://api.github.com/repos/Nick-Mazuk/jw-lua-scripts/issues', {
+    const response = await fetch('https://api.github.com/repos/finale-lua/lua-scripts/issues', {
         method: 'POST',
         headers: {
             Authorization: `Basic ${Buffer.from(
