@@ -45,7 +45,7 @@
 </script>
 
 <Seo
-    title="macOS Installation"
+    title="Plugin Installation"
     siteName="Finale Lua"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
     canonicalUrl="{`https://finalelua.com/${$page.path}`}"

@@ -233,7 +233,7 @@
         >
             <div class="text-center sm:text-left">
                 <h2 class="h5">Get started</h2>
-                <p>Start speeding up your Finale workflow with JW Lua</p>
+                <p>Start speeding up your Finale workflow with Lua</p>
             </div>
             <div
                 class="flex w-full flex-col space-y-3 justify-center flex-none sm:flex-row sm:space-x-3 sm:space-y-0 sm:w-auto"
