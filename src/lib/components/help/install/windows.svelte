@@ -17,6 +17,11 @@
             '26': 'https://robertgpatterson.com/-fininfo/-rgplua/-download/RGPLuaFin26Win.zip',
         },
     }
+
+    const fileName: Record<PluginVersion, string> = {
+        'JW Lua': 'three files',
+        'RGP Lua': '<code>RGPLuaWin.fxt</code>',
+    }
 </script>
 
 <h2 class="h5">Installing {pluginVersion}</h2>
@@ -38,9 +43,9 @@
         <li>
             <strong>Double-click the downloaded file to unzip it</strong>
             <br />
-            This will create three files. Unlike installing most programs, you will not need to run or
-            open this file. Instead, we just need to move it into your Finale plug-ins folder (see next
-            steps).
+            This will create {@html fileName[pluginVersion]}. Unlike installing most programs, you
+            will not need to run or open this file. Instead, we just need to move it into your
+            Finale plug-ins folder (see next steps).
         </li>
         <li>
             <strong>Find your Finale plug-ins folder</strong>
@@ -52,7 +57,9 @@
             <strong>In that folder, create a new <code>Lua</code> folder</strong>.
         </li>
         <li>
-            <strong> Move the unzipped files into the newly created folder </strong>
+            <strong>
+                Move the {@html fileName[pluginVersion]} into the newly created folder
+            </strong>
         </li>
         <li>
             <strong>Restart Finale</strong>
