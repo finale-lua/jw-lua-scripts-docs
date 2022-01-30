@@ -127,9 +127,9 @@
             </Accordion>
             <Accordion title="Should I use RGP Lua or JW Lua?" size="small">
                 <p>
-                    Choose RGP Lua unless you have a specific reason to use JW Lua. If you're using
-                    a 32-bit version of Finale (Finale 2014.5 or earlier), or a developer on Windows
-                    wanting a slightly better experience, choose JW Lua. Otherwise, choose RGP Lua.
+                    Choose RGP Lua unless you have a specific reason to use JW Lua. Use JW Lua if
+                    you are using Finale 2014.5 or earlier, or a developer wanting to create a quick
+                    ad hoc script. Otherwise, choose RGP Lua.
                 </p>
             </Accordion>
             <Accordion title="What is a RGP/JW Lua script?" size="small">

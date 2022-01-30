@@ -23,18 +23,12 @@
 
     const helpPages: TocItems = [
         {
-            text: 'Install scripts',
+            text: 'Install plugin',
             href: '/help/install',
-            children: [
-                {
-                    text: 'macOS',
-                    href: '/help/install/mac',
-                },
-                {
-                    text: 'Windows',
-                    href: '/help/install/windows',
-                },
-            ],
+        },
+        {
+            text: 'Install scripts',
+            href: '/help/install/script',
         },
         {
             text: 'Request script',

@@ -100,8 +100,8 @@
             <span class="font-bold">
                 Choose RGP Lua unless you have a specific reason to use JW Lua.
             </span>
-            Use JW Lua if you're using {finaleName['2014.5'].full}, or a developer on Windows
-            wanting a slightly better experience. Otherwise, choose RGP Lua.
+            Use JW Lua if you're using {finaleName['2014.5'].full}, or a developer wanting to create
+            a quick ad hoc script. Otherwise, choose RGP Lua.
         </Note>
     {:else if finaleVersion === '2014.5' && pluginVersion === 'RGP Lua'}
         <p>RGP Lua is not supported on {finaleName[finaleVersion].full}.</p>
