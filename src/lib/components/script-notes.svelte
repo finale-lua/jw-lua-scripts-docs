@@ -18,11 +18,11 @@
                         return matches?.[1] ?? l
                     }),
                 }
-            } else if (line.startsWith('- ')) {
+            } else if (line.startsWith('- ') || line.startsWith('* ')) {
                 return {
                     type: 'ul',
                     text: line.split('\n').map((l) => {
-                        const matches = l.match(/- *(.*)/)
+                        const matches = l.match(/[-\*] *(.*)/)
                         return matches?.[1] ?? l
                     }),
                 }
