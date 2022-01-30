@@ -5,6 +5,7 @@
     import { format } from 'date-fns'
     import { download } from '../lib/download-file'
     import type { ScriptData } from '../types/script-data'
+    import ScriptNotes from './script-notes.svelte'
 
     export let data: ScriptData
     export let show: boolean
@@ -72,7 +73,7 @@
     {#if showMore}
         <div class="pt-3 text-gray-700">
             {#if data.notes}
-                <p class="my-3">{data.notes}</p>
+                <ScriptNotes notes="{data.notes}" />
             {/if}
             {#if data.author.name || data.author.website || data.author.email}
                 <h4 class="h6 text-foreground mt-3">Author</h4>
