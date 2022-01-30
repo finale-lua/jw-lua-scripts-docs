@@ -17,6 +17,6 @@
     <p class="text-gray-700">
         Now, <a sveltekit:prefetch href="/scripts">explore all the scripts you can use.</a>
         If you need help installing those scripts,
-        <a sveltekit:prefetch href="/help/install/scripts">check out those help docs</a>.
+        <a sveltekit:prefetch href="/help/install/script">check out those help docs</a>.
     </p>
 </div>
