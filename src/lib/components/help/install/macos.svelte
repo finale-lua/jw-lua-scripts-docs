@@ -82,6 +82,17 @@
         <li>
             <strong>Restart Finale</strong>
         </li>
+        {#if pluginVersion === 'RGP Lua'}
+            <li>
+                <strong>Click "Open"</strong>
+                <br />
+                If you get a dialog saying
+                <code>
+                    "{pluginVersion}" is an app downloaded from the internet. Are you sure you want
+                    to open it?
+                </code>, click "Open".
+            </li>
+        {/if}
     </ol>
     {#if pluginVersion === 'JW Lua'}
         <p>
