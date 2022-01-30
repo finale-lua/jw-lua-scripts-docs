@@ -102,12 +102,8 @@
         <h2 class="h4 text-center">FAQ</h2>
         <Spacer />
         <AccordionGroup>
-            <Accordion title="What is JW Lua and RGP Lua?" size="small">
-                <p>
-                    JW Lua is a plugin created by Jari Williams that allows other Finale users to
-                    create plugins for Finale. RGP Lua is the successor to JW Lua, and it is created
-                    by Robert Patterson.
-                </p>
+            <Accordion title="What is Lua?" size="small">
+                <p>Lua is a programming language used to write scripts for Finale.</p>
                 <p>
                     The popularity of Lua has exploded over the last few years. Popular Finale tools
                     like the JetStream Finale Controller and the Perfect Layout plugin are created
@@ -116,6 +112,17 @@
                 <p>
                     And because Lua hooks directly into Finale, pretty much anything is possible. If
                     you can do something in Finale, Lua can probably do it as well.
+                </p>
+            </Accordion>
+            <Accordion title="What is RGP Lua and JW Lua?" size="small">
+                <p>
+                    JW Lua is a plugin created by Jari Williams that allows other Finale users to
+                    create scripts for Finale using Lua. RGP Lua is the successor to JW Lua, and it
+                    is created by Robert Patterson.
+                </p>
+                <p>
+                    Finale users create scripts in Lua, then RGP Lua and JW Lua will run these
+                    scripts.
                 </p>
             </Accordion>
             <Accordion title="Should I use RGP Lua or JW Lua?" size="small">
@@ -134,7 +141,7 @@
             <Accordion title="Why should I use Lua?" size="small">
                 <p>
                     Lua is fast. Insanely fast. Most scripts run in less than 0.01 seconds. That's
-                    10x faster than the blink of an eye.
+                    10x faster than the blink of an eye, and about 100x faster than FinaleScript.
                 </p>
                 <p>
                     If there's something that normally takes you several minutes to do, Lua can do
@@ -143,7 +150,6 @@
             </Accordion>
             <Accordion title="Do I need to know how to code?" size="small">
                 <p>Absolutely not! You don't need to write any code to use a Lua script.</p>
-
                 <p>
                     Though if you want to create your own Lua script, you will need to learn how to
                     code. Luckily, there's a YouTube playlist on <a
@@ -185,8 +191,10 @@
                     in the <a
                         href="https://github.com/finale-lua/lua-scripts"
                         target="_blank"
-                        rel="noreferrer">GitHub repository</a
-                    >.
+                        rel="noreferrer"
+                    >
+                        GitHub repository.
+                    </a>
                 </p>
                 <p>
                     But rest assured, all scripts and edits are peer-reviewed before they are
@@ -197,9 +205,9 @@
                 <p>There are a few ways:</p>
                 <ul>
                     <li>
-                        <strong
-                            >Check out the <a sveltekit:prefetch href="/help">help docs</a></strong
-                        >. The most common questions are answered in there.
+                        <strong>
+                            Check out the <a sveltekit:prefetch href="/help">help docs.</a>
+                        </strong>The most common questions are answered in there.
                     </li>
                     <li>
                         <strong>
@@ -208,20 +216,24 @@
                                 target="_blank"
                                 rel="noreferrer"
                             >
-                                Facebook group</a
-                            ></strong
-                        >. This is a group for Lua in general (and not just these scripts), but you
-                        should be able to get help there
+                                Facebook group.
+                            </a>
+                        </strong>
+                        This is a group for Lua in general (and not just these scripts), but you should
+                        be able to get help there
                     </li>
                     <li>
-                        <strong
-                            >Report bugs to the <a
+                        <strong>
+                            Report bugs to the <a
                                 href="https://github.com/finale-lua/lua-scripts"
                                 target="_blank"
-                                rel="noreferrer">GitHub repository</a
-                            ></strong
-                        >. That is where all the developers keep track of all the code, so that's
-                        the best place to report bugs.
+                                rel="noreferrer"
+                            >
+                                GitHub repository.
+                            </a>
+                        </strong>
+                        That is where all the developers keep track of all the code, so that's the best
+                        place to report bugs.
                     </li>
                 </ul>
             </Accordion>
