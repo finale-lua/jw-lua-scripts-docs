@@ -104,7 +104,7 @@ Changes the entire text block to have the input font info.
 enigma_string.remove_inserts (fcstring, replace_with_generic)
 \`\`\`
 
-Removes text inserts other than font commands and replaces them with
+Removes text inserts other than font commands and replaces them with 
 
 | Input | Type | Description |
 | --- | --- | --- |
@@ -143,7 +143,7 @@ Calculates the advance width of the input string taking into account all font an
 
 <Seo
     title="Enigma String"
-    siteName="JW Lua Scripts Docs"
+    siteName="Finale Lua Docs"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
     canonicalUrl="{`https://finalelua.com/${$page.path}`}"
     openGraph="{{

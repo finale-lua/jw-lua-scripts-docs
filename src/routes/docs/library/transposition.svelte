@@ -6,6 +6,15 @@
 
     const content = `# Transposition
 
+A collection of helpful JW Lua transposition scripts.
+
+This library allows configuration of custom key signatures by means
+of a configuration file called "custom_key_sig.config.txt" in the
+"script_settings" subdirectory. However, RGP Lua (starting with version 0.58)
+can read the correct custom key signature information directly from
+Finale. Therefore, when you run this script with RGP Lua 0.58+, the configuration file
+is ignored.
+
 - [diatonic_transpose](#diatonic_transpose)
 - [change_octave](#change_octave)
 - [enharmonic_transpose](#enharmonic_transpose)
@@ -67,7 +76,7 @@ transposition.chromatic_transpose(note, interval, alteration, simplify)
 \`\`\`
 
 Transposes a note chromatically by the input chromatic interval. Supports custom key signatures
-and mictrotone systems by means of a \`custom_key_sig.config.txt\` file. In Finale, chromatic intervals
+and microtone systems by means of a \`custom_key_sig.config.txt\` file. In Finale, chromatic intervals
 are defined by a diatonic displacement (0 = unison, 1 = second, 2 = third, etc.) and a chromatic alteration.
 Major and perfect intervals have a chromatic alteration of 0. So for example, \`{2, -1}\` is up a minor third, \`{3, 0}\`
 is up a perfect fourth, \`{5, 1}\` is up an augmented sixth, etc. Reversing the signs of both values in the pair
@@ -143,7 +152,7 @@ Transpose the note down by a perfect fifth.
 
 <Seo
     title="Transposition"
-    siteName="JW Lua Scripts Docs"
+    siteName="Finale Lua Docs"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
     canonicalUrl="{`https://finalelua.com/${$page.path}`}"
     openGraph="{{

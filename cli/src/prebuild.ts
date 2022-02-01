@@ -1,10 +1,9 @@
+import fs from 'fs-extra'
 import path from 'path'
 
-import fs from 'fs-extra'
-
+const ASSETS_PUBLISH_PATH = 'static/docs'
 const DOCS_FOLDER = 'docs'
 const DOCS_PUBLISH_PATH = 'src/routes/docs'
-const TOC_TEMPLATE_PATH = 'cli/src/templates/toc.svelte'
 const DOCS_TEMPLATE_PATH = 'cli/src/templates/docs-page.svelte'
 const LAYOUT_TEMPLATE_PATH = 'cli/src/templates/docs-layout.svelte'
 const TOC_OUTPUT_PATH = 'src/lib/lib/library-pages.ts'
@@ -12,9 +11,11 @@ const TOC_OUTPUT_PATH = 'src/lib/lib/library-pages.ts'
 type LibraryDocumentData = {
     text: string
     href: string
+    file: string
     children?: {
         text: string
         href: string
+        file: string
     }[]
 }
 
@@ -41,7 +42,10 @@ const createNameFromFilePath = (filePath: string): string => {
     const fileName = (splitPath.pop() ?? '').replace('.md', '')
     const name = fileName.replace(/[_-]/gu, ' ')
     const splitName = name.split(' ')
-    return splitName.map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(' ')
+    let parsedName = splitName.map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(' ')
+    parsedName = parsedName.replace('Rgp Lua', 'RGP Lua')
+    parsedName = parsedName.replace('Jw Lua', 'JW Lua')
+    return parsedName
 }
 
 const getFolderFromPath = (filePath: string): string => {
@@ -51,24 +55,37 @@ const getFolderFromPath = (filePath: string): string => {
         .replace('.md', '')
 }
 
-const getDocsData = (allFiles: string[]): LibraryDocumentData[] => {
+const getDocsData = (allFiles: string[]): [LibraryDocumentData[], string[]] => {
     const folders: { [folderName: string]: LibraryDocumentData } = {}
+    const assets: string[] = []
     allFiles.forEach((fullPath) => {
         const href = createUrlFromFilePath(fullPath)
         const text = createNameFromFilePath(fullPath)
         const folderName = getFolderFromPath(fullPath)
-        const output = { text, href }
+        const output = { text, href, file: fullPath }
 
-        if (typeof folders[folderName] === 'undefined') {
-            folders[folderName] = output
-        } else {
-            if (typeof folders[folderName].children === 'undefined')
-                folders[folderName].children = []
-            folders[folderName].children?.push(output)
+        if (folderName.includes('/assets')) {
+            assets.push(fullPath)
+            return
         }
+        if (typeof folders[folderName] === 'undefined') {
+            if ((href.match(/\//gu) ?? []).length > 2) {
+                // create main page even though it doesn't exist
+                let name = createNameFromFilePath(folderName)
+                folders[folderName] = {
+                    text: name,
+                    href: '/docs' + createUrlFromFilePath(folderName),
+                    file: '',
+                }
+            } else {
+                folders[folderName] = output
+                return
+            }
+        }
+        if (typeof folders[folderName].children === 'undefined') folders[folderName].children = []
+        folders[folderName].children?.push(output)
     })
-
-    return Object.values(folders)
+    return [Object.values(folders), assets]
 }
 
 const sortDocsPages = (pages: LibraryDocumentData[]): LibraryDocumentData[] => {
@@ -83,7 +100,10 @@ const creatTableOfContents = (pages: LibraryDocumentData[]) => {
 }
 
 const removePreviousDocs = () => {
+    fs.ensureDirSync(DOCS_PUBLISH_PATH)
     fs.rmdirSync(DOCS_PUBLISH_PATH, { recursive: true })
+    fs.ensureDirSync(ASSETS_PUBLISH_PATH)
+    fs.rmdirSync(ASSETS_PUBLISH_PATH, { recursive: true })
 }
 
 const kabobToSentenceCase = (name: string) => {
@@ -93,31 +113,70 @@ const kabobToSentenceCase = (name: string) => {
         .join(' ')
 }
 
-const copyDocsFiles = (files: string[]) => {
+const populateTemplate = (contents: string, title: string, templateContents: string): string => {
+    return templateContents
+        .replace(
+            'MARKDOWN_PLACEHOLDER',
+            contents.replace(/`/gu, '\\`').replace(/</gu, '&lt;').replace(/>/gu, '&gt;')
+        )
+        .replace('TITLE_PLACEHOLDER', kabobToSentenceCase(title))
+}
+
+const copyDocsPage = (file: string, templateContents: string) => {
+    const contents = fs
+        .readFileSync(file)
+        .toString()
+        .replace(/`/gu, '`')
+        .replace(/</gu, '&lt;')
+        .replace(/>/gu, '&gt;')
+
+    const fileName = file.replace(DOCS_FOLDER, '').replace('.md', '.svelte')
+    const outputPath = path.join(DOCS_PUBLISH_PATH, fileName).replace(/_/gu, '-')
+
+    const outputContents = populateTemplate(
+        contents,
+        (fileName.split('/').pop() ?? '').replace('.svelte', '').replace('_', '-'),
+        templateContents
+    )
+
+    fs.ensureFileSync(outputPath)
+
+    fs.writeFileSync(outputPath, outputContents)
+}
+
+const generateDocsMainPage = (page: LibraryDocumentData, templateContents: string) => {
+    let contents = `# ${page.text}\n\n`
+    page.children?.forEach((child) => {
+        contents += `- [${child.text}](${child.href})\n`
+    })
+    const outputContents = populateTemplate(contents, page.text, templateContents)
+
+    const fileName = page.href.replace('/' + DOCS_FOLDER, '') + '.svelte'
+    const outputPath = path.join(DOCS_PUBLISH_PATH, fileName).replace(/_/gu, '-')
+    fs.ensureFileSync(outputPath)
+
+    fs.writeFileSync(outputPath, outputContents)
+}
+
+const copyDocsPages = (files: LibraryDocumentData[]) => {
     const docsTemplateContents = fs.readFileSync(DOCS_TEMPLATE_PATH).toString()
-    files.forEach((file) => {
-        const contents = fs
-            .readFileSync(file)
-            .toString()
-            .replace(/`/gu, '\\`')
-            .replace(/</gu, '&lt;')
-            .replace(/>/gu, '&gt;')
+    files.forEach((mainPage) => {
+        if (mainPage.file) {
+            copyDocsPage(mainPage.file, docsTemplateContents)
+        } else {
+            generateDocsMainPage(mainPage, docsTemplateContents)
+        }
+        mainPage?.children?.forEach((childPage) => {
+            copyDocsPage(childPage.file, docsTemplateContents)
+        })
+    })
+}
 
-        const fileName = file.replace(DOCS_FOLDER, '').replace('.md', '.svelte')
-        const outputPath = path.join(DOCS_PUBLISH_PATH, fileName).replace(/_/gu, '-')
-
-        const outputContents = docsTemplateContents
-            .replace('MARKDOWN_PLACEHOLDER', contents)
-            .replace(
-                'TITLE_PLACEHOLDER',
-                kabobToSentenceCase(
-                    (fileName.split('/').pop() ?? '').replace('.svelte', '').replace('_', '-')
-                )
-            )
-
-        fs.ensureFileSync(outputPath)
-
-        fs.writeFileSync(outputPath, outputContents)
+const copyAssets = (assets: string[]) => {
+    assets.forEach((asset) => {
+        const newFile = path.join(ASSETS_PUBLISH_PATH, asset.replace('docs', ''))
+        fs.ensureFileSync(newFile)
+        fs.copyFileSync(asset, newFile)
     })
 }
 
@@ -125,31 +184,15 @@ const addLayout = () => {
     fs.copyFileSync(LAYOUT_TEMPLATE_PATH, path.join(DOCS_PUBLISH_PATH, '__layout.svelte'))
 }
 
-const createDocsSearch = (allFiles: string[]) => {
-    const config: string[] = ['[input]', 'base_directory = "."', 'files = [']
-
-    allFiles.forEach((file) => {
-        config.push(
-            `    {path = "${file}", url = "${createUrlFromFilePath(
-                file
-            )}", title = "${createNameFromFilePath(file)}"},`
-        )
-    })
-
-    config.push(']', '', '[output]', 'filename = "static/stork.st"')
-
-    fs.writeFileSync('config.toml', config.join('\n'))
-}
-
 const createLibraryDocs = () => {
     const allFiles = getAllFiles(DOCS_FOLDER).sort()
-    let pages = getDocsData(allFiles)
+    let [pages, assets] = getDocsData(allFiles)
     pages = sortDocsPages(pages)
     creatTableOfContents(pages)
     removePreviousDocs()
-    copyDocsFiles(allFiles)
+    copyDocsPages(pages)
+    copyAssets(assets)
     addLayout()
-    createDocsSearch(allFiles)
 }
 
 const main = () => {

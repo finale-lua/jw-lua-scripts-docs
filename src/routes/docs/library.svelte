@@ -9,7 +9,7 @@
 This repository includes several pre-made Lua functions that you can use in your code. That way, you can write better scripts, faster.
 
 \`\`\`lua
--- use once at top of script file, tells JW Lua where the library modules are saved
+-- use once at top of script file, tells RGP/JW Lua where the library modules are saved
 -- These first few lines will eventually be phased out
 local path = finale.FCString()
 path:SetRunningLuaFolderPath()
@@ -71,7 +71,7 @@ You can find a complete list of syntax you can use for documentation here: [http
 
 <Seo
     title="Library"
-    siteName="JW Lua Scripts Docs"
+    siteName="Finale Lua Docs"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
     canonicalUrl="{`https://finalelua.com/${$page.path}`}"
     openGraph="{{

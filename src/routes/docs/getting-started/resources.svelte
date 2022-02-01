@@ -6,12 +6,12 @@
 
     const content = `# Resources
 
-## Learning JW Lua
+## Learning RGP/JW Lua
 
 - [JW Lua start page](http://jwmusic.nu/jwplugins/wiki/doku.php?id=jw_lua) is great if you're new to JW Lua
-- [Script Programming in JW Lua](http://jwmusic.nu/jwplugins/wiki/doku.php?id=jwlua:development) is a great overview to JW Lua development
-- [Finale PDK Framework](http://www.finaletips.nu/frameworkref/), which is how Finale connects to JW Lua
-- [Coding in JW Lua](https://www.youtube.com/playlist?list=PLsFZ0c2Wsoy9ZF6a0ZihC_-SPf3FkOh8o), YouTube videos that introduce you to JW Lua even if you've never coded before
+- [Script Programming in JW Lua](http://jwmusic.nu/jwplugins/wiki/doku.php?id=jwlua:development) is a great overview to Lua development for Finale
+- [Finale PDK Framework](https://pdk.finalelua.com), which is how Finale connects to RGP Lua
+- [Coding in Lua for Finale](https://www.youtube.com/playlist?list=PLsFZ0c2Wsoy9ZF6a0ZihC_-SPf3FkOh8o), YouTube videos that introduce you to RGP/JW Lua even if you've never coded before
 
 ### Learning the underlying PDK framework
 
@@ -26,12 +26,13 @@ You can [download it here](http://robertgpatterson.com/-fininfo/-downloads/downl
 ## Learning Git and GitHub
 
 - YouTube videos that introduce [Git](https://youtu.be/USjZcfj8yxE) and [GitHub](https://youtu.be/nhNq2kIvi9s)
-- [Free, interactive course on using GitHub, created by GitHub](https://lab.github.com/githubtraining/introduction-to-github)`
+- [Free, interactive course on using GitHub, created by GitHub](https://lab.github.com/githubtraining/introduction-to-github)
+`
 </script>
 
 <Seo
     title="Resources"
-    siteName="JW Lua Scripts Docs"
+    siteName="Finale Lua Docs"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
     canonicalUrl="{`https://finalelua.com/${$page.path}`}"
     openGraph="{{

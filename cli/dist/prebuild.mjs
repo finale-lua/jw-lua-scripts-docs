@@ -1,8 +1,8 @@
-import path from "path";
 import fs from "fs-extra";
+import path from "path";
+const ASSETS_PUBLISH_PATH = "static/docs";
 const DOCS_FOLDER = "docs";
 const DOCS_PUBLISH_PATH = "src/routes/docs";
-const TOC_TEMPLATE_PATH = "cli/src/templates/toc.svelte";
 const DOCS_TEMPLATE_PATH = "cli/src/templates/docs-page.svelte";
 const LAYOUT_TEMPLATE_PATH = "cli/src/templates/docs-layout.svelte";
 const TOC_OUTPUT_PATH = "src/lib/lib/library-pages.ts";
@@ -26,28 +26,45 @@ const createNameFromFilePath = (filePath) => {
   const fileName = ((_a = splitPath.pop()) != null ? _a : "").replace(".md", "");
   const name = fileName.replace(/[_-]/gu, " ");
   const splitName = name.split(" ");
-  return splitName.map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(" ");
+  let parsedName = splitName.map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(" ");
+  parsedName = parsedName.replace("Rgp Lua", "RGP Lua");
+  parsedName = parsedName.replace("Jw Lua", "JW Lua");
+  return parsedName;
 };
 const getFolderFromPath = (filePath) => {
   return filePath.replace("docs/", "").replace(/\/[\w.-]*$/u, "").replace(".md", "");
 };
 const getDocsData = (allFiles) => {
   const folders = {};
+  const assets = [];
   allFiles.forEach((fullPath) => {
-    var _a;
+    var _a, _b;
     const href = createUrlFromFilePath(fullPath);
     const text = createNameFromFilePath(fullPath);
     const folderName = getFolderFromPath(fullPath);
-    const output = { text, href };
-    if (typeof folders[folderName] === "undefined") {
-      folders[folderName] = output;
-    } else {
-      if (typeof folders[folderName].children === "undefined")
-        folders[folderName].children = [];
-      (_a = folders[folderName].children) == null ? void 0 : _a.push(output);
+    const output = { text, href, file: fullPath };
+    if (folderName.includes("/assets")) {
+      assets.push(fullPath);
+      return;
     }
+    if (typeof folders[folderName] === "undefined") {
+      if (((_a = href.match(/\//gu)) != null ? _a : []).length > 2) {
+        let name = createNameFromFilePath(folderName);
+        folders[folderName] = {
+          text: name,
+          href: "/docs" + createUrlFromFilePath(folderName),
+          file: ""
+        };
+      } else {
+        folders[folderName] = output;
+        return;
+      }
+    }
+    if (typeof folders[folderName].children === "undefined")
+      folders[folderName].children = [];
+    (_b = folders[folderName].children) == null ? void 0 : _b.push(output);
   });
-  return Object.values(folders);
+  return [Object.values(folders), assets];
 };
 const sortDocsPages = (pages) => {
   return pages.sort((a, b) => {
@@ -59,43 +76,74 @@ const creatTableOfContents = (pages) => {
   fs.writeFileSync(TOC_OUTPUT_PATH, contents);
 };
 const removePreviousDocs = () => {
+  fs.ensureDirSync(DOCS_PUBLISH_PATH);
   fs.rmdirSync(DOCS_PUBLISH_PATH, { recursive: true });
+  fs.ensureDirSync(ASSETS_PUBLISH_PATH);
+  fs.rmdirSync(ASSETS_PUBLISH_PATH, { recursive: true });
 };
 const kabobToSentenceCase = (name) => {
   return name.split("-").map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(" ");
 };
-const copyDocsFiles = (files) => {
+const populateTemplate = (contents, title, templateContents) => {
+  return templateContents.replace("MARKDOWN_PLACEHOLDER", contents.replace(/`/gu, "\\`").replace(/</gu, "&lt;").replace(/>/gu, "&gt;")).replace("TITLE_PLACEHOLDER", kabobToSentenceCase(title));
+};
+const copyDocsPage = (file, templateContents) => {
+  var _a;
+  const contents = fs.readFileSync(file).toString().replace(/`/gu, "`").replace(/</gu, "&lt;").replace(/>/gu, "&gt;");
+  const fileName = file.replace(DOCS_FOLDER, "").replace(".md", ".svelte");
+  const outputPath = path.join(DOCS_PUBLISH_PATH, fileName).replace(/_/gu, "-");
+  const outputContents = populateTemplate(contents, ((_a = fileName.split("/").pop()) != null ? _a : "").replace(".svelte", "").replace("_", "-"), templateContents);
+  fs.ensureFileSync(outputPath);
+  fs.writeFileSync(outputPath, outputContents);
+};
+const generateDocsMainPage = (page, templateContents) => {
+  var _a;
+  let contents = `# ${page.text}
+
+`;
+  (_a = page.children) == null ? void 0 : _a.forEach((child) => {
+    contents += `- [${child.text}](${child.href})
+`;
+  });
+  const outputContents = populateTemplate(contents, page.text, templateContents);
+  const fileName = page.href.replace("/" + DOCS_FOLDER, "") + ".svelte";
+  const outputPath = path.join(DOCS_PUBLISH_PATH, fileName).replace(/_/gu, "-");
+  fs.ensureFileSync(outputPath);
+  fs.writeFileSync(outputPath, outputContents);
+};
+const copyDocsPages = (files) => {
   const docsTemplateContents = fs.readFileSync(DOCS_TEMPLATE_PATH).toString();
-  files.forEach((file) => {
+  files.forEach((mainPage) => {
     var _a;
-    const contents = fs.readFileSync(file).toString().replace(/`/gu, "\\`").replace(/</gu, "&lt;").replace(/>/gu, "&gt;");
-    const fileName = file.replace(DOCS_FOLDER, "").replace(".md", ".svelte");
-    const outputPath = path.join(DOCS_PUBLISH_PATH, fileName).replace(/_/gu, "-");
-    const outputContents = docsTemplateContents.replace("MARKDOWN_PLACEHOLDER", contents).replace("TITLE_PLACEHOLDER", kabobToSentenceCase(((_a = fileName.split("/").pop()) != null ? _a : "").replace(".svelte", "").replace("_", "-")));
-    fs.ensureFileSync(outputPath);
-    fs.writeFileSync(outputPath, outputContents);
+    if (mainPage.file) {
+      copyDocsPage(mainPage.file, docsTemplateContents);
+    } else {
+      generateDocsMainPage(mainPage, docsTemplateContents);
+    }
+    (_a = mainPage == null ? void 0 : mainPage.children) == null ? void 0 : _a.forEach((childPage) => {
+      copyDocsPage(childPage.file, docsTemplateContents);
+    });
+  });
+};
+const copyAssets = (assets) => {
+  assets.forEach((asset) => {
+    const newFile = path.join(ASSETS_PUBLISH_PATH, asset.replace("docs", ""));
+    fs.ensureFileSync(newFile);
+    fs.copyFileSync(asset, newFile);
   });
 };
 const addLayout = () => {
   fs.copyFileSync(LAYOUT_TEMPLATE_PATH, path.join(DOCS_PUBLISH_PATH, "__layout.svelte"));
 };
-const createDocsSearch = (allFiles) => {
-  const config = ["[input]", 'base_directory = "."', "files = ["];
-  allFiles.forEach((file) => {
-    config.push(`    {path = "${file}", url = "${createUrlFromFilePath(file)}", title = "${createNameFromFilePath(file)}"},`);
-  });
-  config.push("]", "", "[output]", 'filename = "static/stork.st"');
-  fs.writeFileSync("config.toml", config.join("\n"));
-};
 const createLibraryDocs = () => {
   const allFiles = getAllFiles(DOCS_FOLDER).sort();
-  let pages = getDocsData(allFiles);
+  let [pages, assets] = getDocsData(allFiles);
   pages = sortDocsPages(pages);
   creatTableOfContents(pages);
   removePreviousDocs();
-  copyDocsFiles(allFiles);
+  copyDocsPages(pages);
+  copyAssets(assets);
   addLayout();
-  createDocsSearch(allFiles);
 };
 const main = () => {
   createLibraryDocs();

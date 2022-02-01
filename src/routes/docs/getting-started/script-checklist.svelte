@@ -50,7 +50,7 @@ There are two ways to do this:
 
 <Seo
     title="Script Checklist"
-    siteName="JW Lua Scripts Docs"
+    siteName="Finale Lua Docs"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
     canonicalUrl="{`https://finalelua.com/${$page.path}`}"
     openGraph="{{

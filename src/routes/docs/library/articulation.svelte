@@ -8,6 +8,7 @@
 
 - [delete_from_entry_by_char_num](#delete_from_entry_by_char_num)
 - [is_note_side](#is_note_side)
+- [calc_main_character_dimensions](#calc_main_character_dimensions)
 
 ## delete_from_entry_by_char_num
 
@@ -37,12 +38,28 @@ Uses \`FCArticulation.CalcMetricPos\` to determine if the input articulation is 
 
 | Output type | Description |
 | --- | --- |
-| \`boolean\` | true if on note-side, otherwise false |`
+| \`boolean\` | true if on note-side, otherwise false |
+
+## calc_main_character_dimensions
+
+\`\`\`lua
+articulation.calc_main_character_dimensions(artic)
+\`\`\`
+
+Uses \`FCTextMetrics:LoadArticulation\` to determine the dimensions of the main character
+
+| Input | Type | Description |
+| --- | --- | --- |
+| \`artic_def\` | \`FCArticulationDef\` |  |
+
+| Output type | Description |
+| --- | --- |
+| \`number, number\` | the width and height of the main articulation character in (possibly fractional) evpus, or 0, 0 if it failed to load metrics |`
 </script>
 
 <Seo
     title="Articulation"
-    siteName="JW Lua Scripts Docs"
+    siteName="Finale Lua Docs"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
     canonicalUrl="{`https://finalelua.com/${$page.path}`}"
     openGraph="{{

@@ -6,6 +6,7 @@
 
     const content = `# Library
 
+- [finale_version](#finale_version)
 - [group_overlaps_region](#group_overlaps_region)
 - [group_is_contained_in_region](#group_is_contained_in_region)
 - [staff_group_is_multistaff_instrument](#staff_group_is_multistaff_instrument)
@@ -20,6 +21,25 @@
 - [get_page_format_prefs](#get_page_format_prefs)
 - [get_smufl_metadata_file](#get_smufl_metadata_file)
 - [is_font_smufl_font](#is_font_smufl_font)
+
+## finale_version
+
+\`\`\`lua
+library.finale_version(major, minor, build)
+\`\`\`
+
+Returns a raw Finale version from major, minor, and (optional) build parameters. For 32-bit Finale
+this is the internal major Finale version, not the year.
+
+| Input | Type | Description |
+| --- | --- | --- |
+| \`major\` | \`number\` | Major Finale version |
+| \`minor\` | \`number\` | Minor Finale version |
+| \`build\` (optional) | \`number\` | zero if omitted |
+
+| Output type | Description |
+| --- | --- |
+| \`number\` |  |
 
 ## group_overlaps_region
 
@@ -233,7 +253,7 @@ library.is_font_smufl_font(font_info)
 
 <Seo
     title="General Library"
-    siteName="JW Lua Scripts Docs"
+    siteName="Finale Lua Docs"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
     canonicalUrl="{`https://finalelua.com/${$page.path}`}"
     openGraph="{{

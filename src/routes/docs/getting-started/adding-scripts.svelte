@@ -56,7 +56,7 @@ And if you get stuck, you can always [get help](/docs/getting-started/getting-he
 
 You will only need to clone the repository once. If you've already cloned it (e.g., you already contributed a script), you can skip this step.
 
-1. Once you've signed into GitHub Desktop, go to the repository on GitHub. [https://github.com/finale-lua/lua-scripts](https://github.com/finale-lua/lua-scripts)
+1. Once you've signed into GitHub Desktop, go to the repository on GitHub. [https://github.com/finale-lua/jw-lua](https://github.com/finale-lua/jw-lua)
 2. You should see a bright green button that says "Fork". Click it! Then click "Open with GitHub Desktop."
 3. This will bring up a dialog in GitHub Desktop. Note the folder where it says "Local Path." This is the location GitHub desktop saves your fork of the repository on your computer. You will need this later.
 4. Click "Clone" to fork the repository. This will save a copy of the repository on your computer.
@@ -96,7 +96,7 @@ We will now review your script and merge it into the main repository. We may ask
 
 <Seo
     title="Adding Scripts"
-    siteName="JW Lua Scripts Docs"
+    siteName="Finale Lua Docs"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
     canonicalUrl="{`https://finalelua.com/${$page.path}`}"
     openGraph="{{

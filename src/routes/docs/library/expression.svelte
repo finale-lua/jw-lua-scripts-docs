@@ -97,7 +97,7 @@ Returns true if the expression assignment is assigned to the current part or sco
 
 <Seo
     title="Expression"
-    siteName="JW Lua Scripts Docs"
+    siteName="Finale Lua Docs"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
     canonicalUrl="{`https://finalelua.com/${$page.path}`}"
     openGraph="{{
