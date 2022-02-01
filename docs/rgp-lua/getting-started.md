@@ -81,6 +81,7 @@ The `finenv` namespace has been created to provide “programming shortcuts” t
 
 \*Items with an asterisk are available in _RGP Lua_ but not _JW Lua_.
 
+
 Dialog Boxes
 ------------
 
@@ -147,6 +148,7 @@ The `plugindef()` function is an optional function that **only** should do a _ma
 * Return the _plug-in name_, _undo string_ and _brief description_ to be used in the _Finale_ plug-in menu and for automatic undo blocks.
 * Define the `finaleplugin` namespace environment to further describe the plug-in (see below).
 
+
 A simple `plugindef()` implementation might look like this:
 
 ```lua
@@ -168,6 +170,7 @@ The `plugindef()` function can return a maximum of 3 return values (all of them 
 * The **second** return value is the _undo text_ for the plug-in. _JW Lua_ will append “ \[JW Lua\]” to the undo text when it sends the undo record to Finale. (Note: _RGP Lua_ does not do this.)
 
 * The **third** return value is a _brief description text_ (for the status/message bar in _Finale_ and the _JW Lua_ user interface).
+
 
 Again, all these return values are optional.
 
