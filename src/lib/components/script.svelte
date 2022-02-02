@@ -5,7 +5,7 @@
     import { format } from 'date-fns'
     import { download } from '../lib/download-file'
     import type { ScriptData } from '../types/script-data'
-    import ScriptNotes from './script-notes.svelte'
+    import ScriptNotes from './script-notes/script-notes.svelte'
 
     export let data: ScriptData
     export let show: boolean
