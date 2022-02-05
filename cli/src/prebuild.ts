@@ -117,7 +117,8 @@ const populateTemplate = (contents: string, title: string, templateContents: str
     return templateContents
         .replace(
             'MARKDOWN_PLACEHOLDER',
-            contents.replace(/`/gu, '\\`').replace(/</gu, '&lt;').replace(/>/gu, '&gt;')
+            contents
+            .replace(/`/gu, '\\`')
         )
         .replace('TITLE_PLACEHOLDER', kabobToSentenceCase(title))
 }
@@ -127,8 +128,6 @@ const copyDocsPage = (file: string, templateContents: string) => {
         .readFileSync(file)
         .toString()
         .replace(/`/gu, '`')
-        .replace(/</gu, '&lt;')
-        .replace(/>/gu, '&gt;')
 
     const fileName = file.replace(DOCS_FOLDER, '').replace('.md', '.svelte')
     const outputPath = path.join(DOCS_PUBLISH_PATH, fileName).replace(/_/gu, '-')

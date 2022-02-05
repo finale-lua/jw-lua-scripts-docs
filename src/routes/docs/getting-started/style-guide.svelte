@@ -45,14 +45,14 @@ All functions should be written in snake_case. This is a personal preference for
 Though not always necessary in a script, I just want to talk about a little bit of this philosophy if you choose to use Run and Helper functions. The purpose of a Run function is to provide a single execution point of a script. Run functions do not pass any arguments, that is a job reserved for the helper functions. It is also
 important that run functions be global, they should never be local. Variables and other functions within your scripts should absolutely be local variables, but run functions must remain global.
 
-Naming a run function should follow the structure of Macro -&gt; micro.
+Naming a run function should follow the structure of Macro -> micro.
 
 Example: \`dynamics_ffff_start()\`
 
-We begin by asking “What is the most macro thing about this function?” In most cases, this will be something in the JW Lua Development tab &gt; Plug-in def… &gt; “Category Tags”. In this specific case, it’s “dynamics”. Next we ask “what dynamic am I working with?” In this case it’s the ffff expression . Then we ask “what action is happening with this dynamic?” In this case we are placing it at the start of the
+We begin by asking “What is the most macro thing about this function?” In most cases, this will be something in the JW Lua Development tab > Plug-in def… > “Category Tags”. In this specific case, it’s “dynamics”. Next we ask “what dynamic am I working with?” In this case it’s the ffff expression . Then we ask “what action is happening with this dynamic?” In this case we are placing it at the start of the
 region.
 
-So all together this run function name goes from category &gt; what &gt; action and that is how we get to \`dynamics_ffff_start()\`.
+So all together this run function name goes from category > what > action and that is how we get to \`dynamics_ffff_start()\`.
 
 ### Helper Functions
 
@@ -65,7 +65,7 @@ function dynamics_ffff_start()
 end
 \`\`\`
 
-The helper function naming syntax is less rigorous. Though it should be descriptive, it does not have to follow the Macro -&gt; micro structure. In this example, there are two helper functions: \`find_dynamic()\` and \`dynamic_region()\`. Both of these helper functions are used in most of the dynamic category and pass arguments that make this possible. Below is the \`find_dynamic()\` helper function:
+The helper function naming syntax is less rigorous. Though it should be descriptive, it does not have to follow the Macro -> micro structure. In this example, there are two helper functions: \`find_dynamic()\` and \`dynamic_region()\`. Both of these helper functions are used in most of the dynamic category and pass arguments that make this possible. Below is the \`find_dynamic()\` helper function:
 
 \`\`\`lua
 function find_dynamic(glyph_nums, table_name, description_text)
@@ -83,7 +83,7 @@ function find_dynamic(glyph_nums, table_name, description_text)
         end
         local current_string = exp:CreateTextString()
         current_string:TrimEnigmaTags()
-        if glyph_length &gt; 1 then
+        if glyph_length > 1 then
             if (current_string:GetCharacterAt(-1) == glyph_nums[2]) and
                 (current_string:GetCharacterAt(0) == glyph_nums[1]) then
                 table.insert(matching_glyphs, exp:GetItemNo())
@@ -113,7 +113,7 @@ It should go without saying that after every declaration, a line break should oc
 
 ### Indentation and Tab Size
 
-Though technically unnecessary for lua to execute correctly, I do like to adapt a bit of Python-esque syntax: I use indentation within functions and loops, and that indentation is set to be 4 (four) spaces. In VS Code, you can change the tab amount settings under File &gt; Preferences &gt; Settings and then search for “Tab Size”. The reason for 4 spaces is to match the “Development” tab in JW Lua so that copying and pasting between the two for testing doesn’t require reformatting the code.
+Though technically unnecessary for lua to execute correctly, I do like to adapt a bit of Python-esque syntax: I use indentation within functions and loops, and that indentation is set to be 4 (four) spaces. In VS Code, you can change the tab amount settings under File > Preferences > Settings and then search for “Tab Size”. The reason for 4 spaces is to match the “Development” tab in JW Lua so that copying and pasting between the two for testing doesn’t require reformatting the code.
 
 ### Spaces
 
@@ -122,7 +122,7 @@ Again, reading code is much easier when it is close to reading normal text (such
 - Either side of an equals sign and other operators
   - \`local matching_glyphs = {}\`
   - \`matching_glyphs[1] == nil\`
-  - \`glyph_length &gt; 1\`
+  - \`glyph_length > 1\`
 - Either side of parentheses in boolean arguments with more than 1 test
   - \`if ((current_string:GetCharacterAt(-1) == glyph_nums[2]) and (current_string:GetCharacterAt(0) == glyph_nums[1])) then)\`
 - Either side of boolean tests

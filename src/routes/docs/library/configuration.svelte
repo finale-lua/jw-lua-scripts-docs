@@ -11,7 +11,7 @@ This library implements a UTF-8 text file scheme for configuration as follows:
 - Comments start with \`--\`
 - Leading, trailing, and extra whitespace is ignored
 - Each parameter is named and delimited as follows:
-\`&lt;parameter-name&gt; = &lt;parameter-value&gt;\`
+\`<parameter-name> = <parameter-value>\`
 
 Parameter values may be:
 

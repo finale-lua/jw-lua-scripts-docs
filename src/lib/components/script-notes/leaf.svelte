@@ -1,5 +1,6 @@
 <script lang="ts">
     import InlineCode from './inline-code.svelte'
+    import LeafInner from './leaf-inner.svelte'
 
     export let text: string
 </script>
@@ -9,9 +10,9 @@
         {#if index % 2 === 1}
             <InlineCode>{part}</InlineCode>
         {:else}
-            {part}
+            <LeafInner text="{part}" />
         {/if}
     {/each}
 {:else}
-    {text}
+    <LeafInner text="{text}" />
 {/if}

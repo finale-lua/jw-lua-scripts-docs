@@ -6,7 +6,7 @@
 
     const content = `# Adding Scripts
 
-&gt; To add scripts, you'll need a GitHub account. If you don't have one, you can [sign up here](https://github.com/signup).
+> To add scripts, you'll need a GitHub account. If you don't have one, you can [sign up here](https://github.com/signup).
 
 Once you've written your script, you'll be able to add it to the repository.
 
@@ -42,7 +42,7 @@ In addition to this guide, there great resources for learning [Git](https://yout
 
 ## Adding your script
 
-&gt; In short, you'll create a pull request to add your script to the \`/src\` directory. This section will walk you through that process.
+> In short, you'll create a pull request to add your script to the \`/src\` directory. This section will walk you through that process.
 
 When using Git and GitHub, you can either use the terminal or GitHub Desktop, which is a desktop application that provides a nice interface for Git. In thie guide, we'll be using GitHub Desktop. You can download it at [https://desktop.github.com](https://desktop.github.com/).
 
@@ -85,7 +85,7 @@ If you've already contributed, skip the first three items and move to item #4: c
 2. You'll receive a prompt to fork the repository. Select "Fork This Repository."
 3. Next, GitHub Desktop will ask you how you plan to use the fork. Select "To contribute to the parent project" because you want to contribute to the main repository for these scripts.
 4. Click the same "Push origin" button. This will sync your changes with GitHub's servers.
-5. Go to Branch &gt; Create Pull Request in the menu bar. This will take you to github.com to create the pull request.
+5. Go to Branch > Create Pull Request in the menu bar. This will take you to github.com to create the pull request.
 6. On GitHub.com, click "Create Pull Request"
 7. Add a descriptive title and description, then press "Create Pull Request"
 8. Success! You've now created a pull request!

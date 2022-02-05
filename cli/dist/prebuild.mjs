@@ -85,11 +85,11 @@ const kabobToSentenceCase = (name) => {
   return name.split("-").map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(" ");
 };
 const populateTemplate = (contents, title, templateContents) => {
-  return templateContents.replace("MARKDOWN_PLACEHOLDER", contents.replace(/`/gu, "\\`").replace(/</gu, "&lt;").replace(/>/gu, "&gt;")).replace("TITLE_PLACEHOLDER", kabobToSentenceCase(title));
+  return templateContents.replace("MARKDOWN_PLACEHOLDER", contents.replace(/`/gu, "\\`")).replace("TITLE_PLACEHOLDER", kabobToSentenceCase(title));
 };
 const copyDocsPage = (file, templateContents) => {
   var _a;
-  const contents = fs.readFileSync(file).toString().replace(/`/gu, "`").replace(/</gu, "&lt;").replace(/>/gu, "&gt;");
+  const contents = fs.readFileSync(file).toString().replace(/`/gu, "`");
   const fileName = file.replace(DOCS_FOLDER, "").replace(".md", ".svelte");
   const outputPath = path.join(DOCS_PUBLISH_PATH, fileName).replace(/_/gu, "-");
   const outputContents = populateTemplate(contents, ((_a = fileName.split("/").pop()) != null ? _a : "").replace(".svelte", "").replace("_", "-"), templateContents);

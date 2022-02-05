@@ -7,7 +7,7 @@
     const content = `RGP Lua Development Environment
 ===============================
 
-_RGP Lua_ is compatible with any external text editor or IDE. The only requirement is that the script you are developing has to have been configured in the [RGP Lua Configuration Window](rgpluaconfig) and be visible in Finale's plugin window. This can be done before you have actually added any code to the script.
+_RGP Lua_ is compatible with any external text editor or IDE. The only requirement is that the script you are developing has to have been configured in the [RGP Lua Configuration Window](/docs/rgp-lua/rgp-lua-configuration) and be visible in Finale's plugin window. This can be done before you have actually added any code to the script.
 
 Two common development environments for Lua are [Visual Studio Code](https://code.visualstudio.com/) and [ZeroBrane Studio](https://studio.zerobrane.com/). Both have their advantages and drawbacks, and both were useful in the development of _RGP Lua_. Each have extensive documentation pages that need not be replicated here. These instructions focus on setting up debugging in ZeroBrane Studio because it is very easy to set up and use.
 
@@ -22,12 +22,12 @@ To debug a script:
 1. Copy \`mobdebug.lua\` to the script directory. (_RGP Lua_ ignores it.)
 2. Add this line of code to the script immediately before the point in the script you wish to debug:  
     \`require('mobdebug').start()\`
-3. In ZeroBrane Studio, start the debugger server by selecting \`Project-&gt;Start Debugger Server\`.
+3. In ZeroBrane Studio, start the debugger server by selecting \`Project->Start Debugger Server\`.
 4. Execute the script from Finale. It halts in ZeroBrane Studio at the next executable line after the \`require\`.
 
 Any changes you make to the script in the IDE editor are recognized by _RGP Lua_ the next time you execute the script from Finale. This allows for fast iteration of the test, debug, and correct cycle. However, be aware that ZeroBrane Studio does not permit editing of a script while it is being debugged. (See below for more information.)
 
-The IDE for ZeroBrane Studio offers many [customization options](https://studio.zerobrane.com/doc-general-preferences). You set them on a per-user basis by selecting \`Edit-&gt;Preferences-&gt;Settings: User\`.
+The IDE for ZeroBrane Studio offers many [customization options](https://studio.zerobrane.com/doc-general-preferences). You set them on a per-user basis by selecting \`Edit->Preferences->Settings: User\`.
 
 To capture \`print()\` output from the remote script:
 
@@ -50,7 +50,7 @@ One effective way to do this is to detect modifier keys. If your script has a di
 </script>
 
 <Seo
-    title="Devenv"
+    title="Development Environment"
     siteName="Finale Lua Docs"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
     canonicalUrl="{`https://finalelua.com/${$page.path}`}"

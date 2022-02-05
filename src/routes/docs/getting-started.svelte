@@ -22,7 +22,7 @@ If you've never used Git or GitHub before, that's ok. These docs will walk you t
 
 Next, learn how to [add scripts to this repository](/docs/getting-started/adding-scripts).
 
-&gt; Note: All scripts added to the repo will have a CC0 license. See [LICENSE](https://github.com/finale-lua/lua-scripts/blob/master/LICENSE) for specific terms. This is to encourage widespread use and encourage other Finale Lua coders to build off your scripts.
+> Note: All scripts added to the repo will have a CC0 license. See [LICENSE](https://github.com/finale-lua/lua-scripts/blob/master/LICENSE) for specific terms. This is to encourage widespread use and encourage other Finale Lua coders to build off your scripts.
 `
 </script>
 

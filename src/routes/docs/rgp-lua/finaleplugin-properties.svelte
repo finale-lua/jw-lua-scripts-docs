@@ -59,7 +59,7 @@ Default is \`false\`.
 
 #### LoadAsString\* (boolean)
 
-Setting this value to \`true\` tells _RGP Lua_ to load the script into an internal string and then send it to Lua. One reason to do this might be if the script file contains an embedded \`NULL\` character. This option would cause the Lua interpreter to stop at the \`NULL\`. It overrides the **Load As String** setting in the [configuration dialog](rgpluaconfig).
+Setting this value to \`true\` tells _RGP Lua_ to load the script into an internal string and then send it to Lua. One reason to do this might be if the script file contains an embedded \`NULL\` character. This option would cause the Lua interpreter to stop at the \`NULL\`. It overrides the **Load As String** setting in the [configuration dialog](/docs/rgp-lua/rgp-lua-configuration).
 
 \`\`\`lua
 finaleplugin.LoadAsString = true
@@ -68,7 +68,7 @@ Default is the script's “Load As String” setting in the _RGP Lua_ configurat
 
 #### LoadLuaSocket\* (boolean)
 
-Setting this value to \`true\` tells _RGP Lua_ to load \`luasocket\` into global variable \`socket\`, even if **Enable Debugging** is not selected in the [configuration dialog](rgpluaconfig). If debugging *is* enabled, this value is ignored and \`luasocket\` is loaded. Example:
+Setting this value to \`true\` tells _RGP Lua_ to load \`luasocket\` into global variable \`socket\`, even if **Enable Debugging** is not selected in the [configuration dialog](/docs/rgp-lua/rgp-lua-configuration). If debugging *is* enabled, this value is ignored and \`luasocket\` is loaded. Example:
 
 \`\`\`lua
 finaleplugin.LoadLuaSocket = true
@@ -118,14 +118,14 @@ finaleplugin.MaxFinaleVersionRaw = 0x1b010000 -- Finale 27.1
 \`\`\`
 #### MinJWLuaVersion (number)
 
-The minimum version of _JW/RGP Lua_ that can run the script. This is a decimal number of the form \`&lt;major&gt;.&lt;minor&gt;\`. The highest _JW Lua_ version is 0.54 and the lowest _RGP Lua_ version is 0.55. _JW Lua_ reads this value every time a script runs and displays an error message if the running _JW Lua_ version is too low. _RGP Lua_ reads the value once and omits it from Finale's Plugin menu if the running _RGP Lua_ version is too low. Example:
+The minimum version of _JW/RGP Lua_ that can run the script. This is a decimal number of the form \`<major>.<minor>\`. The highest _JW Lua_ version is 0.54 and the lowest _RGP Lua_ version is 0.55. _JW Lua_ reads this value every time a script runs and displays an error message if the running _JW Lua_ version is too low. _RGP Lua_ reads the value once and omits it from Finale's Plugin menu if the running _RGP Lua_ version is too low. Example:
 
 \`\`\`lua
 finaleplugin. MinJWLuaVersion = 0.55
 \`\`\`
 #### MaxJWLuaVersion (number)
 
-The maximum version of _JW/RGP Lua_ that can run the script. This is a decimal number of the form \`&lt;major&gt;.&lt;minor&gt;\`. The highest _JW Lua_ version is 0.54 and the lowest _RGP Lua_ version is 0.55. _JW Lua_ reads this value every time a script runs and displays an error message if the running _JW Lua_ version is too high. _RGP Lua_ reads the value once and omits it from Finale's Plugin menu if the running _RGP Lua_ version is too high. Example:
+The maximum version of _JW/RGP Lua_ that can run the script. This is a decimal number of the form \`<major>.<minor>\`. The highest _JW Lua_ version is 0.54 and the lowest _RGP Lua_ version is 0.55. _JW Lua_ reads this value every time a script runs and displays an error message if the running _JW Lua_ version is too high. _RGP Lua_ reads the value once and omits it from Finale's Plugin menu if the running _RGP Lua_ version is too high. Example:
 
 \`\`\`lua
 finaleplugin. MaxJWLuaVersion = 0.54
