@@ -30,11 +30,8 @@ pnpm lint # format and lint everything
 
 Everything in the `/docs` folder is automatically added when the docs are updated in the main repository. Then, when the site is built, the markdown files are automatically transformed into the Svelte files in the actual site. Consequently, any edits to the `/docs` or `/src/routes/docs` folders will be overwritten when the site is deployed.
 
-Furthermore, the search files (`/src/static/stork.st` and `/src/static/stork.wasm`) are also automatically generated during deploy.
-
 To ensure you have the most recent files in development, run this:
 
 ```bash
 pnpm prebuild
-pnpm stork # if this fails, make sure you have Stork search installed on your machine
 ```

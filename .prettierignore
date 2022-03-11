@@ -2,8 +2,6 @@
 pnpm-lock.yaml
 .vercel_build_output
 cli/dist
-static/stork.st
-static/stork.wasm
 src/lib/lib/library-pages
 .svelte-kit
 docs

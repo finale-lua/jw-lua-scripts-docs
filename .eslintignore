@@ -5,9 +5,6 @@ node_modules
 *.config.js
 
 cli/dist
-src/lib/lib/stork.js
 src/routes/docs
-static/stork.st
-static/stork.wasm
 .svelte-kit
 build
