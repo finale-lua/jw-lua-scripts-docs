@@ -2,6 +2,7 @@
     import { sentenceCase } from '@nick-mazuk/lib/text-styling'
     import Badge from '@nick-mazuk/ui-svelte/src/elements/badge/badge.svelte'
     import Button from '@nick-mazuk/ui-svelte/src/elements/button/button.svelte'
+    import Spacer from '@nick-mazuk/ui-svelte/src/utilities/spacer/spacer.svelte'
     import { format } from 'date-fns'
     import { download } from '../lib/download-file'
     import type { ScriptData } from '../types/script-data'
@@ -119,6 +120,13 @@
                 <h4 class="h6 text-foreground mt-3">Licence</h4>
                 <p>Copyright {data.copyright}</p>
             {/if}
+            <Spacer y="{0.5}" />
+            <Button
+                href="https://github.com/finale-lua/lua-scripts/blob/master/src/{data.fileName}"
+                variant="secondary"
+            >
+                Source Code
+            </Button>
         </div>
     {/if}
 </article>
