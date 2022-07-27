@@ -10,6 +10,7 @@
     import type { FinaleVersion, OS, PluginVersion } from '$lib/lib/install-data'
     import { finaleName, finaleVersions } from '$lib/lib/install-data'
     import { appendQueryParameters } from '@nick-mazuk/lib/esm/url'
+    import YouTubeVideo from '@nick-mazuk/ui-svelte/src/components/youtube-video/youtube-video.svelte'
     import Button from '@nick-mazuk/ui-svelte/src/elements/button/button.svelte'
     import Apple from '@nick-mazuk/ui-svelte/src/elements/icon/apple.svelte'
     import Windows from '@nick-mazuk/ui-svelte/src/elements/icon/windows.svelte'
@@ -116,4 +117,6 @@
         <WindowsInstall bind:finaleVersion bind:pluginVersion />
         <PluginInstallDone pluginVersion="{pluginVersion}" />
     {/if}
+    <Spacer />
+    <YouTubeVideo title="Installing and Using JW/RGP Lua" id="ju99glhwsMs" />
 </main>

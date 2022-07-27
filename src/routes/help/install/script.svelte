@@ -1,6 +1,7 @@
 <script lang="ts">
     import { page } from '$app/stores'
     import luaLogo from '$lib/assets/images/lua-logo.png'
+    import YouTubeVideo from '@nick-mazuk/ui-svelte/src/components/youtube-video/youtube-video.svelte'
     import Note from '@nick-mazuk/ui-svelte/src/elements/note/note.svelte'
     import Seo from '@nick-mazuk/ui-svelte/src/utilities/seo/seo.svelte'
     import Spacer from '@nick-mazuk/ui-svelte/src/utilities/spacer/spacer.svelte'
@@ -86,4 +87,6 @@
             </li>
         </ol>
     </div>
+    <Spacer />
+    <YouTubeVideo title="Installing and Using JW/RGP Lua" id="ju99glhwsMs" />
 </main>
