@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { page } from '$app/stores'
     import luaLogo from '$lib/assets/images/lua-logo.png'
     import Feature from '$lib/components/home/feature.svelte'
     import Image from '$lib/components/image.svelte'
@@ -16,7 +15,7 @@
     title=""
     siteName="Finale Lua"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
-    canonicalUrl="{`https://finalelua.com/${$page.path}`}"
+    canonicalUrl="{`https://finalelua.com`}"
     openGraph="{{
         image: {
             src: `https://finalelua.com${luaLogo}`,
