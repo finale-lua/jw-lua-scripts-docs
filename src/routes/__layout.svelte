@@ -1,5 +1,6 @@
 <script lang="ts">
     import { page } from '$app/stores'
+    import Docsearch from '$lib/components/docsearch.svelte'
     import ResetItems from '$lib/components/reset-items.svelte'
     import FooterSocialLinkWrapper from '@nick-mazuk/ui-svelte/src/components/footer/footer-social-link-wrapper/footer-social-link-wrapper.svelte'
     import FooterSocialLink from '@nick-mazuk/ui-svelte/src/components/footer/footer-social-link/footer-social-link.svelte'
@@ -52,7 +53,12 @@
 <ResetItems />
 
 <Header sticky page="{$page.path}">
-    <HeaderBrand text="Finale Lua" slot="left" />
+    <svelte:fragment slot="left">
+        <HeaderBrand text="Finale Lua" />
+        <HeaderItemWrapper breakpoint="md">
+            <Docsearch show="{$page.path.startsWith('/docs')}" />
+        </HeaderItemWrapper>
+    </svelte:fragment>
     <svelte:fragment slot="right">
         <HeaderLink href="/help">Help</HeaderLink>
         <HeaderLink href="/docs/getting-started">Developer docs</HeaderLink>
