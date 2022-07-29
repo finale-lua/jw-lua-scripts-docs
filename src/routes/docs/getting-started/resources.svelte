@@ -34,7 +34,7 @@ You can [download it here](http://robertgpatterson.com/-fininfo/-downloads/downl
     title="Resources"
     siteName="Finale Lua Docs"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
-    canonicalUrl="{`https://finalelua.com/${$page.path}`}"
+    canonicalUrl="{`https://finalelua.com${$page.path}`}"
     openGraph="{{
         image: {
             src: `https://finalelua.com${luaLogo}`,

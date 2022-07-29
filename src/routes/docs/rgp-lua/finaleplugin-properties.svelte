@@ -232,7 +232,7 @@ Revision history text that might be of interest to an end user. The string can c
 \`\`\`lua
 finaleplugin.RevisionNotes = [[
 July 26, 2013: Version 1.00
-July 28, 2013: Version 1.01 
+July 28, 2013: Version 1.01
 ]]
 \`\`\`
 
@@ -327,7 +327,7 @@ true
     title="Finaleplugin Properties"
     siteName="Finale Lua Docs"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
-    canonicalUrl="{`https://finalelua.com/${$page.path}`}"
+    canonicalUrl="{`https://finalelua.com${$page.path}`}"
     openGraph="{{
         image: {
             src: `https://finalelua.com${luaLogo}`,

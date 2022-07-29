@@ -20,7 +20,7 @@ Download and install ZeroBrane Studio from the [website](https://studio.zerobran
 To debug a script:
 
 1. Copy \`mobdebug.lua\` to the script directory. (_RGP Lua_ ignores it.)
-2. Add this line of code to the script immediately before the point in the script you wish to debug:  
+2. Add this line of code to the script immediately before the point in the script you wish to debug:
     \`require('mobdebug').start()\`
 3. In ZeroBrane Studio, start the debugger server by selecting \`Project->Start Debugger Server\`.
 4. Execute the script from Finale. It halts in ZeroBrane Studio at the next executable line after the \`require\`.
@@ -53,7 +53,7 @@ One effective way to do this is to detect modifier keys. If your script has a di
     title="Development Environment"
     siteName="Finale Lua Docs"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
-    canonicalUrl="{`https://finalelua.com/${$page.path}`}"
+    canonicalUrl="{`https://finalelua.com${$page.path}`}"
     openGraph="{{
         image: {
             src: `https://finalelua.com${luaLogo}`,
