@@ -76,6 +76,12 @@
             {#if data.notes}
                 <ScriptNotes notes="{data.notes}" />
             {/if}
+            {#if data.menuItems.length > 1}
+                <h4 class="h6 text-foreground mt-3">Group script menu items</h4>
+                {#each data.menuItems as menuItem}
+                    <p>{menuItem}</p>
+                {/each}
+            {/if}
             {#if data.author.name || data.author.website || data.author.email}
                 <h4 class="h6 text-foreground mt-3">Author</h4>
                 {#if data.author.name}
@@ -107,13 +113,25 @@
                     <p>{format(new Date(data.date), 'MMMM d, YYY')}</p>
                 {/if}
             {/if}
-            {#if data.requireSelection || data.requireScore}
+            {#if data.requireSelection || data.requireScore || data.minFinaleVersion || data.maxFinaleVersion || data.minJWLuaVersion || data.maxJWLuaVersion}
                 <h4 class="h6 text-foreground mt-3">Requirements</h4>
                 {#if data.requireSelection}
                     <p>Requires music selection to run</p>
                 {/if}
                 {#if data.requireScore}
                     <p>Requires score view to run</p>
+                {/if}
+                {#if data.minFinaleVersion}
+                    <p>Requires Finale version {data.minFinaleVersion} or higher</p>
+                {/if}
+                {#if data.maxFinaleVersion}
+                    <p>Requires Finale version {data.maxFinaleVersion} or lower</p>
+                {/if}
+                {#if data.minJWLuaVersion}
+                    <p>Requires plug-in version {data.minJWLuaVersion} or higher</p>
+                {/if}
+                {#if data.maxJWLuaVersion}
+                    <p>Requires plug-in version {data.maxJWLuaVersion} or lower</p>
                 {/if}
             {/if}
             {#if data.copyright}

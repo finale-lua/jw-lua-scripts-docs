@@ -1,5 +1,8 @@
 export type ScriptData = {
     name: string
+    scriptGroupName: string
+    scriptGroupDescription: string
+    menuItems: string[]
     fileName: string
     undoText: string
     shortDescription: string
@@ -18,4 +21,8 @@ export type ScriptData = {
     notes: string
     revisionNotes: string[]
     id: string
+    minJWLuaVersion: string
+    maxJWLuaVersion: string
+    minFinaleVersion: string
+    maxFinaleVersion: string
 }
