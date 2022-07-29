@@ -327,7 +327,7 @@ true
     title="Finaleplugin Properties"
     siteName="Finale Lua Docs"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
-    canonicalUrl="{`https://finalelua.com${$page.path}`}"
+    canonicalUrl="{`https://www.finalelua.com${$page.path}`}"
     openGraph="{{
         image: {
             src: `https://finalelua.com${luaLogo}`,

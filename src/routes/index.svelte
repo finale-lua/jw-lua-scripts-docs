@@ -15,7 +15,7 @@
     title=""
     siteName="Finale Lua"
     description="Use Finale faster than the blink of an eye. Simplify workflows to just one click. All for free, forever."
-    canonicalUrl="{`https://finalelua.com`}"
+    canonicalUrl="{`https://www.finalelua.com`}"
     openGraph="{{
         image: {
             src: `https://finalelua.com${luaLogo}`,
