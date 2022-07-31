@@ -34,7 +34,14 @@
         },
         recent: {
             userString: 'Sort by most recent',
-            sortingFunction: (a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1),
+            sortingFunction: (a, b) => {
+                let dateA = new Date(a.date)
+                let dateB = new Date(b.date)
+                if (dateA.getTime() === dateB.getTime()) {
+                    return a.name.localeCompare(b.name)
+                }
+                return dateB.getTime() - dateA.getTime()
+            },
             icon: Clock,
         },
     }
@@ -65,7 +72,9 @@
         shouldUpdateUrlQuery = true
     }
 
-    type DisplayedDocuments = ScriptData[]
+    let sortedScripts = [...scripts].sort(sorts[currentSorting].sortingFunction)
+    $: sortedScripts = [...scripts].sort(sorts[currentSorting].sortingFunction)
+    type DisplayedDocuments = { items: Set<string>; first: string; last: string }
     const searchCache: Record<
         string,
         {
@@ -73,7 +82,11 @@
         }
     > = {
         [currentSorting]: {
-            '': scripts.sort(sorts[currentSorting].sortingFunction),
+            '': {
+                items: new Set(sortedScripts.map((script) => script.fileName)),
+                first: sortedScripts[0].fileName,
+                last: sortedScripts[sortedScripts.length - 1].fileName,
+            },
         },
     }
 
@@ -84,10 +97,22 @@
             displayedDocuments = searchCache[currentSorting][currentSearch]
         } else {
             const results =
-                currentSearch === ''
-                    ? [...scripts]
-                    : (search.search(currentSearch) as (ScriptData & { index: number })[])
-            displayedDocuments = results.sort(sorts[currentSorting].sortingFunction)
+                currentSearch === '' ? [...scripts] : (search.search(currentSearch) as ScriptData[])
+            results.sort(sorts[currentSorting].sortingFunction)
+            displayedDocuments = {
+                items: new Set(results.map((script) => script.fileName)),
+                first: '',
+                last: '',
+            }
+            for (const script of sortedScripts) {
+                if (!displayedDocuments.items.has(script.fileName)) {
+                    continue
+                }
+                if (displayedDocuments.first === '') {
+                    displayedDocuments.first = script.fileName
+                }
+                displayedDocuments.last = script.fileName
+            }
             if (!(currentSorting in searchCache)) {
                 searchCache[currentSorting] = {}
             }
@@ -138,8 +163,8 @@
                 placeholder="Search…"
                 defaultValue="{searchValue}"
                 helpText="Found {formatNumber(
-                    displayedDocuments.length
-                )} script{displayedDocuments.length === 1 ? '' : 's'}"
+                    displayedDocuments.items.size
+                )} script{displayedDocuments.items.size === 1 ? '' : 's'}"
             />
         </div>
 
@@ -159,15 +184,15 @@
     </div>
     <Spacer />
     <Container>
-        {#each displayedDocuments as item, index (item.fileName)}
+        {#each sortedScripts as item}
             <Script
                 data="{item}"
-                show
-                first="{index == 0}"
-                last="{index == displayedDocuments.length - 1}"
+                show="{displayedDocuments.items.has(item.fileName)}"
+                first="{item.fileName === displayedDocuments.first}"
+                last="{item.fileName === displayedDocuments.last}"
             />
         {/each}
-        {#if displayedDocuments.length === 0}
+        {#if displayedDocuments.items.size === 0}
             <EmptyState
                 title="No scripts found"
                 description="There are no scripts that match your search"

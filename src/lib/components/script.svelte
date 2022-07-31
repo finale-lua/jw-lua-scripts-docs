@@ -38,7 +38,7 @@
 
 <article
     class:hidden="{!show}"
-    class="border-b py-6"
+    class="border-b py-6 finale-lua-script-item"
     class:pt-0="{first}"
     class:pb-0="{last}"
     class:border-none="{last}"
