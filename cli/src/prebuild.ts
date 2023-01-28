@@ -119,6 +119,7 @@ const populateTemplate = (contents: string, title: string, templateContents: str
             'MARKDOWN_PLACEHOLDER',
             contents
             .replace(/`/gu, '\\`')
+            .replace(/(\{|\})/gu, "{'$1'}")
         )
         .replace('TITLE_PLACEHOLDER', kabobToSentenceCase(title))
 }
