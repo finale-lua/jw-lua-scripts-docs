@@ -115,11 +115,7 @@ const kabobToSentenceCase = (name: string) => {
 
 const populateTemplate = (contents: string, title: string, templateContents: string): string => {
     return templateContents
-        .replace(
-            'MARKDOWN_PLACEHOLDER',
-            contents
-            .replace(/`/gu, '\\`')
-        )
+        .replace('MARKDOWN_PLACEHOLDER', contents.replace(/`/gu, '\\`').replace(/\$\{/gu, '\\${'))
         .replace('TITLE_PLACEHOLDER', kabobToSentenceCase(title))
 }
 
