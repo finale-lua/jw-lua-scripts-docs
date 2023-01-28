@@ -3,30 +3,6 @@ RGP Lua Development Environment
 
 _RGP Lua_ is compatible with any external text editor or IDE. The only requirement is that the script you are developing has to have been configured in the [RGP Lua Configuration Window](/docs/rgp-lua/rgp-lua-configuration) and be visible in Finale's plugin menu. This can be done before you have actually added any code to the script.
 
-1. hello world
-    ```diff
-    --- package.json.original
-    +++ package.json.revised
-    @@ -21,21 +21,21 @@
-       "devDependencies": {},
-       "contributes": {
-    +        "breakpoints": [
-    +            {
-    +                "language": "lua"
-    +            }
-    +        ],
-           "debuggers": [
-               {
-                   "type": "lua",
-                   "label": "Lua Debugger",
-    -                "enableBreakpointsFor": {
-    -                    "languageIds": [
-    -                        "lua"
-    -                    ]
-    -                },
-                   "program": "./DebugAdapter.exe",
-    ```
-
 One of the effects of the “Enable Debugging” option in _RGP Lua_ is to pre-embed the [`luasocket`](https://aiq0.github.io/luasocket/index.html) library in the Lua machine before calling the script. Many of the solutions for debugging embedded Lua over the years have used this library for communicating between the host program and the IDE.
 
 Two common development environments for Lua are [Visual Studio Code](https://code.visualstudio.com/) and [ZeroBrane Studio](https://studio.zerobrane.com/). Both have their advantages and drawbacks, and both were useful in the development of _RGP Lua_. Each has extensive documentation pages that need not be replicated here. Instructions for setting up a development environment in each application appear below.
@@ -79,7 +55,28 @@ One effective way to do this is to detect modifier keys. If your script has a di
 
    3. Inside the folder, edit `packages.json`, deleting the `enableBreakpointsFor` element under `debuggers` and adding a `breakpoints` element under `contributes`.
 
-      ![Manifest Diff](assets/manifest_diff.png "Manifest Diff")
+      ```diff
+      --- package.json.original
+      +++ package.json.revised
+      @@ -21,21 +21,21 @@
+           "devDependencies": {},
+           "contributes": {
+      +        "breakpoints": [
+      +            {
+      +                "language": "lua"
+      +            }
+      +        ],
+               "debuggers": [
+                   {
+                       "type": "lua",
+                       "label": "Lua Debugger",
+      -                "enableBreakpointsFor": {
+      -                    "languageIds": [
+      -                        "lua"
+      -                    ]
+      -                },
+                       "program": "./DebugAdapter.exe",
+      ```
 
    4. If VS Code was open, close and restart it. You may then be prompted to reload the window when VS Code notices that the extension has changed on disk.
 
@@ -97,9 +94,51 @@ One effective way to do this is to detect modifier keys. If your script has a di
     debuggee.start(json, { redirectPrint = true })
     ```
    
-6. Type <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd> or click on the "Run and Debug" icon in the side bar, then click on the "create a launch.json file" link. From the "Select debugger" dropdown that appears, select `Lua Debugger`. This will create a default `launch.json` that should include this snippet at the bottom of the file:
+6. Type <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd> or click on the "Run and Debug" icon in the side bar, then click on the "create a launch.json file" link. From the "Select debugger" dropdown that appears, select `Lua Debugger`. This will create a default `launch.json` file that should look like this:
 
-   ![launch.json](assets/launch_json.png "launch.json")
+    ```json
+    {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "launch-lua",
+                "type": "lua",
+                "request": "launch",
+                "workingDirectory": "${workspaceRoot}",
+                "sourceBasePath": "${workspaceRoot}",
+                "executable": "${workspaceRoot}/lua.exe",
+                "arguments": "main.lua",
+                "listenPublicly": false,
+                "listenPort": 56789,
+                "encoding": "UTF-8",
+                "env": {}
+            },
+            {
+                "name": "launch-gideros",
+                "type": "lua",
+                "request": "launch",
+                "workingDirectory": "${workspaceRoot}",
+                "giderosPath": "C:/Program Files (x86)/Gideros",
+                "gprojPath": "${workspaceRoot}/GPROJ.gproj",
+                "jumpToGiderosErrorPosition": false,
+                "stopGiderosWhenDebuggerStops": true,
+                "listenPublicly": false,
+                "listenPort": 56789,
+                "encoding": "UTF-8"
+            },
+            {
+                "name": "wait",
+                "type": "lua",
+                "request": "attach",
+                "workingDirectory": "${workspaceRoot}",
+                "sourceBasePath": "${workspaceRoot}",
+                "listenPublicly": false,
+                "listenPort": 56789,
+                "encoding": "UTF-8"
+            }
+        ]
+    }
+    ```
 
 8. Launch the `wait` configuration by selecting it from the dropdown at the top of the "Run and Debug" panel and clicking the arrow next to it (or hitting <kbd>F5</kbd>). This tells VS Code to listen for messages from remote execution of your script.
 
