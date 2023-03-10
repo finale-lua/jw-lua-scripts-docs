@@ -52,7 +52,7 @@
             <li>
                 <strong>Open Finale and open a document</strong>
                 <br />
-                The plug-in menu does not appear unlesss a document is opened.
+                On Mac, the plug-in menu does not appear unlesss a document is opened.
             </li>
             <li>
                 <strong>Open the plugin</strong>
