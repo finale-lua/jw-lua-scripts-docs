@@ -27,7 +27,7 @@
     <Note>
         Before installing a Lua script, make sure you've
         <a sveltekit:prefetch href="/help/install" class="link">
-            installed either RGP Lua or JW Lua.
+            installed RGP Lua.
         </a>
     </Note>
     <Spacer />
@@ -35,61 +35,60 @@
     <div class="prose !text-gray-700">
         <ol>
             <li>
-                <strong>Find the script you want and click "download"</strong>
+                <strong>Make a Lua Scripts folder</strong>
                 <br />
-                This will download a
-                <code>.lua</code>
-                file. You can search for and find scripts on the
-                <a sveltekit:prefetch href="/scripts">scripts</a> page of this site.
+                The simplest way to use RGP Lua is to create a "<b>Lua Scripts</b>" folder somewhere useful on your computer, like inside the <b>Documents</b> folder as 
+                "<b>Lua Scripts</b>". You then tell <b>RGP Lua</b> to access that folder and Finale will automatically add every Lua script in the folder to the RGP Lua menu.
             </li>
             <li>
-                <strong>Save the downloaded script</strong>
+                <strong>Download new scripts</strong>
                 <br />
-                You can save it anywhere on your computer, though make sure you can keep it there permenantly.
-                Two common places to save these are in the same folder you installed the plugin,
-                or in a cloud-synced folder (like for Dropbox or Google Drive).
+                Search for <code>.lua</code> scripts 
+                <a sveltekit:prefetch href="/scripts">on this site</a> 
+                and click "<b>Download</b>" for each.
             </li>
             <li>
-                <strong>Open Finale and open a document</strong>
+                <strong>Save them</strong>
                 <br />
-                On Mac, the plug-in menu does not appear unlesss a document is opened.
+                After downloading move them all to the <b>Lua Scripts</b> folder you created above.
+            </li>
+            <li>
+                <strong>Open Finale</strong>
+                <br />
+                Open a document so the RGP Lua plug-in appears.
             </li>
             <li>
                 <strong>Open the plugin</strong>
                 <br />
-                For RGP Lua, go to
-                <code>Plug-ins > Lua > RGP Lua…</code>. For JW Lua, to to
-                <code>Plug-ins > Lua > JW Lua…</code>. (Assuming that when you installed 
-                RGP/JW Lua, you used a folder called <code>Lua</code>.)
+                In Finale go to <code>Plug-ins > Lua > RGP Lua...</code>
             </li>
             <li>
-                <strong>For RGP Lua</strong>
+                <strong>Click the "Add..." button</strong>
                 <br />
-                Click the <code>Add</code> button and then the <code>Select File…</code>
-                button to add an individual Lua script.
+                The "<b>Add Item</b>" window opens.
             </li>
             <li>
-                <strong>For JW Lua</strong>
+                <strong>Click the "Select Folder..." button</strong>
                 <br />
-                Go to the manager tab and click on the <code>[menu]</code> plug-in group.
-                Then click "open" next to the Plug-in Groups section. Note that there are
-                two "open" buttons. You want to click the bottom one.
+                Locate your <b>Lua Scripts</b> folder and click <b>Open</b>.
             </li>
             <li>
-                <strong>Find the saved <code>.lua</code> and select it</strong>
+                <strong>Click OK and click OK again to close the plugin</strong>
                 <br />
-                For RGP Lua, click "open" and then "OK". For JW Lua, click "open".
-                You should now see the file listed in the plug-in window.
+                A warning will pop up that the changes will not take effect 
+                until Finale restarts. Click <b>OK</b>.
             </li>
             <li>
-                <strong>Close the plugin</strong>. You may also get a warning that the changes will
-                not be reflected until you restart Finale; you can close this warning.
-            </li>
-            <li>
-                <strong>Restart Finale and view the new script under Plug-ins > Lua</strong>
+                <strong>Restart Finale</strong>
                 <br />
-                You can now run this script!
+                After Finale restarts all of the Lua scripts in your 
+                <b>Lua Scripts</b> folder can now be accessed at 
+                <code>Plug-ins > RGP Lua ></code><br />
+                New scripts added to your <b>Lua Scripts</b> folder will 
+                appear in the <code>Plug-ins > Lua > </code> menu the next time that 
+                Finale starts.
             </li>
+            
         </ol>
     </div>
     <Spacer />
