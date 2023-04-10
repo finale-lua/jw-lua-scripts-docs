@@ -55,7 +55,7 @@
             <li>
                 <strong>Open Finale</strong>
                 <br />
-                Open a document so the RGP Lua plug-in appears.
+                On Mac open a document to make the RGP Lua plug-in appear.
             </li>
             <li>
                 <strong>Open the plugin</strong>
