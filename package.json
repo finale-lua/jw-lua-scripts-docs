@@ -46,6 +46,7 @@
         "@sveltejs/adapter-static": "^1.0.6",
         "date-fns": "^2.30.0",
         "js-search": "^2.0.1",
-        "redis": "^3.1.2"
+        "redis": "^3.1.2",
+        "svelte-kit": "^1.2.0"
     }
 }

@@ -29,6 +29,9 @@ dependencies:
   redis:
     specifier: ^3.1.2
     version: 3.1.2
+  svelte-kit:
+    specifier: ^1.2.0
+    version: 1.2.0
 
 devDependencies:
   '@nick-mazuk/eslint-config':
@@ -4884,6 +4887,11 @@ packages:
 
   /svelte-intersection-observer@0.7.1:
     resolution: {integrity: sha512-duqN9suvQuP3Yb7R0xb4Se0pDKTRnA3enqZ7WH5srESf/q2/hLYyA5lHBU3TRWmj3gkoRVxjfyEbbjUcDM8osw==}
+    dev: false
+
+  /svelte-kit@1.2.0:
+    resolution: {integrity: sha512-RRaOHBhpDv4g2v9tcq8iNw055Pt0MlLps6JVA7/40f4KAbtztXSI4T6MZYbHRirO708urfAAMx6Qow+tQfCHug==}
+    requiresBuild: true
     dev: false
 
   /svelte-portal@2.2.0:
