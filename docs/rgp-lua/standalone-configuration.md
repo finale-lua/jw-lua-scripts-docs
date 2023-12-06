@@ -14,16 +14,16 @@ Standalone mode requires
 
 _RGP Lua_ searches the folder where it is running and uses a configuration file there if it finds one. If not, it searches the user's preferences folder and creates a new one there if it isn't found.
 
-Here is a simple example of a configuration file that installs a script called `myplugin.lua`. It could be installed in a subfolder "My Plugin" of Finale's Plug-ins folder, and Finale would place it in a submenu of the same name.
+Here is a simple example of a configuration file that installs a script called `myplugin.lua`. It could be installed in a subfolder “My Plugin” of Finale’s Plug-ins folder, and Finale would place it in a submenu of the same name.
 
 ```xml
 <RGPPluginSettings>
     <RGPLua IncludeUI="false">
-      <ConfigHashUrl>https://whitelisted.com/hashes/config.hash</ConfigHashUrl>
+    	 <ConfigHashUrl>https://whitelisted.com/hashes/config.hash</ConfigHashUrl>
         <Scripts>
             <Script Path="myplugin.lua" IsDirectory="false" Debug="false" UseString="false" FromRGPLuaDirectory="true">
                 <Hash File="myplugin.lua" Verified="true">2fd009asdf...(hash code)</Hash>
-            <\/Script>
+            </Script>
         </Scripts>
     </RGPLua>
 </RGPPluginSettings>
@@ -75,6 +75,7 @@ Configuring scripts to run at startup
 
 A script does not have to be trusted to run at startup, but it must have the following attribute set to to `true`:
 
+
 ```
 AllowStartup (Script tag)
 ```
@@ -96,3 +97,4 @@ certutil -hashfile <filename> SHA512
 - Configure the file in RGP Lua and then copy the Script tag for it (including "Hash" xml tag) directly to your custom configuration file.
 
 Keep in mind that `ExecuteAtStartup` scripts are not included as part of an Auto Folder. You must provide a separate per-script Script tag for each.
+
