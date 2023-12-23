@@ -5,7 +5,7 @@
     "scripts": {
         "dev": "svelte-kit dev",
         "dev:open": "svelte-kit dev --open",
-        "prebuild": "./node_modules/.bin/esbuild cli/src/prebuild --outfile=cli/dist/prebuild.mjs --platform=node --target=node12.17 && node cli/dist/prebuild.mjs",
+        "prebuild": "./node_modules/.bin/esbuild cli/src/prebuild --outfile=cli/dist/prebuild.mjs --platform=node --target=node16.20.2 && node cli/dist/prebuild.mjs",
         "build": "svelte-kit build",
         "start": "svelte-kit start",
         "preview": "svelte-kit preview",
