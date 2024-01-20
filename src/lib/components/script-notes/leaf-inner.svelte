@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { marked } from 'marked'
     export let text: string
     $: parts = text.split('  \n')
 </script>
@@ -7,5 +8,5 @@
     {#if index !== 0}
         <br />
     {/if}
-    {part}
+    {@html marked.parseInline(part)}
 {/each}
