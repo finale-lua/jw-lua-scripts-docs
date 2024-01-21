@@ -1,90 +1,57 @@
 <script lang="ts">
-    import CodeBlock from './code-block.svelte'
-    import Leaf from './leaf.svelte'
+    import { marked } from 'marked'
 
     export let notes: string
 
-    type Block =
-        | {
-              type: 'p'
-              content: string
-              style: string
-          }
-        | {
-              type: 'code'
-              content: string
-          }
-        | {
-              type: 'ol' | 'ul'
-              content: string[]
-          }
-
-    type Content = Block[]
-
-    let content: Content = []
-
     $: {
-        const lines = notes.split('\n\n')
-        content = lines.map((line) => {
-            if (line.startsWith('```') && line.endsWith('```')) {
-                return {
-                    type: 'code',
-                    content: line.slice(3, -3).trim(),
-                }
-            } else if (line.startsWith('1)') || line.startsWith('1.')) {
-                return {
-                    type: 'ol',
-                    content: line.split('\n').map((l) => {
-                        const matches = l.match(/\d+[\.\)] *(.*)/)
-                        return matches?.[1] ?? l
-                    }),
-                }
-            } else if (line.startsWith('- ') || line.startsWith('* ')) {
-                return {
-                    type: 'ul',
-                    content: line.split('\n').map((l) => {
-                        const matches = l.match(/[-\*] *(.*)/)
-                        return matches?.[1] ?? l
-                    }),
-                }
-            } else {
-                let classString = ''
-                if (line.startsWith('###')) classString = 'text-lg font-bold'
-                else if (line.startsWith('##')) classString = 'text-xl font-bold'
-                else if (line.startsWith('#')) classString = 'text-2xl font-bold'
+        let classString = ''
 
-                return {
-                    type: 'p',
-                    content: line.replace(/#+\s*/, ''),
-                    style: classString,
+        const renderer = {
+            heading(text: string, level: number) {
+                switch (level) {
+                    case 1:
+                        classString = 'font-bold text-2xl'
+                        break
+                    case 2:
+                        classString = 'font-bold text-xl'
+                        break
+                    default:
+                        classString = 'font-bold text-lg'
+                        break
                 }
-            }
-        })
+
+                return `<h${level} class="${classString}">${text}</h${level}>\n`
+            },
+            list(body: string, ordered: boolean) {
+                classString = ordered ? 'list-decimal pl-8' : 'list-disc pl-8'
+                const type = ordered ? 'ol' : 'ul'
+
+                return `<${type} class="${classString}">${body}</${type}>\n`
+            },
+            code(code: string) {
+                classString = 'bg-gray-200 text-gray-800 rounded-lg px-3 py-2'
+                return `<pre class="${classString}"><code>${code}</code></pre>\n`
+            },
+            codespan(code: string) {
+                classString =
+                    'bg-gray-200 border border-gray-300 text-gray-800 rounded px-1 py-0.5 -my-0.5'
+                return `<code class="${classString}">${code}</code>`
+            },
+            table(header: string, body: string) {
+                classString = 'table-auto'
+                return `<table class="${classString}"><thead>${header}</thead><tbody>${body}</tbody></table>\n`
+            },
+            tablecell(content: string, flags: any) {
+                classString = 'text-left border border-gray-600'
+                const type = flags.header ? 'th' : 'td'
+                return `<${type} class="${classString}">${content}</td>\n`
+            },
+        }
+
+        marked.use({ renderer })
     }
 </script>
 
 <div class="my-3 flex flex-col space-y-2">
-    {#each content as block}
-        {#if block.type == 'p'}
-            <p class="{block.style}">
-                <Leaf text="{block.content}" />
-            </p>
-        {:else if block.type == 'ul'}
-            <ul class="list-disc pl-8">
-                {#each block.content as item}
-                    <li><Leaf text="{item}" /></li>
-                {/each}
-            </ul>
-        {:else if block.type == 'ol'}
-            <ol class="list-decimal pl-8">
-                {#each block.content as item}
-                    <li><Leaf text="{item}" /></li>
-                {/each}
-            </ol>
-        {:else if block.type == 'code'}
-            <CodeBlock>
-                {block.content}
-            </CodeBlock>
-        {/if}
-    {/each}
+    {@html marked.parse(notes)}
 </div>
