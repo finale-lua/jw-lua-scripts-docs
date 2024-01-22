@@ -68,14 +68,14 @@ The good news is that in the grand scheme of the internet, Finale is a niche, si
 
 _RGP Lua_ (starting with version 0.67) adds a layer of protection with the concept of trusted code. To gain full access to the language features of Lua and _RGP Lua_, you must be running as trusted. The vast majority of scripts do not need to run as trusted code, and it is recommended not to do so if you do not need to. A script is trusted if
 
-- it is sourced from a known website such as the [Finale Lua](https://www.finalelua.com/) website, and it has not been modified. The Finale Lua organization on GitHub maintains a whitelist of known, trusted websites.
-- it is marked "Trusted" in the configurator. The "Trusted" option exists for script developers to mark their own code as trusted. If you are not the developer of the script, do not enable this option. And even if you are, do not enable it unless you have to.
+* it is sourced from a known website such as the [Finale Lua](https://www.finalelua.com/) website, and it has not been modified. The Finale Lua organization on GitHub maintains a whitelist of known, trusted websites.
+* it is marked "Trusted" in the configurator. The "Trusted" option exists for script developers to mark their own code as trusted. If you are not the developer of the script, do not enable this option. And even if you are, do not enable it unless you have to.
 
 The limitations placed on untrusted scripts are relatively mild. Untrusted scripts cannot
 
-- execute external code.
-- load binary C libraries.
-- modify Finale's menus.
+* execute external code.
+* load binary C libraries.
+* modify Finale's menus.
 
 Note that all scripts can access your file system with user level permission. The main goal of the trusted code restrictions is to limit the ability of a script to remain hidden while taking control of your computer for its own purposes.
 
@@ -85,11 +85,11 @@ Certain code features must be explicitly requested in the [`plugindef()`](#conne
 
 Some of the features require trusted code and some do not. A summary is as follows:
 
-- `finaleplugin.ExecuteAtStartup` allows the script to run at startup. It must also be configured as "Allow At Startup", but trusted status is not required.
-- `finaleplugin.ExecuteExternalCode` allows the script to launch external code or load binary C libraries. Trusted status is required.
-- `finaleplugin.ExecuteHttpsCalls` allows the script to call the `get` or `put` functions in `luaosutils.internet`. Trusted status is not required.
-- `finaleplugin.LoadLuaSocket` pre-loads the full `socket` namespace. Trusted status is required.
-- `finaleplugin.ModifyFinaleMenus` allows the script to modify Finale's menus. Trusted status is required.
+* `finaleplugin.ExecuteAtStartup` allows the script to run at startup. It must also be configured as "Allow At Startup", but trusted status is not required.
+* `finaleplugin.ExecuteExternalCode` allows the script to launch external code or load binary C libraries. Trusted status is required.
+* `finaleplugin.ExecuteHttpsCalls` allows the script to call the `get` or `put` functions in `luaosutils.internet`. Trusted status is not required.
+* `finaleplugin.LoadLuaSocket` pre-loads the full `socket` namespace. Trusted status is required.
+* `finaleplugin.ModifyFinaleMenus` allows the script to modify Finale's menus. Trusted status is required.
 
 ### The 'bit32' namespace
 
@@ -101,13 +101,6 @@ _RGP Lua_ (starting in version 0.67) pre-loads the lua-cjson 2.1.0 library, whic
 
 ```lua
 local cjson = require('cjson')
-```
-
-If you are writing a script to be deployed at the [Finale Lua](https://finalelua.com) website, you must wrap the call to `require` as follows:
-
-```lua
-local utils = require('library.utils')
-local cjson = utils.require_embedded('cjson')
 ```
 
 The json strings formatted by cjson are flat, containing no line feeds. If you wish to format them in human-readable format, you can use the built-in function [`prettyformatjson`](#prettyformatjson).
@@ -143,13 +136,6 @@ _RGP Lua_ (starting in version 0.68) pre-loads the luafilesystem library ('lfs')
 local lfs = require('lfs')
 ```
 
-If you are writing a script to be deployed at the [Finale Lua](https://finalelua.com) website, you must wrap the call to `require` as follows:
-
-```lua
-local utils = require('library.utils')
-local lfs = utils.require_embedded('lfs')
-```
-
 More information on how to use the lfs libray is available here:  
 [https://lunarmodules.github.io/luafilesystem/](https://lunarmodules.github.io/luafilesystem/)
 
@@ -163,13 +149,6 @@ _RGP Lua_ does not load the library into a global namespace, however. You must e
 local osutils = require('luaosutils')
 ```
 
-If you are writing a script to be deployed at the [Finale Lua](https://finalelua.com) website, you must wrap the call to `require` as follows:
-
-```lua
-local utils = require('library.utils')
-local osutils = utils.require_embedded('luaosutils')
-```
-
 The advantage to this approach is that you do not need to change the body of your script if you wish to use an external version of `luaosutils` instead of the version embedded in _RGP Lua_. Simply disable the `LoadLuaOSUtils` option in [`plugindef`](#connect-to-finalelua) and the script will pick up the external version instead, provided it is in your `cpath` list. (_RGP Lua_ automatically adds the script’s running folder path to the `cpath` list.)
 
 A script must be running as trusted code to gain full access to the functions in the library. See the [readme file](https://github.com/finale-lua/luaosutils#readme) for details.
@@ -178,25 +157,25 @@ A script must be running as trusted code to gain full access to the functions in
 
 _RGP Lua_ contains an embedded version of [`luasocket`](https://aiq0.github.io/luasocket/index.html). You can elect for it to be available in the `socket` namespace in one of the following ways.
 
-- Select **Enable Debugging** when you [configure](/docs/rgp-lua/rgp-lua-configuration) your script.
-- Add `finaleplugin.LoadLuaSocket = true` to your [`plugindef`](#connect-to-finalelua) function and be running with trusted status.
+* Select **Enable Debugging** when you [configure](/docs/rgp-lua/rgp-lua-configuration) your script.
+* Add `finaleplugin.LoadLuaSocket = true` to your [`plugindef`](#connect-to-finalelua) function and be running with trusted status.
 
 When you request the `socket` namespace, _RGP Lua_ takes the following actions.
 
-- Preloads `socket.core`.
-- Preloads `socket.lua`.
-- References ("requires") them together in the `socket` namespace.
+* Preloads `socket.core`.
+* Preloads `socket.lua`.
+* References ("requires") them together in the `socket` namespace.
 
 If you have only requested debugging, no further action is taken. If you have specified `finaleplugin.LoadLuaSocket = true` in your [`plugindef`](#connect-to-finalelua) function, then _RGP Lua_ takes the following additional actions. (Your script must be running as trusted code.)
 
-- Preloads `mime.core` but does not include it in any namespace. You can access it with
+* Preloads `mime.core` but does not include it in any namespace. You can access it with
 
 ```lua
 local mime = require 'mime.core'
 ```
 
-- Copies the built-in `require` function to a function called `__original_require`.
-- Replaces the built-in `require` function with a [new version](https://github.com/finale-lua/lua-source/blob/master/built-in-functions/require_for_socket.lua) that strips the text `socket.` from the beginning of any library name that starts with it. For example:
+* Copies the built-in `require` function to a function called `__original_require`.
+* Replaces the built-in `require` function with a [new version](https://github.com/finale-lua/lua-source/blob/master/built-in-functions/require_for_socket.lua) that strips the text `socket.` from the beginning of any library name that starts with it. For example:
 
 ```lua
 local url = require 'socket.url'
@@ -306,7 +285,6 @@ The `plugindef()` function is an optional function that **only** should do a _ma
 * Return the _plug-in name_, _undo string_ and _brief description_ to be used in the _Finale_ plug-in menu and for automatic undo blocks.
 * Define the `finaleplugin` namespace environment to further describe the plug-in (see below).
 
-
 A simple `plugindef()` implementation might look like this:
 
 ```lua
@@ -328,7 +306,6 @@ The `plugindef()` function can return a maximum of 3 return values (all of them 
 * The **second** return value is the _undo text_ for the plug-in. _JW Lua_ will append “ \[JW Lua\]” to the undo text when it sends the undo record to Finale. (Note: _RGP Lua_ does not do this.)
 
 * The **third** return value is a _brief description text_ (for the status/message bar in _Finale_ and the _JW Lua_ user interface).
-
 
 Again, all these return values are optional.
 
@@ -481,7 +458,7 @@ Due to the way the TGF frame works, the note entry is not saved directly after e
 
 ### eachstaff()
 
-`eachstaff()` feeds a `for` loop with all the staves for a region, from top to bottom. 
+`eachstaff()` feeds a `for` loop with all the staves for a region, from top to bottom.
 Iterating staves by number is a bit tricky, since Finale increments staff numbers as they
 are added, rather than in score order. This function encapsulates that logic. `eachstaff()` requires a region as the parameter, and an easy way is to refer to `finenv.Region()` to get the currently selected region.
 
@@ -557,7 +534,6 @@ If the input string is not json, or if it already is formatted, the output resul
 ### xml functions
 
 See the [tinyxml2](/docs/rgp-lua/tinyxml2) documentation page for details on other built-in functions available starting with v0.67 of _RGP Lua_ .
-
 
 Memory Management
 -----------------
