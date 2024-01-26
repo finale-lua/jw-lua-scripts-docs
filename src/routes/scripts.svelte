@@ -25,7 +25,7 @@
         icon: Function
     }
     const sortings = ['alphabetical', 'recent'] as const
-    type Sorting = typeof sortings[number]
+    type Sorting = (typeof sortings)[number]
     const sorts: Record<Sorting, SortItem> = {
         alphabetical: {
             userString: 'Sort alphabetically',
@@ -205,9 +205,9 @@
     </Container>
     <Spacer />
     <Note label="Note">
-        The development of these Lua scripts are totally separate from Finale, Makemusic, or their
+        The development of these Lua scripts is totally separate from Finale, Makemusic, or their
         affiliates. No financial, tech support or other arrangements have been made with these
-        companies. These scripts are created by the community, so they make have bugs, so use them
-        at your own risk.
+        companies. These scripts are created by the community, so they may have bugs; use them at
+        your own risk.
     </Note>
 </main>
