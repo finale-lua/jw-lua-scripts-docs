@@ -60,7 +60,7 @@ Lua is case sensitive. The basic Lua syntax is very similar to other computer la
 
 However, to really take advantage of the full power of Lua, there are other very powerful tools (such as iterators, closures and coroutines) to explore.
 
-Both _RGP Lua_ and _JW Lua_ include all the standard Lua modules (\`string\`, \`math\`, \`file\`, etc). Additionally, _RGP Lua_ embeds [\`luasocket\`](https://aiq0.github.io/luasocket/index.html) if you select the **Enable Debugging** option when you [configure](/docs/rgp-lua//docs/rgp-lua/rgp-lua-configuration) it (or with the \`finaleplugin.LoadLuaSocket\` option). These modules can be used in any Finale Lua script, such as :
+Both _RGP Lua_ and _JW Lua_ include all the standard Lua modules (\`string\`, \`math\`, \`file\`, etc). Additionally, _RGP Lua_ embeds [\`luasocket\`](https://aiq0.github.io/luasocket/index.html) if you select the **Enable Debugging** option when you [configure](/docs/rgp-lua/rgp-lua-configuration) it (or with the \`finaleplugin.LoadLuaSocket\` option). These modules can be used in any Finale Lua script, such as :
 
 \`\`\`lua
 print (math.random(1, 10))
