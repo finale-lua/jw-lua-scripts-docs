@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-vercel'
+import adapter from '@sveltejs/adapter-static'
 import sveltePreprocess from 'svelte-preprocess'
 import { imagetools } from 'vite-imagetools'
 import imagePreprocess from './image-preprocess.cjs'
@@ -14,8 +14,15 @@ export default {
         imagePreprocess(),
     ],
     kit: {
-        adapter: adapter(),
-        target: '#svelte',
+        adapter: adapter({
+			// default options are shown. On some platforms
+			// these options are set automatically — see below
+			pages: 'build',
+			assets: 'build',
+			fallback: undefined,
+			precompress: false,
+			strict: true
+		}),
         files: {
             assets: 'static',
             hooks: 'src/hooks',
