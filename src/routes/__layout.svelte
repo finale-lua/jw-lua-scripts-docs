@@ -22,6 +22,8 @@
     const githubRepoUrl = 'https://github.com/finale-lua/lua-scripts'
     const facebookGroupUrl = 'https://www.facebook.com/groups/742277119576336/'
 
+    export const prerender = true
+
     const helpPages: TocItems = [
         {
             text: 'Install plugin',

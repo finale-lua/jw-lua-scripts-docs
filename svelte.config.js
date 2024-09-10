@@ -22,20 +22,6 @@ export default {
 			fallback: undefined,
 			precompress: false,
 			strict: true
-		}),
-        files: {
-            assets: 'static',
-            hooks: 'src/hooks',
-            lib: 'src/lib',
-            routes: 'src/routes',
-            serviceWorker: 'src/service-worker',
-            template: 'src/app.html',
-        },
-        prerender: {
-            pages: ['*'],
-        },
-        vite: {
-            plugins: [imagetools()],
-        },
+		})
     },
 }
