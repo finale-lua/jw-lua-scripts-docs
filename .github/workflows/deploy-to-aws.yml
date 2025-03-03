@@ -28,7 +28,7 @@ jobs:
           run_install: true
 
       - name: Build site
-        run: pnpm run build
+        run: pnpm run prebuild && pnpm run build
 
       - name: Deploy to AWS        
         if: github.event_name == 'push'
