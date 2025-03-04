@@ -68,11 +68,11 @@ The security restrictions are:
 - Scripts with this value set to true must be explicitly configured in the [configuration dialog](/docs/rgp-lua/rgp-lua-configuration). They are not included as part of an Auto Folder.
 - The script must have the `Allow Startup` checkbox enabled in its configuration.
 - The script file must not have been modified since it was configured. If you modify it, RGP Lua reports an error, and you must reopen the configuration for that script and accept it again by hitting OK. You can disable this check if you select `Enable Debug`, but this is extremely ill-advised unless you are actively debugging the script. Remember that these scripts run invisibly every time you start up Finale.
-- Trusted status is _not_ required.
+- Trusted status is *not* required.
 
-You can check if a script is running at startup with `finenv.QueryInitializationInProgress()`. Only the primary script runs at startup. If the script specifies `AdditionalMenuOptions`, the additional options are added to Finale's plugin menu, but they do not run at startup.
+You can check if a script is running at startup with `finenv.QueryInitializationInProgress()`. Only the primary script runs at startup. If the script specifies `AdditionalMenuOptions`, the additional options are added to Finale's plugin menu, but they do not run at startup. 
 
-You can set `IncludeInPluginMenu` to `false` to suppress the script from Finale's plugin menu. In this case the script _only_ runs at startup.
+You can set `IncludeInPluginMenu` to `false` to suppress the script from Finale's plugin menu. In this case the script *only* runs at startup.
 
 Example:
 
@@ -146,7 +146,7 @@ Default is `false`.
 
 Both _JW Lua_ and _RGP Lua_ (by default) automatically run scripts within an undo block named according the undo string returned by the `plugindef()` function. However, it is possible for a script to notify _RGP Lua_ that it will handle undo blocks on its own by setting this value to `true`. This tells _RGP Lua_ to cancel the automatic undo block when the main script exits.
 
-One primary reason a script might enable this option when creating a modeless dialog window.
+One primary reason a script might enable this option when creating a modeless dialog window. 
 
 Example:
 
@@ -186,7 +186,7 @@ Default is `false`.
 
 If this value is `false`, _RGP Lua_ does not include the script in Finale's plugin menu. A typical case where your might do this is in combination with `ExecuteAtStartup` set to `true`. This would allow your script to run at startup but not be accessible for the user to run from the menu.
 
-This value applies only to the primary menu option. Any additional menu items specified with `AdditionalMenuOptions` _are_ included in Finale's plugin menu.
+This value applies only to the primary menu option. Any additional menu items specified with `AdditionalMenuOptions` *are* included in Finale's plugin menu.
 
 Example:
 
@@ -473,7 +473,7 @@ Additional Menu Options
 
 Frequently you may wish to have shortcuts to functions that differ from each other by only one or a few variables. For example, you might wish to have a script that transposes a selected music region up an octave. If you then wanted another script to transpose a region _down_ an octave, you might duplicate the up-octave script and change a single value in it. You could instead reuse the first script by defining the interval value in a variable. This would allow for separate configurations of the script in the [configuration dialog](/docs/rgp-lua/rgp-lua-configuration), but it still would require end-users to set up the configurations for themselves. And they would have to be somewhat knowledgable of Lua syntax to do it.
 
-_RGP Lua_ version 0.62 introduces the concept of **Additional Menu Options**. These allow a script to configure multiple versions of itself to appear in Finale's Plug-ins menu. The setup of Additional Menu Options is similar to the setup of the deprecated [Parameters](#parameters-deprecated) fields in _JW Lua_. Each of the necessary fields (menu option text, undo text, description, and prefix) appear in parallel lists delimited by line breaks. Each list is a multiline string value in the `finaleplugin` namespace.
+_RGP Lua_ version 0.62 introduces the concept of **Additional Menu Options**. These allow a script to configure multiple versions of itself to appear in Finale's Plug-ins menu. The setup of Additional Menu Options is similar to the setup of the deprecated [Parameters](parameters-deprecated) fields in _JW Lua_. Each of the necessary fields (menu option text, undo text, description, and prefix) appear in parallel lists delimited by line breaks. Each list is a multiline string value in the `finaleplugin` namespace.
 
 _JW Lua_ does not support Additional Menu Options. It loads only the base menu option of the script, even if Additional Menu Options are supplied.
 
