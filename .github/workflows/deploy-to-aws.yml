@@ -32,7 +32,7 @@ jobs:
 
       - name: Deploy to AWS        
         if: github.event_name == 'push'
-        uses: onramper/action-deploy-aws-static-site@v3.2.0
+        uses: finale-lua/action-deploy-aws-static-site@v3.3.0
         with:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
